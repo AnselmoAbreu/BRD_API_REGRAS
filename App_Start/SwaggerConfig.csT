@@ -1,0 +1,28 @@
+using System.Web.Http;
+using WebActivatorEx;
+using BRD_API_REGRAS;
+using Swashbuckle.Application;
+
+[assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
+
+namespace BRD_API_REGRAS
+{
+    public class SwaggerConfig
+    {
+        public static void Register()
+        {
+            GlobalConfiguration.Configuration
+                .EnableSwagger(c =>
+                {
+                    c.SingleApiVersion("v1", "Minha API ASP.NET 4.7.2");
+                    c.IncludeXmlComments(GetXmlCommentsPath());
+                })
+                .EnableSwaggerUi();
+        }
+
+        private static string GetXmlCommentsPath()
+        {
+            return System.String.Format(@"{0}\bin\MeuProjeto.XML", System.AppDomain.CurrentDomain.BaseDirectory);
+        }
+    }
+}
