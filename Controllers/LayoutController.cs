@@ -1,41 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-using System.Web.Mvc;
+﻿using System.Web.Http;
+using System.Web.Script.Serialization;
+using BRD_API_REGRAS.Services;
 
 namespace BRD_API_REGRAS.Controllers
 {
     public class LayoutController : ApiController
     {
+        DefineLayout defineLayout = new DefineLayout();
+
+        /// <summary>
+        /// EndPoint para gerar json de estrutura de arquivos de remessa
+        /// </summary>
+        /// <param name="codigoLayout"></param>
+        /// <returns></returns>
+
         // GET: Layout
         [System.Web.Http.HttpGet]
         public IHttpActionResult RetornaLayOut(string codigoLayout)
         {
-            // Aqui você pode implementar a lógica para retornar o layout conforme o código recebido
-            // Exemplo simples de retorno:
-            var layout = ObterLayoutPorCodigo(codigoLayout);
-            if (layout == null)
-            {
-                return NotFound(); // Retorna HTTP 404 Not Found se o layout não for encontrado
-            }
-            return Ok(layout); // Retorna HTTP 200 OK com o layout encontrado
-        }
+            var layout = defineLayout.MontarJson(codigoLayout);
 
-        private string ObterLayoutPorCodigo(string codigo)
-        {
-            // Aqui você implementa a lógica para buscar o layout no seu sistema
-            // Este é um exemplo simples, substitua com a sua lógica real
-            if (codigo == "1")
-            {
-                return "Layout A";
-            }
-            else if (codigo == "2")
-            {
-                return "Layout B";
-            }
-            return null; // Retorno padrão caso o código não corresponda a nenhum layout
+            if (layout == null)
+                return NotFound(); // Retorna HTTP 404 Not Found se o layout não for encontrado
+
+            var jsonObject = new JavaScriptSerializer().Deserialize<object>(layout);
+
+            return Ok(jsonObject); 
         }
     }
 }
