@@ -1,24 +1,33 @@
 ﻿using System.Dynamic;
-using System.Runtime.ConstrainedExecution;
 using System.Web.Script.Serialization;
 
 namespace BRD_API_REGRAS.Services
 {
     public class DefineLayout
     {
+        #region Constantes
+        const string registroZero = "RECORD0";
+        const string registroUm = "RECORD1";
+        const string registroDois = "RECORD2";
+        const string registroTres = "RECORD3";
+        const string registroSeis = "RECORD6";
+        const string registroSete = "RECORD7";
+        const string registroNove = "RECORD9";
+        #endregion
+
         public string MontarJson(string codigoArquivo)
         {
             dynamic dynamicList = new ExpandoObject();
 
             if (codigoArquivo == "COB400")
             {
-                JsonCdProdutoGenerator.AddProperty(dynamicList, "RECORD0", new ExpandoObject());
-                //JsonCdProdutoGenerator.AddProperty(dynamicList, "RECORD1", new ExpandoObject());
-                //JsonCdProdutoGenerator.AddProperty(dynamicList, "RECORD2", new ExpandoObject());
-                //JsonCdProdutoGenerator.AddProperty(dynamicList, "RECORD3", new ExpandoObject());
-                //JsonCdProdutoGenerator.AddProperty(dynamicList, "RECORD6", new ExpandoObject());
-                //JsonCdProdutoGenerator.AddProperty(dynamicList, "RECORD7", new ExpandoObject());
-                //JsonCdProdutoGenerator.AddProperty(dynamicList, "RECORD9", new ExpandoObject());
+                JsonCdProdutoGenerator.AddProperty(dynamicList, registroZero, new ExpandoObject());
+                //JsonCdProdutoGenerator.AddProperty(dynamicList, registroUm, new ExpandoObject());
+                //JsonCdProdutoGenerator.AddProperty(dynamicList, registroDois, new ExpandoObject());
+                //JsonCdProdutoGenerator.AddProperty(dynamicList, registroTres, new ExpandoObject());
+                //JsonCdProdutoGenerator.AddProperty(dynamicList, registroSeis, new ExpandoObject());
+                //JsonCdProdutoGenerator.AddProperty(dynamicList, registroSete, new ExpandoObject());
+                //JsonCdProdutoGenerator.AddProperty(dynamicList, registroNove, new ExpandoObject());
 
                 dynamic cdObject = new ExpandoObject();
                 dynamic cdObject1 = new ExpandoObject();
@@ -26,7 +35,7 @@ namespace BRD_API_REGRAS.Services
                 //----------------------------------------
                 // "0:1:N:0:U"
                 //----------------------------------------
-                //   Posição inicial
+                // : Posição inicial
                 // : Posição final
                 // : Tipo
                 // : Conteúdo (R = REQUERIDO / V = VAZIO)
@@ -34,69 +43,75 @@ namespace BRD_API_REGRAS.Services
                 // : Posição no manual 
                 //----------------------------------------
 
-                cdObject.IdentificacaoRegistro = "0:1:N:R:0:001-001";        // linha.Substring(0, 1);
-                cdObject.IdentificacaoArquivoRemessa = "1:1:N:1:0:002-002";  // linha.Substring(1, 1);
-                cdObject.LiteralRemessa = "2:7:C:REMESSA:0:003-009";         // linha.Substring(2, 7);
-                cdObject.CodigoServico = "9:2:N:01:0:010-011";               // linha.Substring(9, 2);
-                cdObject.LiteralServico = "11:15:C:COBRANCA:0:012-026";      // linha.Substring(11, 15);
-                cdObject.CodigoEmpresa = "26:20:N:R:0:027-046";              // linha.Substring(26, 20);
-                cdObject.NomeEmpresa = "46:30:C:R:0:047-076";                // linha.Substring(46, 30);
-                cdObject.NumeroBradescoCompensacao = "76:3:N:237:0:077-079"; // linha.Substring(76, 3);
-                cdObject.NomeBancoExtenso = "79:15:C:Bradesco:0:080-094";    // linha.Substring(79, 15);
-                cdObject.DataGravacaoArquivo = "94:6:N:190225:0:095-100";    // linha.Substring(94, 6);
-                cdObject.Branco1 = "100:8:C:V:0:101-108";                    // linha.Substring(100, 8);
-                cdObject.IdentificacaoSistema = "108:2:C:MX:0:109-110";      // linha.Substring(108, 2);
-                cdObject.NumeroSequencialRemessa = "110:7:N:R:0:111-117";    // linha.Substring(110, 7);
-                cdObject.Branco2 = "117:277:C:V:0:118-394";                  // linha.Substring(117, 277);
-                cdObject.NumeroSequencialRegistro = "394:6:N:R:0:395-400";   // linha.Substring(394, 6);
+                cdObject.IdentificacaoRegistro = "0:1:N:R:0:001-001";
+                cdObject.IdentificacaoArquivoRemessa = "1:1:N:1:0:002-002";
+                cdObject.LiteralRemessa = "2:7:C:REMESSA:0:003-009";
+                cdObject.CodigoServico = "9:2:N:01:0:010-011";
+                cdObject.LiteralServico = "11:15:C:COBRANCA:0:012-026";
+                cdObject.CodigoEmpresa = "26:20:N:R:0:027-046";
+                cdObject.NomeEmpresa = "46:30:C:R:0:047-076";
+                cdObject.NumeroBradescoCompensacao = "76:3:N:237:0:077-079";
+                cdObject.NomeBancoExtenso = "79:15:C:Bradesco:0:080-094";
+                cdObject.DataGravacaoArquivo = "94:6:N:190225:0:095-100";
+                cdObject.Branco1 = "100:8:C:V:0:101-108";
+                cdObject.IdentificacaoSistema = "108:2:C:MX:0:109-110";
+                cdObject.NumeroSequencialRemessa = "110:7:N:R:0:111-117";
+                cdObject.Branco2 = "117:277:C:V:0:118-394";
+                cdObject.NumeroSequencialRegistro = "394:6:N:R:0:395-400";
 
-                JsonCdProdutoGenerator.AddProperty(dynamicList, "RECORD0", cdObject);
+                JsonCdProdutoGenerator.AddProperty(dynamicList, registroZero, cdObject);
 
-                cdObject1.IdentificacaoRegistroTipo1 = "0:1:N:R:0:001-001"; //linha.Substring(0, 1);
-                cdObject1.AgenciaDebito = //linha.Substring(1, 5);
-                cdObject1.DigitoAgencia = //linha.Substring(6, 1);
-                cdObject1.RazaoContaCorrente = //linha.Substring(7, 5);
-                cdObject1.ContaCorrente = //linha.Substring(12, 7);
-                cdObject1.DigitoContaCorrente = //linha.Substring(19, 1);
-                cdObject1.IdEmpresaBeneficiariaNanco = //linha.Substring(20, 17);
-                cdObject1.NumeroControlePaticipante = //linha.Substring(37, 25);
-                cdObject1.CodigoBancoDebitadoCamaraCompensacao = //linha.Substring(62, 3);
-                cdObject1.CampoMulta = //linha.Substring(65, 1);
-                cdObject1.PercentualMulta = //linha.Substring(66, 4);
-                cdObject1.IdentificacaoTituloBanco = //linha.Substring(70, 11);
-                cdObject1.DigitoAutoconferenciaNumeroBancario = //linha.Substring(81, 1);
-                cdObject1.DescontoBonificacaoDia = //linha.Substring(82, 10);
-                cdObject1.CondicaoEmissaoPapeletaCobranca = //linha.Substring(92, 1);
-                cdObject1.IdentEmiteBoletoDebitoAutomaticao = //linha.Substring(93, 1);
-                cdObject1.IdentificacaoOperacaoBanco = //linha.Substring(94, 10);
-                cdObject1.IndicadorRateioCredito = //linha.Substring(104, 1);
-                cdObject1.EnderecamentoAvisoDebitoAutomaticoContaCorrente = //linha.Substring(105, 1);
-                cdObject1.QuantidadePagamentos = //linha.Substring(106, 2);
-                cdObject1.IdentificacaoOcorrencia = //linha.Substring(108, 2);
-                cdObject1.NumeroDocumento = //linha.Substring(110, 10);
-                cdObject1.DataVencimentoTitulo = //linha.Substring(120, 6);
-                cdObject1.ValorTitulo = //linha.Substring(126, 13);
-                cdObject1.BancoEncarregadoCobranca = //linha.Substring(139, 3);
-                cdObject1.AgenciaDepositaria = //linha.Substring(142, 5);
-                cdObject1.EspecieTitulo = //linha.Substring(147, 2);
-                cdObject1.Identificacao = //linha.Substring(149, 1);
-                cdObject1.DataEmissaoTitulo = //linha.Substring(150, 6);
-                cdObject1.PrimeiraInstrucao = //linha.Substring(156, 2);
-                cdObject1.SegundaInstrucao = //linha.Substring(158, 2);
-                cdObject1.ValorCobradoDiaAtraso = //linha.Substring(160, 13);
-                cdObject1.DataLimiteConcessaoDesconto = //linha.Substring(173, 6);
-                cdObject1.ValorDesconto = //linha.Substring(179, 13);
-                cdObject1.ValorIof = //linha.Substring(192, 13);
-                cdObject1.ValorAbatimentoConcedidoOuCancelado = //linha.Substring(205, 13);
-                cdObject1.IdentificacaoTipoInscricaoPagador = //linha.Substring(218, 2);
-                cdObject1.NumeroInscricaoPagador = //linha.Substring(220, 14);
-                cdObject1.NomeDoPagador = //linha.Substring(234, 40);
-                cdObject1.EnderecoCompleto = //linha.Substring(274, 40);
-                cdObject1.PrimeiraMensagem = //linha.Substring(314, 12);
-                cdObject1.Cep = //inha.Substring(326, 5);
-                cdObject1.SufixoCep = //linha.Substring(331, 3);
-                cdObject1.BeneficiarioFinalSegundaMensagem = //linha.Substring(334, 60);
-                cdObject1.NumeroSequencialRegistroTipo1 = //linha.Substring(394, 6);
+                // ========================================================================
+
+                cdObject1.IdentificacaoRegistro = "0:1:N:R:0:001-001";
+                cdObject1.AgenciaDebito = "1:5:N:R:0:002-006";
+                cdObject1.DigitoAgencia = "6:1:C:R:0:007-007";
+                cdObject1.RazaoContaCorrente = "7:5:N:R:0:008-012";
+                cdObject1.ContaCorrente = "12:7:N:R:0:013-019";
+                cdObject1.DigitoContaCorrente = "19:1:C:R:0:020-020";
+                cdObject1.IdEmpresaBeneficiariaBanco = "20:17:C:R:0:021-037";
+                cdObject1.NumeroControlePaticipante = "37:25:C:R:0:038-062";
+                cdObject1.CodigoBancoDebitadoCamaraCompensacao = "62:3:N:R:0:063-065";
+                cdObject1.CampoMulta = "65:1:N:R:0:066-066";
+                cdObject1.PercentualMulta = "66:4:N:R:0:067-070";
+                cdObject1.IdentificacaoTituloBanco = "70:11:N:R:0:071-081";
+                cdObject1.DigitoAutoconferenciaNumeroBancario = "81:1:C:R:0:082-082";
+                cdObject1.DescontoBonificacaoDia = "82:10:N:R:0:083-092";
+                cdObject1.CondicaoEmissaoPapeletaCobranca = "92:1:N:R:0:093-093";
+                cdObject1.IdentEmiteBoletoDebitoAutomaticao = "93:1:C:R:0:094-094";
+                cdObject1.IdentificacaoOperacaoBanco = "94:10:C:R:0:095-104";
+                cdObject1.IndicadorRateioCredito = "104:1:C:R:0:105-105";
+                cdObject1.EnderecamentoAvisoDebitoAutomaticoContaCorrente = "105:1:N:R:0:106-106";
+                cdObject1.QuantidadePagamentos = "106:2:C:R:0:107-108";
+                cdObject1.IdentificacaoOcorrencia = "108:2:N:R:0:109-110";
+                cdObject1.NumeroDocumento = "110:10:C:R:0:111-120";
+                cdObject1.DataVencimentoTitulo = "120:6:N:R:0:121-126";
+                cdObject1.ValorTitulo = "126:13:N:R:0:127-139";
+                cdObject1.BancoEncarregadoCobranca = "139:3:N:R:0:140-142";
+                cdObject1.AgenciaDepositaria = "142:5:N:R:0:143-147";
+                cdObject1.EspecieTitulo = "147:2:N:R:0:148-149";
+                cdObject1.Identificacao = "149:1:C:R:0:150-150";
+                cdObject1.DataEmissaoTitulo = "150:6:N:R:0:151-156";
+                cdObject1.PrimeiraInstrucao = "156:2:N:R:0:157-158";
+                cdObject1.SegundaInstrucao = "158:2:N:R:0:159-160";
+                cdObject1.ValorCobradoDiaAtraso = "160:13:N:R:0:161-173";
+                cdObject1.DataLimiteConcessaoDesconto = "173:6:N:R:0:174-179";
+                cdObject1.ValorDesconto = "179:13:N:R:0:180-192";
+                cdObject1.ValorIof = "192:13:N:R:0:193-205";
+                cdObject1.ValorAbatimentoConcedidoOuCancelado = "205:13:N:R:0:206-218";
+                cdObject1.IdentificacaoTipoInscricaoPagador = "218:2:N:R:0:219-220";
+                cdObject1.NumeroInscricaoPagador = "220:14:N:R:0:221-234";
+                cdObject1.NomeDoPagador = "234:40:C:R:0:235-274";
+                cdObject1.EnderecoCompleto = "274:40:C:R:0:275-314";
+                cdObject1.PrimeiraMensagem = "314:12:C:R:0:315-326";
+                cdObject1.Cep = "326:5:N:R:0:327-331";
+                cdObject1.SufixoCep = "331:3:N:R:0:332-334";
+                cdObject1.BeneficiarioFinalSegundaMensagem = "334:60:C:R:0:335-394";
+                cdObject1.NumeroSequencialRegistro = "394:6:N:R:0:395-400";
+
+                //JsonCdProdutoGenerator.AddProperty(dynamicList, registroUm, cdObject1);
+
+                // ========================================================================
             }
 
             // Serializando para JSON

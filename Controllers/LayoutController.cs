@@ -18,7 +18,7 @@ namespace BRD_API_REGRAS.Controllers
         [System.Web.Http.HttpGet]
         public IHttpActionResult RetornaLayOut(string codigoLayout)
         {
-            var layout = defineLayout.MontarJson(codigoLayout);
+            var layout = defineLayout.MontarJson(codigoLayout.ToUpper());
 
             if (layout == null)
                 return NotFound(); // Retorna HTTP 404 Not Found se o layout não for encontrado
