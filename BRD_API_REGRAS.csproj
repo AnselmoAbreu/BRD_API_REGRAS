@@ -136,7 +136,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="JsonCdProdutoGenerator.cs" />
     <Compile Include="Services\DefineLayout.cs" />
-    <Compile Include="Services\Util.cs" />
     <None Include="App_Start\SwaggerConfig.csT" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
