@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 using System.Web.Script.Serialization;
 using BRD_API_REGRAS.Services;
 
@@ -18,14 +19,22 @@ namespace BRD_API_REGRAS.Controllers
         [System.Web.Http.HttpGet]
         public IHttpActionResult RetornaLayOut(string codigoLayout)
         {
-            var layout = defineLayout.MontarJson(codigoLayout.ToUpper());
+            try
+            {
+                var layout = defineLayout.MontarJson(codigoLayout.ToUpper());
 
-            if (layout == null)
-                return NotFound(); // Retorna HTTP 404 Not Found se o layout não for encontrado
+                if (layout == null)
+                    return NotFound(); // Retorna HTTP 404 Not Found se o layout não for encontrado
 
-            var jsonObject = new JavaScriptSerializer().Deserialize<object>(layout);
+                var jsonObject = new JavaScriptSerializer().Deserialize<object>(layout);
 
-            return Ok(jsonObject); 
+                return Ok(jsonObject);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest("Erro API Regras : " + ex.InnerException);
+
+            }
         }
     }
 }
