@@ -6,6 +6,7 @@ namespace BRD_API_REGRAS.Services
     public class DefineLayoutService
     {
         #region Constantes
+        #region Cobrança 400
         const string registroZero = "RECORD0";
         const string registroUm = "RECORD1";
         const string registroDois = "RECORD2";
@@ -15,10 +16,15 @@ namespace BRD_API_REGRAS.Services
         const string registroNove = "RECORD9";
         #endregion
 
+        #region Multipag 240
+        #endregion
+        #endregion
+
         public string MontarJson(string codigoArquivo)
         {
             dynamic dynamicList = new ExpandoObject();
 
+            #region COB400
             if (codigoArquivo == "COB400")
             {
                 JsonCdProdutoGenerator.AddProperty(dynamicList, registroZero, new ExpandoObject());
@@ -114,7 +120,66 @@ namespace BRD_API_REGRAS.Services
 
                 // ========================================================================
             }
+            #endregion
 
+            #region MTP240
+            if (codigoArquivo == "MTP240")
+            {
+
+                //-------------------------------------------------------
+                // : Posição inicial
+                // : Tamanho
+                // : Tipo
+                // : Obrigatório (R = REQUERIDO / V = VAZIO / Z = ZERADO)
+                // : Parentesco (0 = PAI / 1 = FILHO)
+                // : Posição no manual do bradesco
+                // : Valor fixo
+                // : Mensagem própria
+                // : Campo Data (D)
+                //-------------------------------------------------------
+
+                dynamic cdObject0 = new ExpandoObject(); // Header de arquivo
+                dynamic cdObject9 = new ExpandoObject(); // Trailer de arquivo
+
+                cdObject0.CodigoBancoCompensacao = "1:3:N:V:0:1-3::Erro - Código do Banco na Compensação:";
+                cdObject0.LoteServico = "4:4:N:R:0:4-7:0000:Erro - Lote de Serviço:";
+                cdObject0.TipoRegistro = "8:1:N:R:0:8-8:0:Erro - Tipo de Registro:";
+                cdObject0.UsoExclusivoFebrabanCnab1 = "9:9:C:V:0:9-17:         :Erro - Uso Exclusivo FEBRABAN/CNAB:";
+                cdObject0.TipoInscricaoEmpresa = "18:1:N:R:0:18-18::Erro - Tipo de Inscrição da Empresa:";
+                cdObject0.NumeroInscricaoEmpresa = "19:14:N:R:0:19-32::Erro - Número de Inscrição da Empresa:";
+                cdObject0.CodigoConvenioBanco = "33:20:C:R:0:33-52::Erro - Código do Convênio no Banco:";
+                cdObject0.AgenciaMantenedoraConta = "53:5:N:R:0:53-57::Erro - Agência Mantenedora da Conta:";
+                cdObject0.DigitoVerificadorAgencia = "58:1:C:R:0:58-58::Erro - Dígito Verificador da Agência:";
+                cdObject0.NumeroConta = "59:12:N:R:0:59-70::Erro - Número de Conta:";
+                cdObject0.DigitoVerificadorConta = "71:1:C:R:0:71-71::Erro - Digito Verificador da Conta:";
+                cdObject0.DigitoVerificadorAgenciaConta = "72:1:C:R:0:72-72::Erro - Digito Verificador da Agência/Conta:";
+                cdObject0.NomeEmpresa = "73:30:C:V:0:73-102::Erro - Nome da Empresa:";
+                cdObject0.NomeBanco = "103:30:C:V:0:103-132::Erro - Nome do Banco:";
+                cdObject0.UsoExclusivoFebrabanCnab2 = "133:10:C:V:0:133-142:          :Erro - Uso Exclusivo FEBRABAN/CNAB:";
+                cdObject0.CodigoRemessaRetorno = "143:1:N:V:0:143-143::Erro - Código Remessa/Retorno:";
+                cdObject0.DataGeracaoArquivo = "144:8:N:V:0:144-151::Erro - Data de Geração do Arquivo:D";
+                cdObject0.HoraGeracaoArquivo = "152:6:N:V:0:152-157::Erro - Hora de Geração do Arquivo:";
+                cdObject0.NumeroSequencialArquivo = "158:6:N:R:0:158-163::Erro - Número Sequencial do Arquivo:";
+                cdObject0.VersaoLayoutArquivo = "164:3:N:R:0:164-166:089:Erro - Versão do Layout do Arquivo:";
+                cdObject0.DensidadeGravacao = "167:5:N:V:0:167-171::Erro - Densidade de Gravação:";
+                cdObject0.ReservadoBanco = "172:20:C:V:0:172-191::Erro - Reservado Banco:";
+                cdObject0.ReservadoEmpresa = "192:20:C:V:0:192-211::Erro - Reservado Empresa:";
+                cdObject0.UsoExclusivoFebrabanCnab3 = "212:29:C:V:0:212-240:                             :Erro - Uso Exclusivo FEBRABAN/CNAB:";
+                JsonCdProdutoGenerator.AddProperty(dynamicList, registroZero, cdObject0);
+
+                cdObject9.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação:";
+                cdObject9.LoteServico = "4:4:N:R:0:4-7:9999:Erro - Lote de Serviço:";
+                cdObject9.TipoRegistro = "8:1:N:R:0:8-8:5:Erro - Tipo de Registro:";
+                cdObject9.UsoExclusivoFebrabanCnab1 = "9:9:C:V:0:9-17:         :Erro - Uso Exclusivo FEBRABAN/CNAB:";
+                cdObject9.QuantidadeLotesArquivo = "18:6:N:R:0:18-23::Erro - Quantidade de Lotes do Arquivo:";
+                cdObject9.QuantidadeRegistrosArquivo = "24:6:N:R:0:24-29::Erro - Quantidade de Registros do Arquivo:";
+                cdObject9.QuantidadeContasConcilLotes = "30:6:N:R:0:30-35::Erro - Qtde de Contas p/ Conc. (Lotes):";
+                cdObject9.UsoExclusivoFebrabanCnab2 = "36:205:C:V:0:36-240:" + new string(' ', 205) + ":Erro - Uso Exclusivo FEBRABAN/CNAB:";
+                JsonCdProdutoGenerator.AddProperty(dynamicList, registroNove, cdObject9);
+
+                // ========================================================================
+            }
+            #endregion
             // Serializando para JSON
             var serializer = new JavaScriptSerializer();
             string jsonResult = serializer.Serialize(dynamicList);
