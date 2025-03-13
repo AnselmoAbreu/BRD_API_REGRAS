@@ -356,8 +356,22 @@ namespace BRD_API_REGRAS.Services
                 cdObjectSegmento5.PISPASEPTED = "191:15:N:V:0:191-205:000000000000000:Erro - PIS/PASEP:";
                 cdObjectSegmento5.UsoExclusivoBradesco3 = "136:95:C:V:0:136-230:" + new string(' ', 95) + ":Erro - Uso Bradesco 3:";
                 cdObjectSegmento5.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Ocorrências Retorno:";
+                JsonCdProdutoGenerator.AddProperty(dynamicList, segmento5, cdObjectSegmento5);
 
-                // ========================================================================
+                // Segmento Z ----------------------------------------------------
+                //----------------------------------------------------------------
+                cdObjectSegmentoZ.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco:";
+                cdObjectSegmentoZ.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
+                cdObjectSegmentoZ.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Tipo de Registro:";
+                cdObjectSegmentoZ.NumeroRegistroLote = "9:5:N:R:0:9-13::Erro - Nº Registro Lote:";
+                cdObjectSegmentoZ.CodigoSegmento = "14:1:C:R:0:14-14:Z:Erro - Segmento:";
+                cdObjectSegmentoZ.AutenticacaoLegislacao = "15:64:C:V:0:15-78:" + new string(' ', 64) + ":Erro - Autenticação Legislativa:";
+                cdObjectSegmentoZ.ControleBancario = "79:25:C:V:0:79-103:" + new string(' ', 25) + ":Erro - Controle Bancário:";
+                cdObjectSegmentoZ.UsoCnabFebraban = "104:127:C:V:0:104-230:" + new string(' ', 127) + ":Erro - Uso CNAB/FEBRABAN:";
+                cdObjectSegmentoZ.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Ocorrências Retorno:";
+                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoZ, cdObjectSegmentoZ);
+
+                //------------------------------------------------------------------------------
             }
             #endregion
             // Serializando para JSON
