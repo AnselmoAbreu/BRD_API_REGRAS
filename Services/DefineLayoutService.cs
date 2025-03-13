@@ -17,6 +17,7 @@ namespace BRD_API_REGRAS.Services
         //const string registroSete = "RECORD7";
         //const string registroOito = "RECORD8";
         const string registroNove = "RECORD9";
+
         const string segmentoA = "SEGMENTOA";
         const string segmentoB = "SEGMENTOB";
         const string segmentoC = "SEGMENTOC";
@@ -248,7 +249,37 @@ namespace BRD_API_REGRAS.Services
 
                 // Segmento A ----------------------------------------------------
                 //----------------------------------------------------------------
-
+                cdObjectSegmentoA.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação:";
+                cdObjectSegmentoA.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
+                cdObjectSegmentoA.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Tipo de Registro:";
+                cdObjectSegmentoA.NumeroRegistroLote = "9:5:N:R:0:9-13::Erro - Nº Sequencial do Registro no Lote:";
+                cdObjectSegmentoA.CodigoSegmento = "14:1:C:R:0:14-14:A:Erro - Código de Segmento:";
+                cdObjectSegmentoA.TipoMovimento = "15:1:N:R:0:15-15::Erro - Tipo de Movimento:";
+                cdObjectSegmentoA.CodigoInstrucaoMovimento = "16:2:N:V:0:16-17::Erro - Código da Instrução:";
+                cdObjectSegmentoA.CodigoCamaraCentralizadora = "18:3:N:R:0:18-20::Erro - Código da Câmara Centralizadora:";
+                cdObjectSegmentoA.CodigoBancoFavorecido = "21:3:N:R:0:21-23::Erro - Código do Banco do Favorecido:";
+                cdObjectSegmentoA.AgenciaFavorecido = "24:5:N:R:0:24-28::Erro - Agência do Favorecido:";
+                cdObjectSegmentoA.DVAgenciaFavorecido = "29:1:C:R:0:29-29::Erro - DV Agência:";
+                cdObjectSegmentoA.ContaCorrenteFavorecido = "30:12:N:R:0:30-41::Erro - Conta Corrente:";
+                cdObjectSegmentoA.DVContaFavorecido = "42:1:C:R:0:42-42::Erro - DV Conta:";
+                cdObjectSegmentoA.DVAgenciaContaFavorecido = "43:1:C:R:0:43-43::Erro - DV Agência/Conta:";
+                cdObjectSegmentoA.NomeFavorecido = "44:30:C:R:0:44-73::Erro - Nome do Favorecido:";
+                cdObjectSegmentoA.NumeroDocumentoEmpresa = "74:20:C:V:0:74-93::Erro - Nº Documento Empresa:";
+                cdObjectSegmentoA.DataPagamento = "94:8:N:R:0:94-101::Erro - Data Pagamento:D";
+                cdObjectSegmentoA.TipoMoeda = "102:3:C:R:0:102-104::Erro - Tipo Moeda:";
+                cdObjectSegmentoA.QuantidadeMoeda = "105:15:N:V:0:105-119::Erro - Quantidade Moeda:";
+                cdObjectSegmentoA.ValorPagamento = "120:15:N:R:0:120-134::Erro - Valor Pagamento:";
+                cdObjectSegmentoA.NossoNumero = "135:20:C:V:0:135-154::Erro - Nosso Número:";
+                cdObjectSegmentoA.DataRealPagamento = "155:8:N:V:0:155-162::Erro - Data Real Pagamento:D";
+                cdObjectSegmentoA.ValorRealPagamento = "163:15:N:V:0:163-177::Erro - Valor Real Pagamento:";
+                cdObjectSegmentoA.InformacoesAdicionais = "178:40:C:V:0:178-217::Erro - Informações Adicionais:";
+                cdObjectSegmentoA.CodigoFinalidadeDoc = "218:2:C:V:0:218-219::Erro - Finalidade Doc:";
+                cdObjectSegmentoA.CodigoFinalidadeTED = "220:5:C:R:0:220-224::Erro - Finalidade TED:";
+                cdObjectSegmentoA.ComplementoFinalidade = "225:2:C:V:0:225-226::Erro - Complemento Finalidade:";
+                cdObjectSegmentoA.UsoExclusivoFebraban1 = "227:3:C:V:0:227-229:   :Erro - Uso FEBRABAN:";
+                cdObjectSegmentoA.AvisoFavorecido = "230:1:N:V:0:230-230::Erro - Aviso Favorecido:";
+                cdObjectSegmentoA.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Ocorrências Retorno:";
+                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoA, cdObjectSegmentoA);
 
                 // ========================================================================
             }
