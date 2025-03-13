@@ -311,6 +311,28 @@ namespace BRD_API_REGRAS.Services
                 cdObjectSegmentoB.CodigoISPB = "233:8:N:V:0:233-240::Erro - Cód. ISPB:";
                 JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoB, cdObjectSegmentoB);
 
+                // Segmento C ----------------------------------------------------
+                //----------------------------------------------------------------
+                cdObjectSegmentoC.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco:";
+                cdObjectSegmentoC.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
+                cdObjectSegmentoC.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Tipo de Registro:";
+                cdObjectSegmentoC.NumeroRegistroLote = "9:5:N:R:0:9-13::Erro - Nº Registro Lote:";
+                cdObjectSegmentoC.CodigoSegmento = "14:1:C:R:0:14-14:C:Erro - Segmento:";
+                cdObjectSegmentoC.UsoExclusivoFebraban1 = "15:3:C:V:0:15-17:   :Erro - Uso FEBRABAN 1:";
+                cdObjectSegmentoC.ValorIR = "18:15:N:V:0:18-32::Erro - Valor IR:";
+                cdObjectSegmentoC.ValorISS = "33:15:N:V:0:33-47::Erro - Valor ISS:";
+                cdObjectSegmentoC.ValorIOF = "48:15:N:V:0:48-62::Erro - Valor IOF:";
+                cdObjectSegmentoC.OutrasDeducoes = "63:15:N:V:0:63-77::Erro - Outras Deduções:";
+                cdObjectSegmentoC.OutrosAcrescimos = "78:15:N:V:0:78-92::Erro - Outros Acréscimos:";
+                cdObjectSegmentoC.AgenciaFavorecido = "93:5:N:R:0:93-97::Erro - Agência Favorecido:";
+                cdObjectSegmentoC.DVAgenciaFavorecido = "98:1:C:R:0:98-98::Erro - DV Agência:";
+                cdObjectSegmentoC.NumeroContaCorrente = "99:12:N:R:0:99-110::Erro - Conta Corrente:";
+                cdObjectSegmentoC.DVContaFavorecido = "111:1:C:R:0:111-111::Erro - DV Conta:";
+                cdObjectSegmentoC.DVAgenciaContaFavorecido = "112:1:C:R:0:112-112::Erro - DV Agência/Conta:";
+                cdObjectSegmentoC.ValorINSS = "113:15:N:V:0:113-127::Erro - Valor INSS:";
+                cdObjectSegmentoC.UsoExclusivoFebraban2 = "128:113:C:V:0:128-240:" + new string(' ', 113) + ":Erro - Uso FEBRABAN 2:";
+                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoC, cdObjectSegmentoC);
+
                 // ========================================================================
             }
             #endregion
