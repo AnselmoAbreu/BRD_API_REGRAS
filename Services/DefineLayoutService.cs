@@ -152,6 +152,13 @@ namespace BRD_API_REGRAS.Services
                 dynamic cdObject1 = new ExpandoObject(); // Header de lote
                 dynamic cdObject5 = new ExpandoObject(); // Trailer de lote
 
+                dynamic cdObjectSegmentoA = new ExpandoObject(); //  Tipo 3
+                dynamic cdObjectSegmentoB = new ExpandoObject(); //  Tipo 3
+                dynamic cdObjectSegmentoC = new ExpandoObject(); //  Tipo 3
+                dynamic cdObjectSegmento5 = new ExpandoObject(); //  Tipo 3
+                dynamic cdObjectSegmentoZ = new ExpandoObject(); //  Tipo 3
+
+
                 // Arquivo -------------------------------------------------------
                 //----------------------------------------------------------------
                 // Header
@@ -241,6 +248,7 @@ namespace BRD_API_REGRAS.Services
 
                 // Segmento A ----------------------------------------------------
                 //----------------------------------------------------------------
+
 
                 // ========================================================================
             }
