@@ -281,6 +281,36 @@ namespace BRD_API_REGRAS.Services
                 cdObjectSegmentoA.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Ocorrências Retorno:";
                 JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoA, cdObjectSegmentoA);
 
+                // Segmento B ----------------------------------------------------
+                //----------------------------------------------------------------
+                cdObjectSegmentoB.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco:";
+                cdObjectSegmentoB.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
+                cdObjectSegmentoB.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Tipo Registro:";
+                cdObjectSegmentoB.NumeroRegistroLote = "9:5:N:R:0:9-13::Erro - Nº Registro Lote:";
+                cdObjectSegmentoB.CodigoSegmento = "14:1:C:R:0:14-14:B:Erro - Segmento:";
+                cdObjectSegmentoB.UsoExclusivoFebraban1 = "15:3:C:V:0:15-17:   :Erro - Uso FEBRABAN 1:";
+                cdObjectSegmentoB.TipoInscricaoFavorecido = "18:1:N:R:0:18-18::Erro - Tipo Inscrição:";
+                cdObjectSegmentoB.NumeroInscricaoFavorecido = "19:14:N:R:0:19-32::Erro - Nº Inscrição:";
+                cdObjectSegmentoB.Logradouro = "33:30:C:V:0:33-62::Erro - Logradouro:";
+                cdObjectSegmentoB.NumeroLocal = "63:5:N:V:0:63-67::Erro - Número Local:";
+                cdObjectSegmentoB.Complemento = "68:15:C:V:0:68-82::Erro - Complemento:";
+                cdObjectSegmentoB.Bairro = "83:15:C:V:0:83-97::Erro - Bairro:";
+                cdObjectSegmentoB.Cidade = "98:20:C:V:0:98-117::Erro - Cidade:";
+                cdObjectSegmentoB.CEP = "118:5:N:V:0:118-122::Erro - CEP:";
+                cdObjectSegmentoB.ComplementoCEP = "123:3:C:V:0:123-125::Erro - Compl. CEP:";
+                cdObjectSegmentoB.Estado = "126:2:C:V:0:126-127::Erro - Estado:";
+                cdObjectSegmentoB.DataVencimento = "128:8:N:V:0:128-135::Erro - Vencimento:D";
+                cdObjectSegmentoB.ValorDocumento = "136:15:N:V:0:136-150::Erro - Valor Documento:";
+                cdObjectSegmentoB.ValorAbatimento = "151:15:N:V:0:151-165::Erro - Abatimento:";
+                cdObjectSegmentoB.ValorDesconto = "166:15:N:V:0:166-180::Erro - Desconto:";
+                cdObjectSegmentoB.ValorMora = "181:15:N:V:0:181-195::Erro - Mora:";
+                cdObjectSegmentoB.ValorMulta = "196:15:N:V:0:196-210::Erro - Multa:";
+                cdObjectSegmentoB.CodigoDocumentoFavorecido = "211:15:C:V:0:211-225::Erro - Cód. Documento:";
+                cdObjectSegmentoB.AvisoFavorecido = "226:1:N:V:0:226-226::Erro - Aviso:";
+                cdObjectSegmentoB.CodigoUGCentralizadora = "227:6:N:V:0:227-232::Erro - Cód. UG:";
+                cdObjectSegmentoB.CodigoISPB = "233:8:N:V:0:233-240::Erro - Cód. ISPB:";
+                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoB, cdObjectSegmentoB);
+
                 // ========================================================================
             }
             #endregion
