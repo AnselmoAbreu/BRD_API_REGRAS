@@ -333,6 +333,30 @@ namespace BRD_API_REGRAS.Services
                 cdObjectSegmentoC.UsoExclusivoFebraban2 = "128:113:C:V:0:128-240:" + new string(' ', 113) + ":Erro - Uso FEBRABAN 2:";
                 JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoC, cdObjectSegmentoC);
 
+                // Segmento 5 ----------------------------------------------------
+                //----------------------------------------------------------------
+                cdObjectSegmento5.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco:";
+                cdObjectSegmento5.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
+                cdObjectSegmento5.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Tipo de Registro:";
+                cdObjectSegmento5.NumeroRegistroLote = "9:5:N:R:0:9-13::Erro - Nº Registro Lote:";
+                cdObjectSegmento5.CodigoSegmento = "14:1:C:R:0:14-14:5:Erro - Segmento:";
+                cdObjectSegmento5.UsoExclusivoBradesco1 = "15:3:C:V:0:15-17:   :Erro - Uso Bradesco 1:";
+                cdObjectSegmento5.ListaDebito = "18:9:N:V:0:18-26:5001:Erro - Lista Débito:";
+                cdObjectSegmento5.HorarioDebito = "27:6:N:V:0:27-32:5002:Erro - Horário Débito:";
+                cdObjectSegmento5.CodigoLancamentoEspecifico = "33:5:N:V:0:33-37:5003:Erro - Cód. Lançamento:";
+                cdObjectSegmento5.SegundaLinhaExtrato = "38:5:N:V:0:38-42:5004:Erro - 2ª Linha Extrato:";
+                cdObjectSegmento5.UsoEmpresa = "43:50:C:V:0:43-92:                                                  :Erro - Uso Empresa:";
+                cdObjectSegmento5.TipoDocumento = "93:3:N:V:0:93-95:5006:Erro - Tipo Documento:";
+                cdObjectSegmento5.NumeroDocumento = "96:15:N:V:0:96-110:5007:Erro - Nº Documento:";
+                cdObjectSegmento5.SerieDocumento = "111:2:C:V:0:111-112:5008:Erro - Série Documento:";
+                cdObjectSegmento5.UsoExclusivoBradesco2 = "113:15:C:V:0:113-127:               :Erro - Uso Bradesco 2:";
+                cdObjectSegmento5.DataEmissaoDocumento = "128:8:N:V:0:128-135:5010:Erro - Emissão Documento:D";
+                cdObjectSegmento5.NomeReclamanteTED = "136:30:C:V:0:136-165:                              :Erro - Nome Reclamante:";
+                cdObjectSegmento5.NumeroProcessoTED = "166:25:C:V:0:166-190:                         :Erro - Nº Processo:";
+                cdObjectSegmento5.PISPASEPTED = "191:15:N:V:0:191-205:000000000000000:Erro - PIS/PASEP:";
+                cdObjectSegmento5.UsoExclusivoBradesco3 = "136:95:C:V:0:136-230:" + new string(' ', 95) + ":Erro - Uso Bradesco 3:";
+                cdObjectSegmento5.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Ocorrências Retorno:";
+
                 // ========================================================================
             }
             #endregion
