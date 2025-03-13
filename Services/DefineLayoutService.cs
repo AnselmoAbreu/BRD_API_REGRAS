@@ -9,14 +9,20 @@ namespace BRD_API_REGRAS.Services
         #region Constantes para nome de registro de arquivo
         const string registroZero = "RECORD0";
         const string registroUm = "RECORD1";
-        const string registroDois = "RECORD2";
-        const string registroTres = "RECORD3";
-        const string registroQuatro = "RECORD4";
+        //const string registroDois = "RECORD2";
+        //const string registroTres = "RECORD3";
+        //const string registroQuatro = "RECORD4";
         const string registroCinco = "RECORD5";
-        const string registroSeis = "RECORD6";
-        const string registroSete = "RECORD7";
-        const string registroOito = "RECORD8";
+        //const string registroSeis = "RECORD6";
+        //const string registroSete = "RECORD7";
+        //const string registroOito = "RECORD8";
         const string registroNove = "RECORD9";
+        const string segmentoA = "SEGMENTOA";
+        const string segmentoB = "SEGMENTOB";
+        const string segmentoC = "SEGMENTOC";
+        const string segmento5 = "SEGMENTO5";
+        const string segmentoZ = "SEGMENTOZ";
+
         #endregion
 
         public string MontarJson(string codigoArquivo)
@@ -125,7 +131,7 @@ namespace BRD_API_REGRAS.Services
             if (codigoArquivo == "MTP240")
             {
 
-                //-------------------------------------------------------
+                //------------------------------------------------------------------------------
                 // : Posição inicial
                 // : Tamanho
                 // : Tipo
@@ -135,7 +141,10 @@ namespace BRD_API_REGRAS.Services
                 // : Valor fixo
                 // : Mensagem própria
                 // : Campo Data (D)
-                //-------------------------------------------------------
+                //------------------------------------------------------------------------------
+                // Pgto Através de Crédito em Conta,Cheque,OP,DOC,TED,Pgto. com Autenticação
+                // Segmentos : A , B, C , 5 , Z
+                //------------------------------------------------------------------------------
 
                 dynamic cdObject0 = new ExpandoObject(); // Header de arquivo
                 dynamic cdObject9 = new ExpandoObject(); // Trailer de arquivo
@@ -171,7 +180,7 @@ namespace BRD_API_REGRAS.Services
                 cdObject0.ReservadoEmpresa = "192:20:C:V:0:192-211::Erro - Reservado Empresa:";
                 cdObject0.UsoExclusivoFebrabanCnab3 = "212:29:C:V:0:212-240:                             :Erro - Uso Exclusivo FEBRABAN/CNAB:";
                 JsonCdProdutoGenerator.AddProperty(dynamicList, registroZero, cdObject0);
-                
+
                 // Trailer
                 cdObject9.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação:";
                 cdObject9.LoteServico = "4:4:N:R:0:4-7:9999:Erro - Lote de Serviço:";
@@ -229,6 +238,9 @@ namespace BRD_API_REGRAS.Services
                 cdObject5.UsoExclusivoFebrabanCnab2 = "66:165:C:V:0:66-230:" + new string(' ', 165) + ":Erro - Uso Exclusivo FEBRABAN/CNAB:";
                 cdObject5.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Códigos das Ocorrências p/ Retorno:";
                 JsonCdProdutoGenerator.AddProperty(dynamicList, registroCinco, cdObject5);
+
+                // Segmento A ----------------------------------------------------
+                //----------------------------------------------------------------
 
                 // ========================================================================
             }
