@@ -147,6 +147,7 @@ namespace BRD_API_REGRAS.Services
                 // Segmentos : A , B, C , 5 , Z
                 //------------------------------------------------------------------------------
 
+                #region Pagamento Através de Crédito em Conta, Cheque,OP, DOC, TED ou Pagamento com Autenticação
                 dynamic cdObject0 = new ExpandoObject(); // Header de arquivo
                 dynamic cdObject9 = new ExpandoObject(); // Trailer de arquivo
 
@@ -333,7 +334,7 @@ namespace BRD_API_REGRAS.Services
                 cdObjectSegmentoC.UsoExclusivoFebraban2 = "128:113:C:V:0:128-240:" + new string(' ', 113) + ":Erro - Uso FEBRABAN 2:";
                 JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoC, cdObjectSegmentoC);
 
-                // Segmento 5 ----------------------------------------------------
+                // Segmento 5 ( ESTÁ ERRADO ) ------------------------------------
                 //----------------------------------------------------------------
                 cdObjectSegmento5.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco:";
                 cdObjectSegmento5.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
@@ -351,10 +352,10 @@ namespace BRD_API_REGRAS.Services
                 cdObjectSegmento5.SerieDocumento = "111:2:C:V:0:111-112:5008:Erro - Série Documento:";
                 cdObjectSegmento5.UsoExclusivoBradesco2 = "113:15:C:V:0:113-127:               :Erro - Uso Bradesco 2:";
                 cdObjectSegmento5.DataEmissaoDocumento = "128:8:N:V:0:128-135:5010:Erro - Emissão Documento:D";
-                cdObjectSegmento5.NomeReclamanteTED = "136:30:C:V:0:136-165:                              :Erro - Nome Reclamante:";
+                //cdObjectSegmento5.NomeReclamanteTED = "136:30:C:V:0:136-165:                              :Erro - Nome Reclamante:";
                 cdObjectSegmento5.NumeroProcessoTED = "166:25:C:V:0:166-190:                         :Erro - Nº Processo:";
                 cdObjectSegmento5.PISPASEPTED = "191:15:N:V:0:191-205:000000000000000:Erro - PIS/PASEP:";
-                cdObjectSegmento5.UsoExclusivoBradesco3 = "136:95:C:V:0:136-230:" + new string(' ', 95) + ":Erro - Uso Bradesco 3:";
+                //cdObjectSegmento5.UsoExclusivoBradesco3 = "136:95:C:V:0:136-230:" + new string(' ', 95) + ":Erro - Uso Bradesco 3:";
                 cdObjectSegmento5.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Ocorrências Retorno:";
                 JsonCdProdutoGenerator.AddProperty(dynamicList, segmento5, cdObjectSegmento5);
 
@@ -373,6 +374,7 @@ namespace BRD_API_REGRAS.Services
 
                 //------------------------------------------------------------------------------
             }
+            #endregion
             #endregion
             // Serializando para JSON
             var serializer = new JavaScriptSerializer();
