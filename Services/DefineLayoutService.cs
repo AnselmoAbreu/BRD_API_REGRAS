@@ -7,16 +7,26 @@ namespace BRD_API_REGRAS.Services
     public class DefineLayoutService
     {
         #region Constantes para nome de registro de arquivo
-        const string registroZero = "RECORD0"; // Header de arquivo
-        const string registroUm = "RECORD1"; // Header de lote
-        const string registroCinco = "RECORD5"; // Trailer de lote
-        const string registroNove = "RECORD9"; // Trailer de arquivo
+        
+        const string descricaoRegistroZero = "REGISTRO_0"; // Header de arquivo
+        const string descricaoRegistroUm = "REGISTRO_1"; // Header de lote
+        const string descricaoRegistroCinco = "REGISTRO_5"; // Trailer de lote
+        const string descricaoRegistroNove = "REGISTRO_9"; // Trailer de arquivo
 
-        const string segmentoA = "SEGMENTOA";
-        const string segmentoB = "SEGMENTOB";
-        const string segmentoC = "SEGMENTOC";
-        const string segmento5 = "SEGMENTO5";
-        const string segmentoZ = "SEGMENTOZ";
+        // Segmentos para Pagamento Através de Crédito em Conta, Cheque,OP, DOC, TED ou Pagamento com Autenticação
+
+        const string segmentoVariosA = "SEGMENTO_PGVARIOS_A";
+        const string segmentoVariosB = "SEGMENTO_PGVARIOS_B";
+        const string segmentoVariosC = "SEGMENTO_PGVARIOS_C";
+        const string segmentoVarios5 = "SEGMENTO_PGVARIOS_5";
+        const string segmentoVariosZ = "SEGMENTO_PGVARIOS_Z";
+
+        // Segmentos para Pagamento de Títulos
+
+        const string segmentoPgTit_J = "PGTIT_SEGMENTO_J";
+        const string segmentoPgTit_J52 = "PGTIT_SEGMENTO_J52";
+        const string segmentoPgTit_5 = "PGTIT_SEGMENTO_5";
+        const string segmentoPgTit_Z = "PGTIT_SEGMENTO_Z";
 
         #endregion
 
@@ -187,7 +197,7 @@ namespace BRD_API_REGRAS.Services
                 cdObject0.ReservadoBanco = "172:20:C:V:0:172-191::Erro - Reservado Banco:";
                 cdObject0.ReservadoEmpresa = "192:20:C:V:0:192-211::Erro - Reservado Empresa:";
                 cdObject0.UsoExclusivoFebrabanCnab3 = "212:29:C:V:0:212-240:                             :Erro - Uso Exclusivo FEBRABAN/CNAB:";
-                JsonCdProdutoGenerator.AddProperty(dynamicList, registroZero, cdObject0);
+                JsonCdProdutoGenerator.AddProperty(dynamicList, descricaoRegistroZero, cdObject0);
                 #endregion
 
                 //----------------------------------------------------------------
@@ -200,7 +210,7 @@ namespace BRD_API_REGRAS.Services
                 cdObject9.QuantidadeRegistrosArquivo = "24:6:N:R:0:24-29::Erro - Quantidade de Registros do Arquivo:"; //<<<<<
                 cdObject9.QuantidadeContasConcilLotes = "30:6:N:R:0:30-35::Erro - Qtde de Contas p/ Conc. (Lotes):"; //<<<<<
                 cdObject9.UsoExclusivoFebrabanCnab2 = "36:205:C:V:0:36-240:" + new string(' ', 205) + ":Erro - Uso Exclusivo FEBRABAN/CNAB:";
-                JsonCdProdutoGenerator.AddProperty(dynamicList, registroNove, cdObject9);
+                JsonCdProdutoGenerator.AddProperty(dynamicList, descricaoRegistroNove, cdObject9);
                 #endregion
 
                 //----------------------------------------------------------------
@@ -233,7 +243,7 @@ namespace BRD_API_REGRAS.Services
                 cdObject1.IndicativoFormaPagamento = "223:2:N:R:0:223-224:01:Erro - Indicativo de Forma de Pagamento:";
                 cdObject1.UsoExclusivoFebrabanCnab2 = "225:6:C:V:0:225-230:      :Erro - Uso Exclusivo FEBRABAN/CNAB:";
                 cdObject1.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Códigos das Ocorrências p/ Retorno:";
-                JsonCdProdutoGenerator.AddProperty(dynamicList, registroUm, cdObject1);
+                JsonCdProdutoGenerator.AddProperty(dynamicList, descricaoRegistroUm, cdObject1);
                 #endregion
 
                 //----------------------------------------------------------------
@@ -248,7 +258,7 @@ namespace BRD_API_REGRAS.Services
                 cdObject5.NumeroAvisoDebito = "60:6:N:V:0:60-65::Erro - Número Aviso de Débito:";
                 cdObject5.UsoExclusivoFebrabanCnab2 = "66:165:C:V:0:66-230:" + new string(' ', 165) + ":Erro - Uso Exclusivo FEBRABAN/CNAB:";
                 cdObject5.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Códigos das Ocorrências p/ Retorno:";
-                JsonCdProdutoGenerator.AddProperty(dynamicList, registroCinco, cdObject5);
+                JsonCdProdutoGenerator.AddProperty(dynamicList, descricaoRegistroCinco, cdObject5);
                 #endregion
 
                 //----------------------------------------------------------------
@@ -283,7 +293,7 @@ namespace BRD_API_REGRAS.Services
                 cdObjectSegmentoA.UsoExclusivoFebraban1 = "227:3:C:V:0:227-229:   :Erro - Uso FEBRABAN:";
                 cdObjectSegmentoA.AvisoFavorecido = "230:1:N:V:0:230-230::Erro - Aviso Favorecido:";
                 cdObjectSegmentoA.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Ocorrências Retorno:";
-                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoA, cdObjectSegmentoA);
+                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoVariosA, cdObjectSegmentoA);
                 #endregion
 
                 //----------------------------------------------------------------
@@ -314,7 +324,7 @@ namespace BRD_API_REGRAS.Services
                 cdObjectSegmentoB.AvisoFavorecido = "226:1:N:V:0:226-226::Erro - Aviso:";
                 cdObjectSegmentoB.CodigoUGCentralizadora = "227:6:N:V:0:227-232::Erro - Cód. UG:";
                 cdObjectSegmentoB.CodigoISPB = "233:8:N:V:0:233-240::Erro - Cód. ISPB:";
-                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoB, cdObjectSegmentoB);
+                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoVariosB, cdObjectSegmentoB);
                 #endregion
 
                 //----------------------------------------------------------------
@@ -337,7 +347,7 @@ namespace BRD_API_REGRAS.Services
                 cdObjectSegmentoC.DVAgenciaContaFavorecido = "112:1:C:R:0:112-112::Erro - DV Agência/Conta:";
                 cdObjectSegmentoC.ValorINSS = "113:15:N:V:0:113-127::Erro - Valor INSS:";
                 cdObjectSegmentoC.UsoExclusivoFebraban2 = "128:113:C:V:0:128-240:" + new string(' ', 113) + ":Erro - Uso FEBRABAN 2:";
-                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoC, cdObjectSegmentoC);
+                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoVariosC, cdObjectSegmentoC);
                 #endregion
 
                 //----------------------------------------------------------------
@@ -363,7 +373,7 @@ namespace BRD_API_REGRAS.Services
                 cdObjectSegmento5.PISPASEPTED = "191:15:N:V:0:191-205:000000000000000:Erro - PIS/PASEP:";
                 //cdObjectSegmento5.UsoExclusivoBradesco3 = "136:95:C:V:0:136-230:" + new string(' ', 95) + ":Erro - Uso Bradesco 3:";
                 cdObjectSegmento5.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Ocorrências Retorno:";
-                JsonCdProdutoGenerator.AddProperty(dynamicList, segmento5, cdObjectSegmento5);
+                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoVarios5, cdObjectSegmento5);
                 #endregion
 
                 //----------------------------------------------------------------
@@ -377,7 +387,7 @@ namespace BRD_API_REGRAS.Services
                 cdObjectSegmentoZ.ControleBancario = "79:25:C:V:0:79-103:" + new string(' ', 25) + ":Erro - Controle Bancário:";
                 cdObjectSegmentoZ.UsoCnabFebraban = "104:127:C:V:0:104-230:" + new string(' ', 127) + ":Erro - Uso CNAB/FEBRABAN:";
                 cdObjectSegmentoZ.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Ocorrências Retorno:";
-                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoZ, cdObjectSegmentoZ);
+                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoVariosZ, cdObjectSegmentoZ);
 
                 //------------------------------------------------------------------------------
                 #endregion
@@ -428,7 +438,7 @@ namespace BRD_API_REGRAS.Services
                 cdObjectPgto1.IndicativoFormaPagamento = "223:2:N:R:0:223-224:01:Erro - Indicativo de Forma de Pagamento:";
                 cdObjectPgto1.UsoExclusivoFebrabanCnab2 = "225:6:C:V:0:225-230:      :Erro - Uso Exclusivo FEBRABAN/CNAB:";
                 cdObjectPgto1.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Códigos das Ocorrências p/ Retorno:";
-                JsonCdProdutoGenerator.AddProperty(dynamicList, registroUm, cdObjectPgto1);
+                JsonCdProdutoGenerator.AddProperty(dynamicList, descricaoRegistroUm, cdObjectPgto1);
                 #endregion
 
                 //----------------------------------------------------------------
@@ -444,7 +454,7 @@ namespace BRD_API_REGRAS.Services
                 cdObjectPgto5.NumeroAvisoDebito = "60:6:N:V:0:60-65::Erro - Número Aviso de Débito:";
                 cdObjectPgto5.UsoExclusivoFebrabanCnab2 = "66:165:C:V:0:66-230:".PadRight(165, ' ') + ":Erro - Uso Exclusivo FEBRABAN/CNAB:"; // 165 espaços
                 cdObjectPgto5.OcorrenciasRetorno = "231:10:C:R:0:231-240::Erro - Ocorrências para Retorno:";
-                JsonCdProdutoGenerator.AddProperty(dynamicList, registroCinco, cdObjectPgto5); JsonCdProdutoGenerator.AddProperty(dynamicList, registroCinco, cdObjectPgto5);
+                JsonCdProdutoGenerator.AddProperty(dynamicList, descricaoRegistroCinco, cdObjectPgto5); 
                 #endregion
 
                 //----------------------------------------------------------------
@@ -470,7 +480,7 @@ namespace BRD_API_REGRAS.Services
                 cdObjectSegmentoPgtoJ.CodigoMoeda = "223:2:N:R:0:223-224:09:Erro - Código de Moeda:";
                 cdObjectSegmentoPgtoJ.UsoExclusivoFebraban = "225:6:C:V:0:225-230:      :Erro - Uso Exclusivo FEBRABAN/CNAB:";
                 cdObjectSegmentoPgtoJ.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Ocorrências p/ Retorno:";
-                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoA, cdObjectSegmentoPgtoJ);
+                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoPgTit_J, cdObjectSegmentoPgtoJ);
                 #endregion
 
                 //----------------------------------------------------------------
@@ -493,7 +503,7 @@ namespace BRD_API_REGRAS.Services
                 cdObjectSegmentoPgtoJ52.NumeroInscricaoSacador = "133:15:N:R:0:133-147::Erro - Nº de Inscrição (Sacador):";
                 cdObjectSegmentoPgtoJ52.NomeSacador = "148:40:C:R:0:148-187::Erro - Nome do Sacador:";
                 cdObjectSegmentoPgtoJ52.CNAB2 = "188:53:C:V:0:188-240:                                                  :Erro - Uso Exclusivo FEBRABAN/CNAB:";
-                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoB, cdObjectSegmentoPgtoJ52);
+                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoPgTit_J52, cdObjectSegmentoPgtoJ52);
                 #endregion
 
                 //----------------------------------------------------------------
@@ -516,7 +526,7 @@ namespace BRD_API_REGRAS.Services
                 cdObjectSegmentoPgto5.DataEmissaoDocumento = "128:8:N:R:0:128-135::Erro - Data de Emissão do Documento:D";
                 cdObjectSegmentoPgto5.UsoExclusivoBradesco3 = "136:95:C:V:0:136-230:                                                                                               :Erro - Uso Exclusivo BRADESCO/CNAB:";
                 cdObjectSegmentoPgto5.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Códigos das Ocorrências p/ Retorno:";
-                JsonCdProdutoGenerator.AddProperty(dynamicList, segmento5, cdObjectSegmentoPgto5);
+                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoPgTit_5, cdObjectSegmentoPgto5);
                 #endregion
 
                 //----------------------------------------------------------------
@@ -530,7 +540,7 @@ namespace BRD_API_REGRAS.Services
                 cdObjectSegmentoPgtoZ.AutenticacaoBancaria = "79:25:C:R:0:79-103::Erro - Autenticação Bancária/Protocolo:";
                 cdObjectSegmentoPgtoZ.UsoExclusivoFebraban = "104:127:C:V:0:104-230:                                                                                                                               :Erro - Uso CNAB/FEBRABAN:";
                 cdObjectSegmentoPgtoZ.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Códigos das Ocorrências p/ Retorno:";
-                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoZ, cdObjectSegmentoPgtoZ);
+                JsonCdProdutoGenerator.AddProperty(dynamicList, segmentoPgTit_Z, cdObjectSegmentoPgtoZ);
                 #endregion
                 //------------------------------------------------------------------------------
                 #endregion
