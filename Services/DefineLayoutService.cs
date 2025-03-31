@@ -396,8 +396,6 @@ namespace BRD_API_REGRAS.Services
                 dynamic cdObjectSegmentoPgtoZ = new ExpandoObject();   //  Tipo 3
 
 
-
-
                 // Lote ----------------------------------------------------------
                 //----------------------------------------------------------------
 
