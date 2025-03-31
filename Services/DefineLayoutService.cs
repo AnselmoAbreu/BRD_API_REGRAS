@@ -1,5 +1,4 @@
 ﻿using System.Dynamic;
-using System.Runtime.ConstrainedExecution;
 using System.Web.Script.Serialization;
 
 namespace BRD_API_REGRAS.Services

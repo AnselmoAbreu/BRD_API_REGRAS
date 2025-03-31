@@ -1,0 +1,4 @@
+01REMESSA03CREDITO C/C    012340705051234566  01234VALIDADOR GERAL          237BRADESCO       0907202001600BPI09072020 N                                                                          000001
+1                                                             012340738012345678  ALYSON xxxxxxx xxxxxxxxx              0026310000000457999298                                                    000002
+90000000457999                                                                                                                                                                                    000003
+
