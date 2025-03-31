@@ -4,7 +4,7 @@ using System.Dynamic;
 
 namespace BRD_API_REGRAS
 {
-    public static class JsonCdProdutoGenerator
+    public static class JsonObjectsGenerator
     {
         public static void AddProperty(dynamic expando, string propertyName, object value)
         {
