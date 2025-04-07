@@ -1,7 +1,6 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
+using System.Drawing;
 using System.Dynamic;
-using System.Security.Permissions;
 using System.Web.Script.Serialization;
 
 namespace BRD_API_REGRAS.Services
@@ -10,45 +9,52 @@ namespace BRD_API_REGRAS.Services
     {
         #region Constantes para nome de registro de arquivo
 
-        const string descricaoRegistroZero = "REGISTRO_0"; // Header de arquivo
-        const string descricaoRegistroNove = "REGISTRO_9"; // Trailer de arquivo
+        const string descricaoRegistroZero = "REGISTRO_HEADER_ARQUIVO_(0)"; // Header de arquivo
+        const string descricaoRegistroNove = "REGISTRO_TRAILER_ARQUIVO_(9)"; // Trailer de arquivo
 
         // Segmentos para Pagamento Através de Crédito em Conta, Cheque,OP, DOC, TED ou Pagamento com Autenticação
 
-        const string segmentoVariosA = "SEGMENTO_PGVARIOS_A";
-        const string segmentoVariosB = "SEGMENTO_PGVARIOS_B";
-        const string segmentoVariosC = "SEGMENTO_PGVARIOS_C";
-        const string segmentoVarios5 = "SEGMENTO_PGVARIOS_5";
-        const string segmentoVariosZ = "SEGMENTO_PGVARIOS_Z";
-
-        const string descricaoRegistroUm_PGVARIOS = "REGISTRO_PGVARIOS_1"; // Header de lote
-        const string descricaoRegistroCinco_PGVARIOS = "REGISTRO_PGVARIOS_5"; // Trailer de lote
+        const string segmentoVariosA = "SEGMENTO_PGTOS_DIVERSOS_A";
+        const string segmentoVariosB = "SEGMENTO_PGTOS_DIVERSOS_B";
+        const string segmentoVariosC = "SEGMENTO_PGTOS_DIVERSOS_C";
+        const string segmentoVarios5 = "SEGMENTO_PGTOS_DIVERSOS_5";
+        const string segmentoVariosZ = "SEGMENTO_PGTOS_DIVERSOS_Z";
+        const string descricaoRegistroUm_PgVarios = "REGISTRO_PGTOS_DIVERSOS_HEADER_LOTE_(1)"; // Header de lote
+        const string descricaoRegistroCinco_PgVarios = "REGISTRO_PGTOS_DIVERSOS_TRAILER_LOTE_(5)"; // Trailer de lote
 
 
         // Segmentos para Pagamento de Títulos
 
-        const string segmentoPgTit_J = "PGTIT_SEGMENTO_J";
-        const string segmentoPgTit_J52 = "PGTIT_SEGMENTO_J52";
-        const string segmentoPgTit_5 = "PGTIT_SEGMENTO_5";
-        const string segmentoPgTit_Z = "PGTIT_SEGMENTO_Z";
-        const string descricaoRegistroUm_PGTITULOS = "REGISTRO_PGTITULOS_1"; // Header de lote
-        const string descricaoRegistroCinco_PGTITULOS = "REGISTRO_PGTITULOS_5"; // Trailer de lote
+        const string segmentoPgTit_J = "PGTO_TITULO_SEGMENTO_J";
+        const string segmentoPgTit_J52 = "PGTO_TITULO_SEGMENTO_J52";
+        const string segmentoPgTit_5 = "PGTO_TITULO_SEGMENTO_5";
+        const string segmentoPgTit_Z = "PGTO_TITULO_SEGMENTO_Z";
+        const string descricaoRegistroUm_PgTitulos = "REGISTRO_PGTO_TITULOS_HEADER_LOTE_(1)"; // Header de lote
+        const string descricaoRegistroCinco_PgTitulos = "REGISTRO_PGTO_TITULOS_TRAILER_LOTE_(5)"; // Trailer de lote
 
         // Segmentos para Pagamento de tributos
 
         // SEGMENTOS : O , N, N1 GPS , N2 DARF , N3 DARF SIMPLES , N4 GARE SP , W , W1 , 5 , Z
-        const string segmentoPgTrib_O = "PGTRIB_SEGMENTO_O";
-        const string segmentoPgTrib_N = "PGTRIB_SEGMENTO_N";
-        const string segmentoPgTrib_N1 = "PGTRIB_SEGMENTO_N1";
-        const string segmentoPgTrib_N2 = "PGTRIB_SEGMENTO_N2";
-        const string segmentoPgTrib_N3 = "PGTRIB_SEGMENTO_N3";
-        const string segmentoPgTrib_N4 = "PGTRIB_SEGMENTO_N4";
-        const string segmentoPgTrib_W = "PGTRIB_SEGMENTO_W";
-        const string segmentoPgTrib_W1 = "PGTRIB_SEGMENTO_W1";
-        const string segmentoPgTrib_5 = "PGTRIB_SEGMENTO_5";
-        const string segmentoPgTrib_Z = "PGTRIB_SEGMENTO_Z";
-        const string descricaoRegistroUm_PGTRIBUTOS = "REGISTRO_PGTRIBUTOS_1"; // Header de lote
-        const string descricaoRegistroCinco_PGTRIBUTOS = "REGISTRO_PGTRIBUTOS_5"; // Trailer de lote
+        const string segmentoPgTrib_O = "PGTO_TRIBUTOS_SEGMENTO_O";
+        const string segmentoPgTrib_N = "PGTO_TRIBUTOS_SEGMENTO_N";
+        const string segmentoPgTrib_N1 = "PGTO_TRIBUTOS_SEGMENTO_N1";
+        const string segmentoPgTrib_N2 = "PGTO_TRIBUTOS_SEGMENTO_N2";
+        const string segmentoPgTrib_N3 = "PGTO_TRIBUTOS_SEGMENTO_N3";
+        const string segmentoPgTrib_N4 = "PGTO_TRIBUTOS_SEGMENTO_N4";
+        const string segmentoPgTrib_W = "PGTO_TRIBUTOS_SEGMENTO_W";
+        const string segmentoPgTrib_W1 = "PGTO_TRIBUTOS_SEGMENTO_W1";
+        const string segmentoPgTrib_5 = "PGTO_TRIBUTOS_SEGMENTO_5";
+        const string segmentoPgTrib_Z = "PGTO_TRIBUTOS_SEGMENTO_Z";
+        const string descricaoRegistroUm_PgTributos = "REGISTRO_PGTO_TRIBUTOS_HEADER_LOTE_(1)"; // Header de lote
+        const string descricaoRegistroCinco_PgTributos = "REGISTRO_PGTO_TRIBUTOS_TRAILER_LOTE_(5)"; // Trailer de lote
+
+        // Segmentos para Bloqueto Eletrônico G/H/Y03/Y51/
+        const string segmentoBloquetoEletronico_G = "BLOQUETO_ELETRONICO_SEGMENTO_G";
+        const string segmentoBloquetoEletronico_H = "BLOQUETO_ELETRONICO_SEGMENTO_H";
+        const string segmentoBloquetoEletronico_Y03 = "BLOQUETO_ELETRONICO_SEGMENTO_Y3";
+        const string segmentoBloquetoEletronico_Y51 = "BLOQUETO_ELETRONICO_SEGMENTO_Y51";
+        const string descricaoRegistroUm_BloquetoEletronico = "REGISTRO_BLOQUETO_ELETRONICO_HEADER_LOTE_(1)"; // Header de lote
+        const string descricaoRegistroCinco_BloquetoEletronico = "REGISTRO_BLOQUETO_ELETRONICO_TRAILER_LOTE_(5)"; // Trailer de lote
 
         #endregion
 
@@ -276,7 +282,7 @@ namespace BRD_API_REGRAS.Services
             cdObject1.IndicativoFormaPagamento = "223:2:N:R:0:223-224:01:Erro - Indicativo de Forma de Pagamento:";
             cdObject1.UsoExclusivoFebrabanCnab2 = "225:6:C:V:0:225-230:      :Erro - Uso Exclusivo FEBRABAN/CNAB:";
             cdObject1.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Códigos das Ocorrências p/ Retorno:";
-            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroUm_PGVARIOS, cdObject1);
+            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroUm_PgVarios, cdObject1);
             #endregion
 
             #region TRAILER DE LOTE
@@ -290,7 +296,7 @@ namespace BRD_API_REGRAS.Services
             cdObject5.NumeroAvisoDebito = "60:6:N:V:0:60-65::Erro - Número Aviso de Débito:";
             cdObject5.UsoExclusivoFebrabanCnab2 = "66:165:C:V:0:66-230:" + new string(' ', 165) + ":Erro - Uso Exclusivo FEBRABAN/CNAB:";
             cdObject5.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Códigos das Ocorrências p/ Retorno:";
-            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroCinco_PGVARIOS, cdObject5);
+            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroCinco_PgVarios, cdObject5);
             #endregion
 
             #region SEGMENTO A 
@@ -462,7 +468,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectPgto1.IndicativoFormaPagamento = "223:2:N:R:0:223-224:01:Erro - Indicativo de Forma de Pagamento:";
             cdObjectPgto1.UsoExclusivoFebrabanCnab2 = "225:6:C:V:0:225-230:      :Erro - Uso Exclusivo FEBRABAN/CNAB:";
             cdObjectPgto1.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Códigos das Ocorrências p/ Retorno:";
-            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroUm_PGTITULOS, cdObjectPgto1);
+            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroUm_PgTitulos, cdObjectPgto1);
 
             #endregion
 
@@ -477,7 +483,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectPgto5.NumeroAvisoDebito = "60:6:N:V:0:60-65::Erro - Número Aviso de Débito:";
             cdObjectPgto5.UsoExclusivoFebrabanCnab2 = "66:165:C:V:0:66-230:".PadRight(165, ' ') + ":Erro - Uso Exclusivo FEBRABAN/CNAB:"; // 165 espaços
             cdObjectPgto5.OcorrenciasRetorno = "231:10:C:R:0:231-240::Erro - Ocorrências para Retorno:";
-            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroCinco_PGTITULOS, cdObjectPgto5);
+            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroCinco_PgTitulos, cdObjectPgto5);
             #endregion
 
             #region Segmento J (Detalhe)
@@ -610,7 +616,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectPgtoTrib1.IndicativoFormaPagamento = "223:2:N:R:0:223-224:01:Erro - Forma Pagamento:"; // 01 = Débito em Conta
             cdObjectPgtoTrib1.UsoExclusivoFebraban2 = "225:6:A:V:0:225-230:      :Erro - Uso FEBRABAN:";
             cdObjectPgtoTrib1.OcorrenciasRetorno = "231:10:A:V:0:231-240::Erro - Ocorrências p/ Retorno:";
-            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroUm_PGTRIBUTOS, cdObjectPgtoTrib1);
+            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroUm_PgTributos, cdObjectPgtoTrib1);
             #endregion
 
             #region TRAILER DE LOTE
@@ -623,7 +629,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectPgtoTrib5.SomatoriaQuantidadeMoedas = "42:13:N:V:0:42-59::Erro - Somatória Qtde Moedas (5 decimais):";
             cdObjectPgtoTrib5.NumeroAvisoDebito = "60:6:N:V:0:60-65::Erro - Nº Aviso de Débito:";
             cdObjectPgtoTrib5.UsoExclusivoFebraban2 = "66:165:A:V:0:66-230:" + new string(' ', 165) + ":Erro - Uso FEBRABAN:";
-            cdObjectPgtoTrib5.OcorrenciasRetorno = "231:10:A:V:0:231-240::Erro - Ocorrências p/ Retorno:"; JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroCinco_PGTRIBUTOS, cdObjectPgtoTrib5);
+            cdObjectPgtoTrib5.OcorrenciasRetorno = "231:10:A:V:0:231-240::Erro - Ocorrências p/ Retorno:"; JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroCinco_PgTributos, cdObjectPgtoTrib5);
             #endregion
 
             #region SEGMENTO O
@@ -786,10 +792,13 @@ namespace BRD_API_REGRAS.Services
             cdObjectSegmentoPgtoTribZ.UsoExclusivoFebraban = "104:127:A:V:0:104-230:" + new string(' ', 127) + ":Erro - Uso FEBRABAN:";
             cdObjectSegmentoPgtoTribZ.OcorrenciasRetorno = "231:10:A:V:0:231-240::Erro - Ocorrências Retorno:";
             JsonObjectsGenerator.AddProperty(dynamicList, segmentoPgTrib_Z, cdObjectSegmentoPgtoTribZ);
-            #endregion       
+            #endregion
 
             #endregion
 
+            #region BLOQUETOS ELETRONICOS
+
+            #endregion
 
 
             return dynamicList;
