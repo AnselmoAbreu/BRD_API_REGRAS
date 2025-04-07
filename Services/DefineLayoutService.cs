@@ -175,6 +175,7 @@ namespace BRD_API_REGRAS.Services
 
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Critical Code Smell", "S2479:Whitespace and control characters in string literals should be explicit", Justification = "<Pending>")]
         public dynamic MontarJsonMtp240(dynamic dynamicList, string codigoArquivo) // MULTIPAG 240
         {
             #region LEGENDAS
@@ -870,6 +871,82 @@ namespace BRD_API_REGRAS.Services
             cdObjectBloquetoEletronicoSegmentoG.DataLimitePagamento = "232:8:N:V:0:232-239::Erro - Data Limite Pagamento (DDMMAAAA):D";
             cdObjectBloquetoEletronicoSegmentoG.UsoExclusivoFebraban2 = "240:1:A:V:0:240-240: :Erro - Uso FEBRABAN/CNAB:";
             JsonObjectsGenerator.AddProperty(dynamicList, segmentoBloquetoEletronico_G, cdObjectBloquetoEletronicoSegmentoG);
+            #endregion
+
+            #region SEGMENTO H
+            cdObjectBloquetoEletronicoSegmentoH.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código no Banco na compensação:";
+            cdObjectBloquetoEletronicoSegmentoH.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
+            cdObjectBloquetoEletronicoSegmentoH.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Tipo de Registro:";
+            cdObjectBloquetoEletronicoSegmentoH.NumeroRegistroLote = "9:5:N:R:0:9-13::Erro - Nº Sequencial do Registro no Lote:";
+            cdObjectBloquetoEletronicoSegmentoH.CodigoSegmento = "14:1:A:R:0:14-14:H:Erro - Cód. Segmento do Registro Detalhe:";
+            cdObjectBloquetoEletronicoSegmentoH.CNAB = "15:1:A:V:0:15-15::Erro - Uso Exclusivo FEBRABAN/CNAB:";
+            cdObjectBloquetoEletronicoSegmentoH.CodigoMovimento = "16:2:N:R:0:16-17::Erro - Código de Movimento Remessa:";
+            cdObjectBloquetoEletronicoSegmentoH.TipoInscricao = "18:1:N:R:0:18-18::Erro - Tipo de Inscrição:";
+            cdObjectBloquetoEletronicoSegmentoH.NumeroInscricao = "19:15:N:R:0:19-33::Erro - Número de Inscrição:";
+            cdObjectBloquetoEletronicoSegmentoH.NomeSacador = "34:40:A:R:0:34-73::Erro - Nome do Sacador / Avalista:";
+            cdObjectBloquetoEletronicoSegmentoH.CodigoDesconto2 = "74:1:N:R:0:74-74::Erro - Código do Desconto 2:";
+            cdObjectBloquetoEletronicoSegmentoH.DataDesconto2 = "75:8:N:V:0:75-82::Erro - Data do Desconto 2:D";
+            cdObjectBloquetoEletronicoSegmentoH.ValorDesconto2 = "83:13:N:V:0:83-97::Erro - Valor / Percentual a ser Concedido:";
+            cdObjectBloquetoEletronicoSegmentoH.CodigoDesconto3 = "98:1:N:R:0:98-98::Erro - Código do Desconto 3:";
+            cdObjectBloquetoEletronicoSegmentoH.DataDesconto3 = "99:8:N:V:0:99-106::Erro - Data do Desconto 3:D";
+            cdObjectBloquetoEletronicoSegmentoH.ValorDesconto3 = "107:13:N:V:0:107-121::Erro - Valor / Percentual a ser Concedido:";
+            cdObjectBloquetoEletronicoSegmentoH.CodigoMulta = "122:1:N:R:0:122-122::Erro - Código da Multa:";
+            cdObjectBloquetoEletronicoSegmentoH.DataMulta = "123:8:N:V:0:123-130::Erro - Data da Multa:D";
+            cdObjectBloquetoEletronicoSegmentoH.ValorMulta = "131:13:N:V:0:131-145::Erro - Valor/Percentual a Ser Concedido:";
+            cdObjectBloquetoEletronicoSegmentoH.ValorAbatimento = "146:13:N:V:0:146-160::Erro - Valor do Abatimento:";
+            cdObjectBloquetoEletronicoSegmentoH.NossoNumero = "161:20:A:R:0:161-180::Erro - Número do Documento atribuído pelo Banco:";
+            cdObjectBloquetoEletronicoSegmentoH.ReservadoBradesco = "181:20:A:V:0:181-200::Erro - Uso Exclusivo Bradesco:";
+            cdObjectBloquetoEletronicoSegmentoH.Mensagem = "201:40:A:V:0:201-240::Erro - Mensagem:";
+            JsonObjectsGenerator.AddProperty(dynamicList, segmentoBloquetoEletronico_H, cdObjectBloquetoEletronicoSegmentoH);
+            #endregion
+
+            #region SEGMENTO Y03
+            cdObjectBloquetoEletronicoSegmentoY03.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código no Banco na compensação:";
+            cdObjectBloquetoEletronicoSegmentoY03.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
+            cdObjectBloquetoEletronicoSegmentoY03.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Tipo de Registro:";
+            cdObjectBloquetoEletronicoSegmentoY03.NumeroRegistroLote = "9:5:N:R:0:9-13::Erro - Nº Sequencial do Registro no Lote:";
+            cdObjectBloquetoEletronicoSegmentoY03.CodigoSegmento = "14:1:A:R:0:14-14:Y:Erro - Cód. Segmento do Registro Detalhe:";
+            cdObjectBloquetoEletronicoSegmentoY03.CNAB1 = "15:1:A:V:0:15-15: :Erro - Uso Exclusivo FEBRABAN/CNAB:"; // 1 espaço (Nº Dig = 1)
+            cdObjectBloquetoEletronicoSegmentoY03.CodigoMovimento = "16:2:N:R:0:16-17:01:Erro - Código de Movimento Remessa:";
+            cdObjectBloquetoEletronicoSegmentoY03.CodigoRegistroOpcional = "18:2:N:R:0:18-19:03:Erro - Identificação Registro Opcional:";
+            cdObjectBloquetoEletronicoSegmentoY03.TipoInscricao = "20:1:N:R:0:20-20::Erro - Tipo de Inscrição:";
+            cdObjectBloquetoEletronicoSegmentoY03.NumeroInscricao = "21:15:N:R:0:21-35::Erro - Número de Inscrição:";
+            cdObjectBloquetoEletronicoSegmentoY03.NomeSacado = "36:40:A:R:0:36-75::Erro - Nome do Sacado:";
+            cdObjectBloquetoEletronicoSegmentoY03.EnderecoSacado = "76:40:A:R:0:76-115::Erro - Endereço do Sacado:";
+            cdObjectBloquetoEletronicoSegmentoY03.BairroSacado = "116:15:A:R:0:116-130::Erro - Bairro:";
+            cdObjectBloquetoEletronicoSegmentoY03.CEP = "131:5:N:R:0:131-135::Erro - CEP:";
+            cdObjectBloquetoEletronicoSegmentoY03.SufixoCEP = "136:3:N:R:0:136-138::Erro - Sufixo do CEP:";
+            cdObjectBloquetoEletronicoSegmentoY03.Cidade = "139:15:A:R:0:139-153::Erro - Cidade:";
+            cdObjectBloquetoEletronicoSegmentoY03.UF = "154:2:A:R:0:154-155::Erro - Unidade da Federação:";
+            cdObjectBloquetoEletronicoSegmentoY03.CNAB2 = "156:85:A:V:0:156-240: " + new string(' ', 85) + " :Erro - Uso Exclusivo FEBRABAN/CNAB:";
+            JsonObjectsGenerator.AddProperty(dynamicList, segmentoBloquetoEletronico_Y03, cdObjectBloquetoEletronicoSegmentoY03);
+            #endregion
+
+            #region SEGMENTO Y51
+            cdObjectBloquetoEletronicoSegmentoY51.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código no Banco na compensação:";
+            cdObjectBloquetoEletronicoSegmentoY51.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
+            cdObjectBloquetoEletronicoSegmentoY51.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Tipo de Registro:";
+            cdObjectBloquetoEletronicoSegmentoY51.NumeroRegistroLote = "9:5:N:R:0:9-13::Erro - Nº Sequencial do Registro no Lote:";
+            cdObjectBloquetoEletronicoSegmentoY51.CodigoSegmento = "14:1:A:R:0:14-14:Y:Erro - Cód. Segmento do Registro Detalhe:";
+            cdObjectBloquetoEletronicoSegmentoY51.CNAB = "15:1:A:V:0:15-15: :Erro - Uso Exclusivo FEBRABAN/CNAB:"; // 1 espaço (Nº Dig = 1)
+            cdObjectBloquetoEletronicoSegmentoY51.CodigoMovimento = "16:2:N:R:0:16-17:01:Erro - Código de Movimento Remessa:";
+            cdObjectBloquetoEletronicoSegmentoY51.CodigoRegistroOpcional = "18:2:N:R:0:18-19:51:Erro - Identificação Registro Opcional:";
+            cdObjectBloquetoEletronicoSegmentoY51.NotaFiscal1 = "20:15:A:R:0:20-34::Erro - Número da Nota Fiscal:";
+            cdObjectBloquetoEletronicoSegmentoY51.ValorNotaFiscal1 = "35:13:N:R:0:35-48::Erro - Valor da Nota Fiscal:";
+            cdObjectBloquetoEletronicoSegmentoY51.DataEmissao1 = "50:8:N:R:0:50-57::Erro - Data Emissão Nota Fiscal:D";
+            cdObjectBloquetoEletronicoSegmentoY51.NotaFiscal2 = "58:15:A:R:0:58-72::Erro - Número da Nota Fiscal:";
+            cdObjectBloquetoEletronicoSegmentoY51.ValorNotaFiscal2 = "73:13:N:R:0:73-87::Erro - Valor da Nota Fiscal:";
+            cdObjectBloquetoEletronicoSegmentoY51.DataEmissao2 = "88:8:A:R:0:88-95::Erro - Data Emissão Nota Fiscal:D";
+            cdObjectBloquetoEletronicoSegmentoY51.NotaFiscal3 = "96:15:N:R:0:96-110::Erro - Número da Nota Fiscal:";
+            cdObjectBloquetoEletronicoSegmentoY51.ValorNotaFiscal3 = "111:13:N:R:0:111-125::Erro - Valor da Nota Fiscal:";
+            cdObjectBloquetoEletronicoSegmentoY51.DataEmissao3 = "125:8:N:R:0:125-133::Erro - Data Emissão Nota Fiscal:D"; // Aviso: Sobreposição (125-133 vs 111-125)
+            cdObjectBloquetoEletronicoSegmentoY51.NotaFiscal4 = "134:15:A:R:0:134-148::Erro - Número da Nota Fiscal:";
+            cdObjectBloquetoEletronicoSegmentoY51.ValorNotaFiscal4 = "149:13:N:R:0:149-163::Erro - Valor da Nota Fiscal:";
+            cdObjectBloquetoEletronicoSegmentoY51.DataEmissao4 = "164:8:N:R:0:164-171::Erro - Data Emissão Nota Fiscal:D";
+            cdObjectBloquetoEletronicoSegmentoY51.NotaFiscal5 = "172:15:A:R:0:172-186::Erro - Número da Nota Fiscal:";
+            cdObjectBloquetoEletronicoSegmentoY51.ValorNotaFiscal5 = "187:13:N:R:0:187-201::Erro - Valor da Nota Fiscal:";
+            cdObjectBloquetoEletronicoSegmentoY51.DataEmissao5 = "202:8:N:R:0:202-209::Erro - Data Emissão Nota Fiscal:D";
+            JsonObjectsGenerator.AddProperty(dynamicList, segmentoBloquetoEletronico_Y51, cdObjectBloquetoEletronicoSegmentoY51);
             #endregion
 
             #endregion
