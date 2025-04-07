@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Dynamic;
 using System.Web.Script.Serialization;
 
@@ -12,7 +11,8 @@ namespace BRD_API_REGRAS.Services
         const string descricaoRegistroZero = "REGISTRO_HEADER_ARQUIVO_(0)"; // Header de arquivo
         const string descricaoRegistroNove = "REGISTRO_TRAILER_ARQUIVO_(9)"; // Trailer de arquivo
 
-        // Segmentos para Pagamento Através de Crédito em Conta, Cheque,OP, DOC, TED ou Pagamento com Autenticação
+        // Segmentos para Pagamento Através de Crédito em Conta, Cheque,OP, DOC, TED ou
+        // Pagamento com Autenticação
         const string segmentoVariosA = "SEGMENTO_PGTOS_DIVERSOS_A";
         const string segmentoVariosB = "SEGMENTO_PGTOS_DIVERSOS_B";
         const string segmentoVariosC = "SEGMENTO_PGTOS_DIVERSOS_C";
@@ -43,7 +43,7 @@ namespace BRD_API_REGRAS.Services
         const string descricaoRegistroUm_PgTributos = "REGISTRO_PGTO_TRIBUTOS_HEADER_LOTE_(1)"; // Header de lote
         const string descricaoRegistroCinco_PgTributos = "REGISTRO_PGTO_TRIBUTOS_TRAILER_LOTE_(5)"; // Trailer de lote
 
-        // Segmentos para Bloqueto Eletrônico G/H/Y03/Y51/
+        // Segmentos para Bloqueto Eletrônico G, H, Y03, Y51
         const string segmentoBloquetoEletronico_G = "BLOQUETO_ELETRONICO_SEGMENTO_G";
         const string segmentoBloquetoEletronico_H = "BLOQUETO_ELETRONICO_SEGMENTO_H";
         const string segmentoBloquetoEletronico_Y03 = "BLOQUETO_ELETRONICO_SEGMENTO_Y3";
@@ -175,7 +175,6 @@ namespace BRD_API_REGRAS.Services
 
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Critical Code Smell", "S2479:Whitespace and control characters in string literals should be explicit", Justification = "<Pending>")]
         public dynamic MontarJsonMtp240(dynamic dynamicList, string codigoArquivo) // MULTIPAG 240
         {
             #region LEGENDAS
@@ -918,7 +917,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectBloquetoEletronicoSegmentoY03.SufixoCEP = "136:3:N:R:0:136-138::Erro - Sufixo do CEP:";
             cdObjectBloquetoEletronicoSegmentoY03.Cidade = "139:15:A:R:0:139-153::Erro - Cidade:";
             cdObjectBloquetoEletronicoSegmentoY03.UF = "154:2:A:R:0:154-155::Erro - Unidade da Federação:";
-            cdObjectBloquetoEletronicoSegmentoY03.CNAB2 = "156:85:A:V:0:156-240: " + new string(' ', 85) + " :Erro - Uso Exclusivo FEBRABAN/CNAB:";
+            cdObjectBloquetoEletronicoSegmentoY03.CNAB2 = "156:85:A:V:0:156-240:" + new string(' ', 85) + ":Erro - Uso Exclusivo FEBRABAN/CNAB:";
             JsonObjectsGenerator.AddProperty(dynamicList, segmentoBloquetoEletronico_Y03, cdObjectBloquetoEletronicoSegmentoY03);
             #endregion
 
