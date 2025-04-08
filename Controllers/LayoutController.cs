@@ -32,7 +32,7 @@ namespace BRD_API_REGRAS.Controllers
             }
             catch(Exception ex)
             {
-                return BadRequest("Erro API Regras : " + ex.InnerException);
+                return BadRequest("Erro na API de regras : " + ex.InnerException);
 
             }
         }
