@@ -6,13 +6,13 @@ namespace BRD_API_REGRAS.Services
 {
     public class DefineLayoutService
     {
-        #region Constantes para nome de registro de arquivo
+        #region CONSTANTES
 
         const string descricaoRegistroZero = "REGISTRO_HEADER_ARQUIVO_(0)"; // Header de arquivo
         const string descricaoRegistroNove = "REGISTRO_TRAILER_ARQUIVO_(9)"; // Trailer de arquivo
 
-        // Segmentos para Pagamento Através de Crédito em Conta, Cheque,OP, DOC, TED ou
-        // Pagamento com Autenticação
+        // SEGMENTOS PARA PAGAMENTO ATRAVÉS DE CRÉDITO EM CONTA, CHEQUE,OP, DOC, TED OU
+        // PAGAMENTO COM AUTENTICAÇÃO
         const string segmentoVariosA = "SEGMENTO_PGTOS_DIVERSOS_A";
         const string segmentoVariosB = "SEGMENTO_PGTOS_DIVERSOS_B";
         const string segmentoVariosC = "SEGMENTO_PGTOS_DIVERSOS_C";
@@ -21,7 +21,7 @@ namespace BRD_API_REGRAS.Services
         const string descricaoRegistroUm_PgVarios = "REGISTRO_PGTOS_DIVERSOS_HEADER_LOTE_(1)"; // Header de lote
         const string descricaoRegistroCinco_PgVarios = "REGISTRO_PGTOS_DIVERSOS_TRAILER_LOTE_(5)"; // Trailer de lote
 
-        // Segmentos para Pagamento de Títulos
+        // SEGMENTOS PARA PAGAMENTO DE TÍTULOS
         const string segmentoPgTit_J = "PGTO_TITULO_SEGMENTO_J";
         const string segmentoPgTit_J52 = "PGTO_TITULO_SEGMENTO_J52";
         const string segmentoPgTit_5 = "PGTO_TITULO_SEGMENTO_5";
@@ -29,7 +29,7 @@ namespace BRD_API_REGRAS.Services
         const string descricaoRegistroUm_PgTitulos = "REGISTRO_PGTO_TITULOS_HEADER_LOTE_(1)"; // Header de lote
         const string descricaoRegistroCinco_PgTitulos = "REGISTRO_PGTO_TITULOS_TRAILER_LOTE_(5)"; // Trailer de lote
 
-        // SEGMENTOS : O , N, N1 GPS , N2 DARF , N3 DARF SIMPLES , N4 GARE SP , W , W1 , 5 , Z
+        // SEGMENTOS PGTOS TRIBUTOS : O , N, N1 GPS , N2 DARF , N3 DARF SIMPLES , N4 GARE SP , W , W1 , 5 , Z
         const string segmentoPgTrib_O = "PGTO_TRIBUTOS_SEGMENTO_O";
         const string segmentoPgTrib_N = "PGTO_TRIBUTOS_SEGMENTO_N";
         const string segmentoPgTrib_N1 = "PGTO_TRIBUTOS_SEGMENTO_N1";
@@ -43,13 +43,18 @@ namespace BRD_API_REGRAS.Services
         const string descricaoRegistroUm_PgTributos = "REGISTRO_PGTO_TRIBUTOS_HEADER_LOTE_(1)"; // Header de lote
         const string descricaoRegistroCinco_PgTributos = "REGISTRO_PGTO_TRIBUTOS_TRAILER_LOTE_(5)"; // Trailer de lote
 
-        // Segmentos para Bloqueto Eletrônico G, H, Y03, Y51
+        // SEGMENTOS PARA BLOQUETO ELETRÔNICO G, H, Y03, Y51
         const string segmentoBloquetoEletronico_G = "BLOQUETO_ELETRONICO_SEGMENTO_G";
         const string segmentoBloquetoEletronico_H = "BLOQUETO_ELETRONICO_SEGMENTO_H";
         const string segmentoBloquetoEletronico_Y03 = "BLOQUETO_ELETRONICO_SEGMENTO_Y3";
         const string segmentoBloquetoEletronico_Y51 = "BLOQUETO_ELETRONICO_SEGMENTO_Y51";
         const string descricaoRegistroUm_BloquetoEletronico = "REGISTRO_BLOQUETO_ELETRONICO_HEADER_LOTE_(1)"; // Header de lote
         const string descricaoRegistroCinco_BloquetoEletronico = "REGISTRO_BLOQUETO_ELETRONICO_TRAILER_LOTE_(5)"; // Trailer de lote
+
+        // SEGMENTOS PARA ALEGAÇÃO DO SACADO Y2
+        const string segmentoAlegacaoSacado_Y2 = "ALEGACAO_SACADO_SEGMENTO_Y2";
+        const string descricaoRegistroUm_AlegacaoSacado = "REGISTRO_ALEGACAO_SACADO_HEADER_LOTE_(1)"; // Header de lote
+        const string descricaoRegistroCinco_AlegacaoSacado = "REGISTRO_ALEGACAO_SACADO_TRAILER_LOTE_(5)"; // Trailer de lote
 
         #endregion
 
@@ -568,8 +573,8 @@ namespace BRD_API_REGRAS.Services
             // SEGMENTOS : O , N, N1 GPS , N2 DARF , N3 DARF SIMPLES , N4 GARE SP , W , W1 , 5 , Z
 
             #region Objetos
-            dynamic cdObjectPgtoTrib1 = new ExpandoObject(); // Header de lote
-            dynamic cdObjectPgtoTrib5 = new ExpandoObject(); // Trailer de lote
+            dynamic cdObjectPgtoTribHeader1 = new ExpandoObject(); // Header de lote
+            dynamic cdObjectPgtoTribTrailer5 = new ExpandoObject(); // Trailer de lote
             dynamic cdObjectSegmentoPgtoTribO = new ExpandoObject();
             dynamic cdObjectSegmentoPgtoTribN = new ExpandoObject();
             dynamic cdObjectSegmentoPgtoTribN1 = new ExpandoObject();
@@ -583,48 +588,49 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region HEADER DE LOTE
-            cdObjectPgtoTrib1.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação:";
-            cdObjectPgtoTrib1.LoteServico = "4:4:N:R:0:4-7:0000:Erro - Lote de Serviço:";
-            cdObjectPgtoTrib1.TipoRegistro = "8:1:N:R:0:8-8:1:Erro - Tipo de Registro:";
-            cdObjectPgtoTrib1.TipoOperacao = "9:1:A:R:0:9-9:C:Erro - Tipo da Operação:";
-            cdObjectPgtoTrib1.TipoServico = "10:2:N:R:0:10-11:20:Erro - Tipo do Serviço:"; // 20 = Pagamento a Fornecedores/Tributos
-            cdObjectPgtoTrib1.FormaLancamento = "12:2:N:R:0:12-13:41:Erro - Forma de Lançamento:"; // 41 = DOC/TED
-            cdObjectPgtoTrib1.VersaoLayoutLote = "14:3:N:R:0:14-16:012:Erro - Versão do Layout do Lote:";
-            cdObjectPgtoTrib1.UsoExclusivoFebraban1 = "17:1:A:V:0:17-17: :Erro - Uso FEBRABAN/CNAB:";
-            cdObjectPgtoTrib1.TipoInscricaoEmpresa = "18:1:N:R:0:18-18:2:Erro - Tipo Inscrição (1-CPF/2-CNPJ):";
-            cdObjectPgtoTrib1.NumeroInscricaoEmpresa = "19:14:N:R:0:19-32::Erro - CNPJ/CPF da Empresa:";
-            cdObjectPgtoTrib1.CodigoConvenioBanco = "33:20:A:R:0:33-52::Erro - Código do Convênio:";
-            cdObjectPgtoTrib1.AgenciaMantenedora = "53:5:N:R:0:53-57::Erro - Agência Mantenedora:";
-            cdObjectPgtoTrib1.DigitoVerificadorAgencia = "58:1:A:R:0:58-58::Erro - DV Agência:";
-            cdObjectPgtoTrib1.NumeroContaCorrente = "59:12:N:R:0:59-70::Erro - Conta Corrente:";
-            cdObjectPgtoTrib1.DigitoVerificadorConta = "71:1:A:R:0:71-71::Erro - DV Conta:";
-            cdObjectPgtoTrib1.DigitoVerificadorAgenciaConta = "72:1:A:R:0:72-72::Erro - DV Ag/Conta:";
-            cdObjectPgtoTrib1.NomeEmpresa = "73:30:A:R:0:73-102::Erro - Nome da Empresa:";
-            cdObjectPgtoTrib1.Mensagem1 = "103:40:A:V:0:103-142::Erro - Mensagem:";
-            cdObjectPgtoTrib1.Logradouro = "143:30:A:V:0:143-172::Erro - Logradouro:";
-            cdObjectPgtoTrib1.Numero = "173:5:N:V:0:173-177::Erro - Número:";
-            cdObjectPgtoTrib1.Complemento = "178:15:A:V:0:178-192::Erro - Complemento:";
-            cdObjectPgtoTrib1.Cidade = "193:20:A:V:0:193-212::Erro - Cidade:";
-            cdObjectPgtoTrib1.CEP = "213:5:N:V:0:213-217::Erro - CEP:";
-            cdObjectPgtoTrib1.ComplementoCEP = "218:3:A:V:0:218-220::Erro - Compl. CEP:";
-            cdObjectPgtoTrib1.Estado = "221:2:A:V:0:221-222::Erro - Estado:";
-            cdObjectPgtoTrib1.IndicativoFormaPagamento = "223:2:N:R:0:223-224:01:Erro - Forma Pagamento:"; // 01 = Débito em Conta
-            cdObjectPgtoTrib1.UsoExclusivoFebraban2 = "225:6:A:V:0:225-230:      :Erro - Uso FEBRABAN:";
-            cdObjectPgtoTrib1.OcorrenciasRetorno = "231:10:A:V:0:231-240::Erro - Ocorrências p/ Retorno:";
-            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroUm_PgTributos, cdObjectPgtoTrib1);
+            cdObjectPgtoTribHeader1.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação:";
+            cdObjectPgtoTribHeader1.LoteServico = "4:4:N:R:0:4-7:0000:Erro - Lote de Serviço:";
+            cdObjectPgtoTribHeader1.TipoRegistro = "8:1:N:R:0:8-8:1:Erro - Tipo de Registro:";
+            cdObjectPgtoTribHeader1.TipoOperacao = "9:1:A:R:0:9-9:C:Erro - Tipo da Operação:";
+            cdObjectPgtoTribHeader1.TipoServico = "10:2:N:R:0:10-11:20:Erro - Tipo do Serviço:"; // 20 = Pagamento a Fornecedores/Tributos
+            cdObjectPgtoTribHeader1.FormaLancamento = "12:2:N:R:0:12-13:41:Erro - Forma de Lançamento:"; // 41 = DOC/TED
+            cdObjectPgtoTribHeader1.VersaoLayoutLote = "14:3:N:R:0:14-16:012:Erro - Versão do Layout do Lote:";
+            cdObjectPgtoTribHeader1.UsoExclusivoFebraban1 = "17:1:A:V:0:17-17: :Erro - Uso FEBRABAN/CNAB:";
+            cdObjectPgtoTribHeader1.TipoInscricaoEmpresa = "18:1:N:R:0:18-18:2:Erro - Tipo Inscrição (1-CPF/2-CNPJ):";
+            cdObjectPgtoTribHeader1.NumeroInscricaoEmpresa = "19:14:N:R:0:19-32::Erro - CNPJ/CPF da Empresa:";
+            cdObjectPgtoTribHeader1.CodigoConvenioBanco = "33:20:A:R:0:33-52::Erro - Código do Convênio:";
+            cdObjectPgtoTribHeader1.AgenciaMantenedora = "53:5:N:R:0:53-57::Erro - Agência Mantenedora:";
+            cdObjectPgtoTribHeader1.DigitoVerificadorAgencia = "58:1:A:R:0:58-58::Erro - DV Agência:";
+            cdObjectPgtoTribHeader1.NumeroContaCorrente = "59:12:N:R:0:59-70::Erro - Conta Corrente:";
+            cdObjectPgtoTribHeader1.DigitoVerificadorConta = "71:1:A:R:0:71-71::Erro - DV Conta:";
+            cdObjectPgtoTribHeader1.DigitoVerificadorAgenciaConta = "72:1:A:R:0:72-72::Erro - DV Ag/Conta:";
+            cdObjectPgtoTribHeader1.NomeEmpresa = "73:30:A:R:0:73-102::Erro - Nome da Empresa:";
+            cdObjectPgtoTribHeader1.Mensagem1 = "103:40:A:V:0:103-142::Erro - Mensagem:";
+            cdObjectPgtoTribHeader1.Logradouro = "143:30:A:V:0:143-172::Erro - Logradouro:";
+            cdObjectPgtoTribHeader1.Numero = "173:5:N:V:0:173-177::Erro - Número:";
+            cdObjectPgtoTribHeader1.Complemento = "178:15:A:V:0:178-192::Erro - Complemento:";
+            cdObjectPgtoTribHeader1.Cidade = "193:20:A:V:0:193-212::Erro - Cidade:";
+            cdObjectPgtoTribHeader1.CEP = "213:5:N:V:0:213-217::Erro - CEP:";
+            cdObjectPgtoTribHeader1.ComplementoCEP = "218:3:A:V:0:218-220::Erro - Compl. CEP:";
+            cdObjectPgtoTribHeader1.Estado = "221:2:A:V:0:221-222::Erro - Estado:";
+            cdObjectPgtoTribHeader1.IndicativoFormaPagamento = "223:2:N:R:0:223-224:01:Erro - Forma Pagamento:"; // 01 = Débito em Conta
+            cdObjectPgtoTribHeader1.UsoExclusivoFebraban2 = "225:6:A:V:0:225-230:      :Erro - Uso FEBRABAN:";
+            cdObjectPgtoTribHeader1.OcorrenciasRetorno = "231:10:A:V:0:231-240::Erro - Ocorrências p/ Retorno:";
+            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroUm_PgTributos, cdObjectPgtoTribHeader1);
             #endregion
 
             #region TRAILER DE LOTE
-            cdObjectPgtoTrib5.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação:";
-            cdObjectPgtoTrib5.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
-            cdObjectPgtoTrib5.TipoRegistro = "8:1:N:R:0:8-8:5:Erro - Tipo de Registro:";
-            cdObjectPgtoTrib5.UsoExclusivoFebraban1 = "9:9:A:V:0:9-17:         :Erro - Uso FEBRABAN/CNAB:"; // 9 espaços
-            cdObjectPgtoTrib5.QuantidadeRegistros = "18:6:N:R:0:18-23::Erro - Qtde Registros do Lote:";
-            cdObjectPgtoTrib5.SomatoriaValores = "24:16:N:R:0:24-41::Erro - Somatória de Valores (2 decimais):";
-            cdObjectPgtoTrib5.SomatoriaQuantidadeMoedas = "42:13:N:V:0:42-59::Erro - Somatória Qtde Moedas (5 decimais):";
-            cdObjectPgtoTrib5.NumeroAvisoDebito = "60:6:N:V:0:60-65::Erro - Nº Aviso de Débito:";
-            cdObjectPgtoTrib5.UsoExclusivoFebraban2 = "66:165:A:V:0:66-230:" + new string(' ', 165) + ":Erro - Uso FEBRABAN:";
-            cdObjectPgtoTrib5.OcorrenciasRetorno = "231:10:A:V:0:231-240::Erro - Ocorrências p/ Retorno:"; JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroCinco_PgTributos, cdObjectPgtoTrib5);
+            cdObjectPgtoTribTrailer5.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação:";
+            cdObjectPgtoTribTrailer5.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
+            cdObjectPgtoTribTrailer5.TipoRegistro = "8:1:N:R:0:8-8:5:Erro - Tipo de Registro:";
+            cdObjectPgtoTribTrailer5.UsoExclusivoFebraban1 = "9:9:A:V:0:9-17:         :Erro - Uso FEBRABAN/CNAB:"; // 9 espaços
+            cdObjectPgtoTribTrailer5.QuantidadeRegistros = "18:6:N:R:0:18-23::Erro - Qtde Registros do Lote:";
+            cdObjectPgtoTribTrailer5.SomatoriaValores = "24:16:N:R:0:24-41::Erro - Somatória de Valores (2 decimais):";
+            cdObjectPgtoTribTrailer5.SomatoriaQuantidadeMoedas = "42:13:N:V:0:42-59::Erro - Somatória Qtde Moedas (5 decimais):";
+            cdObjectPgtoTribTrailer5.NumeroAvisoDebito = "60:6:N:V:0:60-65::Erro - Nº Aviso de Débito:";
+            cdObjectPgtoTribTrailer5.UsoExclusivoFebraban2 = "66:165:A:V:0:66-230:" + new string(' ', 165) + ":Erro - Uso FEBRABAN:";
+            cdObjectPgtoTribTrailer5.OcorrenciasRetorno = "231:10:A:V:0:231-240::Erro - Ocorrências p/ Retorno:"; 
+            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroCinco_PgTributos, cdObjectPgtoTribTrailer5);
             #endregion
 
             #region SEGMENTO O
@@ -794,8 +800,8 @@ namespace BRD_API_REGRAS.Services
             #region BLOQUETO ELETRONICO
             // G/H/Y03/Y51/
             #region Objetos
-            dynamic cdObjectBloquetoEletronico1 = new ExpandoObject(); // Header de lote
-            dynamic cdObjectBloquetoEletronico5 = new ExpandoObject(); // Trailer de lote
+            dynamic cdObjectBloquetoEletronicoHeader1 = new ExpandoObject(); // Header de lote
+            dynamic cdObjectBloquetoEletronicoTrailer5 = new ExpandoObject(); // Trailer de lote
             dynamic cdObjectBloquetoEletronicoSegmentoG = new ExpandoObject();
             dynamic cdObjectBloquetoEletronicoSegmentoH = new ExpandoObject();
             dynamic cdObjectBloquetoEletronicoSegmentoY03 = new ExpandoObject();
@@ -803,39 +809,39 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region HEADER DE LOTE
-            cdObjectBloquetoEletronico1.CodigoBanco = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação:";
-            cdObjectBloquetoEletronico1.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
-            cdObjectBloquetoEletronico1.TipoRegistro = "8:1:N:R:0:8-8:1:Erro - Tipo de Registro:";
-            cdObjectBloquetoEletronico1.TipoOperacao = "9:1:N:R:0:9-9:1:Erro - Tipo de Operação:";
-            cdObjectBloquetoEletronico1.TipoServico = "10:2:N:R:0:10-11:03:Erro - Tipo de Serviço:";
-            cdObjectBloquetoEletronico1.CNAB1 = "12:2:A:V:0:12-13:  :Erro - Uso FEBRABAN/CNAB:"; // 2 espaços
-            cdObjectBloquetoEletronico1.VersaoLayout = "14:3:N:R:0:14-16:022:Erro - Versão do Layout:";
-            cdObjectBloquetoEletronico1.CNAB2 = "17:1:A:V:0:17-17: :Erro - Uso FEBRABAN/CNAB:";
-            cdObjectBloquetoEletronico1.TipoInscricao = "18:1:N:R:0:18-18::Erro - Tipo Inscrição (1-CPF/2-CNPJ):";
-            cdObjectBloquetoEletronico1.NumeroInscricao = "19:15:N:R:0:19-33::Erro - CNPJ/CPF da Empresa:";
-            cdObjectBloquetoEletronico1.CodigoConvenio = "34:20:A:R:0:34-53::Erro - Código do Convênio:";
-            cdObjectBloquetoEletronico1.Agencia = "54:5:N:R:0:54-58::Erro - Agência Mantenedora:";
-            cdObjectBloquetoEletronico1.DigitoAgencia = "59:1:A:R:0:59-59::Erro - Dígito Agência:";
-            cdObjectBloquetoEletronico1.ContaCorrente = "60:12:N:R:0:60-71::Erro - Conta Corrente:";
-            cdObjectBloquetoEletronico1.DigitoConta = "72:1:A:R:0:72-72::Erro - Dígito Conta:";
-            cdObjectBloquetoEletronico1.DigitoAgenciaConta = "73:1:A:R:0:73-73::Erro - Dígito Ag/Conta:";
-            cdObjectBloquetoEletronico1.NomeEmpresa = "74:30:A:R:0:74-103::Erro - Nome da Empresa:";
-            cdObjectBloquetoEletronico1.CNAB3 = "104:137:A:V:0:104-240:" + new string(' ', 137) + ":Erro - Uso FEBRABAN:";
-            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroUm_BloquetoEletronico, cdObjectBloquetoEletronico1);
+            cdObjectBloquetoEletronicoHeader1.CodigoBanco = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação:";
+            cdObjectBloquetoEletronicoHeader1.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
+            cdObjectBloquetoEletronicoHeader1.TipoRegistro = "8:1:N:R:0:8-8:1:Erro - Tipo de Registro:";
+            cdObjectBloquetoEletronicoHeader1.TipoOperacao = "9:1:N:R:0:9-9:1:Erro - Tipo de Operação:";
+            cdObjectBloquetoEletronicoHeader1.TipoServico = "10:2:N:R:0:10-11:03:Erro - Tipo de Serviço:";
+            cdObjectBloquetoEletronicoHeader1.CNAB1 = "12:2:A:V:0:12-13:  :Erro - Uso FEBRABAN/CNAB:"; // 2 espaços
+            cdObjectBloquetoEletronicoHeader1.VersaoLayout = "14:3:N:R:0:14-16:022:Erro - Versão do Layout:";
+            cdObjectBloquetoEletronicoHeader1.CNAB2 = "17:1:A:V:0:17-17: :Erro - Uso FEBRABAN/CNAB:";
+            cdObjectBloquetoEletronicoHeader1.TipoInscricao = "18:1:N:R:0:18-18::Erro - Tipo Inscrição (1-CPF/2-CNPJ):";
+            cdObjectBloquetoEletronicoHeader1.NumeroInscricao = "19:15:N:R:0:19-33::Erro - CNPJ/CPF da Empresa:";
+            cdObjectBloquetoEletronicoHeader1.CodigoConvenio = "34:20:A:R:0:34-53::Erro - Código do Convênio:";
+            cdObjectBloquetoEletronicoHeader1.Agencia = "54:5:N:R:0:54-58::Erro - Agência Mantenedora:";
+            cdObjectBloquetoEletronicoHeader1.DigitoAgencia = "59:1:A:R:0:59-59::Erro - Dígito Agência:";
+            cdObjectBloquetoEletronicoHeader1.ContaCorrente = "60:12:N:R:0:60-71::Erro - Conta Corrente:";
+            cdObjectBloquetoEletronicoHeader1.DigitoConta = "72:1:A:R:0:72-72::Erro - Dígito Conta:";
+            cdObjectBloquetoEletronicoHeader1.DigitoAgenciaConta = "73:1:A:R:0:73-73::Erro - Dígito Ag/Conta:";
+            cdObjectBloquetoEletronicoHeader1.NomeEmpresa = "74:30:A:R:0:74-103::Erro - Nome da Empresa:";
+            cdObjectBloquetoEletronicoHeader1.CNAB3 = "104:137:A:V:0:104-240:" + new string(' ', 137) + ":Erro - Uso FEBRABAN:";
+            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroUm_BloquetoEletronico, cdObjectBloquetoEletronicoHeader1);
             #endregion
 
             #region TRAILER DE LOTE
-            cdObjectBloquetoEletronico5.CodigoBanco = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação:";
-            cdObjectBloquetoEletronico5.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
-            cdObjectBloquetoEletronico5.TipoRegistro = "8:1:N:R:0:8-8:5:Erro - Tipo de Registro:";
-            cdObjectBloquetoEletronico5.UsoExclusivoFebraban1 = "9:9:A:V:0:9-17:         :Erro - Uso FEBRABAN/CNAB:";
-            cdObjectBloquetoEletronico5.QuantidadeRegistros = "18:6:N:R:0:18-23::Erro - Qtde Registros do Lote:";
-            cdObjectBloquetoEletronico5.SomatoriaValores = "24:16:N:R:0:24-41::Erro - Somatória de Valores (2 decimais):";
-            cdObjectBloquetoEletronico5.SomatoriaQuantidadeMoedas = "42:13:N:V:0:42-59::Erro - Somatória Qtde Moedas (5 decimais):";
-            cdObjectBloquetoEletronico5.NumeroAvisoDebito = "60:6:N:V:0:60-65::Erro - Nº Aviso de Débito:";
-            cdObjectBloquetoEletronico5.UsoExclusivoFebraban2 = "66:165:A:V:0:66-230:" + new string(' ', 165) + ":Erro - Uso FEBRABAN:";
-            cdObjectBloquetoEletronico5.OcorrenciasRetorno = "231:10:A:V:0:231-240::Erro - Ocorrências p/ Retorno:";
-            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroCinco_BloquetoEletronico, cdObjectBloquetoEletronico5);
+            cdObjectBloquetoEletronicoTrailer5.CodigoBanco = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação:";
+            cdObjectBloquetoEletronicoTrailer5.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
+            cdObjectBloquetoEletronicoTrailer5.TipoRegistro = "8:1:N:R:0:8-8:5:Erro - Tipo de Registro:";
+            cdObjectBloquetoEletronicoTrailer5.UsoExclusivoFebraban1 = "9:9:A:V:0:9-17:         :Erro - Uso FEBRABAN/CNAB:";
+            cdObjectBloquetoEletronicoTrailer5.QuantidadeRegistros = "18:6:N:R:0:18-23::Erro - Qtde Registros do Lote:";
+            cdObjectBloquetoEletronicoTrailer5.SomatoriaValores = "24:16:N:R:0:24-41::Erro - Somatória de Valores (2 decimais):";
+            cdObjectBloquetoEletronicoTrailer5.SomatoriaQuantidadeMoedas = "42:13:N:V:0:42-59::Erro - Somatória Qtde Moedas (5 decimais):";
+            cdObjectBloquetoEletronicoTrailer5.NumeroAvisoDebito = "60:6:N:V:0:60-65::Erro - Nº Aviso de Débito:";
+            cdObjectBloquetoEletronicoTrailer5.UsoExclusivoFebraban2 = "66:165:A:V:0:66-230:" + new string(' ', 165) + ":Erro - Uso FEBRABAN:";
+            cdObjectBloquetoEletronicoTrailer5.OcorrenciasRetorno = "231:10:A:V:0:231-240::Erro - Ocorrências p/ Retorno:";
+            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroCinco_BloquetoEletronico, cdObjectBloquetoEletronicoTrailer5);
             #endregion
 
             #region SEGMENTO G
@@ -950,6 +956,66 @@ namespace BRD_API_REGRAS.Services
 
             #endregion
 
+            #region ALEGAÇÃO SACADO
+            // G/H/Y03/Y51/
+            #region Objetos
+            dynamic cdObjectAlegacaoSacadoHeader1 = new ExpandoObject(); // Header de lote
+            dynamic cdObjectAlegacaoSacadoTrailer5 = new ExpandoObject(); // Trailer de lote
+            dynamic cdObjectAlegacaoSacadoSegmentoY2 = new ExpandoObject();
+            #endregion
+
+            #region HEADER DE LOTE
+            cdObjectAlegacaoSacadoHeader1.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código do Banco na Compensação:";
+            cdObjectAlegacaoSacadoHeader1.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
+            cdObjectAlegacaoSacadoHeader1.TipoRegistro = "8:1:N:R:0:8-8:1:Erro - Tipo de Registro:";
+            cdObjectAlegacaoSacadoHeader1.TipoOperacao = "9:1:N:R:0:9-9:C:Erro - Tipo de Operação:";
+            cdObjectAlegacaoSacadoHeader1.TipoServico = "10:2:N:R:0:10-11:29:Erro - Tipo de Serviço:";
+            cdObjectAlegacaoSacadoHeader1.CNAB1 = "12:2:A:V:0:12-13:  :Erro - Uso Exclusivo da FEBRABAN/CNAB:"; // 2 espaços
+            cdObjectAlegacaoSacadoHeader1.VersaoLayoutLote = "14:3:N:R:0:14-16:010:Erro - Nº da Versão do Layout do Lote:";
+            cdObjectAlegacaoSacadoHeader1.CNAB2 = "17:1:A:V:0:17-17: :Erro - Uso Exclusivo da FEBRABAN/CNAB:"; // 1 espaço
+            cdObjectAlegacaoSacadoHeader1.TipoInscricaoEmpresa = "18:1:N:R:0:18-18::Erro - Tipo de Inscrição da Empresa:";
+            cdObjectAlegacaoSacadoHeader1.NumeroInscricaoEmpresa = "19:15:N:R:0:19-33::Erro - Número de Inscrição da Empresa:";
+            cdObjectAlegacaoSacadoHeader1.CodigoConvenioBanco = "34:20:A:R:0:34-53::Erro - Código do Convênio no Banco:";
+            cdObjectAlegacaoSacadoHeader1.AgenciaMantenedora = "54:5:N:R:0:54-58::Erro - Agência Mantenedora da Conta:";
+            cdObjectAlegacaoSacadoHeader1.DigitoVerificadorAgencia = "59:1:A:R:0:59-59::Erro - Dígito Verificador da Agência:";
+            cdObjectAlegacaoSacadoHeader1.NumeroContaCorrente = "60:12:N:R:0:60-71::Erro - Número da Conta Corrente:";
+            cdObjectAlegacaoSacadoHeader1.DigitoVerificadorConta = "72:1:A:R:0:72-72::Erro - Dígito Verificador da Conta:";
+            cdObjectAlegacaoSacadoHeader1.DigitoVerificadorAgenciaConta = "73:1:A:R:0:73-73::Erro - Dígito Verificador da Ag/Conta:";
+            cdObjectAlegacaoSacadoHeader1.NomeEmpresa = "74:30:A:R:0:74-103::Erro - Nome da Empresa:";
+            cdObjectAlegacaoSacadoHeader1.CNAB3 = "104:137:A:V:0:104-240:" + new string(' ', 137) + ":Erro - Uso Exclusivo da FEBRABAN/CNAB:"; // 137 espaços
+            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroUm_AlegacaoSacado, cdObjectAlegacaoSacadoHeader1);
+            #endregion
+
+            #region TRAILER DE LOTE
+            cdObjectAlegacaoSacadoTrailer5.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código do Banco na Compensação:";
+            cdObjectAlegacaoSacadoTrailer5.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
+            cdObjectAlegacaoSacadoTrailer5.TipoRegistro = "8:1:N:R:0:8-8:5:Erro - Tipo de Registro:";
+            cdObjectAlegacaoSacadoTrailer5.CNAB1 = "9:9:A:V:0:9-17::Erro - Uso Exclusivo FEBRABAN/CNAB:";
+            cdObjectAlegacaoSacadoTrailer5.QuantidadeRegistros = "18:6:N:R:0:18-23::Erro - Quantidade de Registros do Lote:";
+            cdObjectAlegacaoSacadoTrailer5.CNAB2 = "60:181:A:V:0:60-240:" + new string(' ', 181) + ":Erro - Uso Exclusivo FEBRABAN/CNAB:"; // 181 espaços
+            JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroCinco_AlegacaoSacado, cdObjectAlegacaoSacadoTrailer5);
+            #endregion
+
+            #region SEGMENTO Y2
+            // Segmento Y2
+            cdObjectAlegacaoSacadoSegmentoY2.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código no Banco na compensação:";
+            cdObjectAlegacaoSacadoSegmentoY2.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
+            cdObjectAlegacaoSacadoSegmentoY2.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Tipo de Registro:";
+            cdObjectAlegacaoSacadoSegmentoY2.NumeroSequencialRegistro = "9:5:N:R:0:9-13::Erro - N° Sequencial do Registro no Lote:";
+            cdObjectAlegacaoSacadoSegmentoY2.CodigoSegmento = "14:1:C:R:0:14-14:Y:Erro - Código do Segmento do Registro Detalhe:";
+            cdObjectAlegacaoSacadoSegmentoY2.UsoExclusivoFebrabanCnab1 = "15:1:C:V:0:15-15: :Erro - Uso Exclusivo FEBRABAN/CNAB:";
+            cdObjectAlegacaoSacadoSegmentoY2.CodigoMovimentoRemessa = "16:2:N:R:0:16-17:40:Erro - Código de Movimento Remessa:";
+            cdObjectAlegacaoSacadoSegmentoY2.IdentificacaoRegistroOpcional = "18:2:N:R:0:18-19:02:Erro - Identificação do Registro Opcional:";
+            cdObjectAlegacaoSacadoSegmentoY2.CodigoBarras = "20:44:N:R:0:20-63::Erro - Código de Barras:";
+            cdObjectAlegacaoSacadoSegmentoY2.CodigoPadrao = "64:2:N:R:0:64-65::Erro - Código Padrão:";
+            cdObjectAlegacaoSacadoSegmentoY2.CodigoOcorrencia = "66:4:N:R:0:66-69::Erro - Código de Ocorrência:";
+            cdObjectAlegacaoSacadoSegmentoY2.ComplementoOcorrencia = "70:150:C:V:0:70-219::Erro - Complemento de Ocorrência:";
+            cdObjectAlegacaoSacadoSegmentoY2.UsoExclusivoFebrabanCnab2 = "220:11:C:V:0:220-230:           :Erro - Uso Exclusivo FEBRABAN/CNAB:";
+            cdObjectAlegacaoSacadoSegmentoY2.CodigosOcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Código de Ocorrência Retorno:";
+            JsonObjectsGenerator.AddProperty(dynamicList, segmentoAlegacaoSacado_Y2, cdObjectAlegacaoSacadoSegmentoY2);
+            #endregion
+
+            #endregion
             return dynamicList;
 
         }
