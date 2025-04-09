@@ -262,7 +262,7 @@ namespace BRD_API_REGRAS.Services
 
             #region HEADER LOTE
             cdObject1.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação:";
-            cdObject1.LoteServico = "4:4:N:R:0:4-7:0001:Erro - Lote de Serviço:";
+            cdObject1.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
             cdObject1.TipoRegistro = "8:1:N:R:0:8-8:1:Erro - Tipo de Registro:";
             cdObject1.TipoOperacao = "9:1:C:R:0:9-9:C:Erro - Tipo da Operação:";
             cdObject1.TipoServico = "10:2:N:R:0:10-11::Erro - Tipo do Serviço:";
@@ -293,7 +293,7 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region TRAILER DE LOTE
-            cdObject5.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação:";
+            cdObject5.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código do Banco na Compensação:";
             cdObject5.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
             cdObject5.TipoRegistro = "8:1:N:R:0:8-8:5:Erro - Tipo de Registro:";
             cdObject5.UsoExclusivoFebrabanCnab1 = "9:9:C:V:0:9-17:         :Erro - Uso Exclusivo FEBRABAN/CNAB:";
@@ -399,8 +399,8 @@ namespace BRD_API_REGRAS.Services
             cdObjectSegmento5.NumeroRegistroLote = "9:5:N:R:0:9-13::Erro - Nº Registro Lote:";
             cdObjectSegmento5.CodigoSegmento = "14:1:C:R:0:14-14:5:Erro - Segmento:";
             cdObjectSegmento5.UsoExclusivoBradesco1 = "15:3:C:V:0:15-17:   :Erro - Uso Bradesco 1:";
-            cdObjectSegmento5.ListaDebito = "18:9:N:V:0:18-26:5001:Erro - Lista Débito:";
-            cdObjectSegmento5.HorarioDebito = "27:6:N:V:0:27-32:5002:Erro - Horário Débito:";
+            cdObjectSegmento5.ListaDebito = "18:9:N:V:0:18-26:000000000:Erro - Lista Débito:";
+            cdObjectSegmento5.HorarioDebito = "27:6:N:V:0:27-32::Erro - Horário Débito:";
             cdObjectSegmento5.CodigoLancamentoEspecifico = "33:5:N:V:0:33-37:5003:Erro - Cód. Lançamento:";
             cdObjectSegmento5.SegundaLinhaExtrato = "38:5:N:V:0:38-42:5004:Erro - 2ª Linha Extrato:";
             cdObjectSegmento5.UsoEmpresa = "43:50:C:V:0:43-92:                                                  :Erro - Uso Empresa:";
@@ -448,12 +448,12 @@ namespace BRD_API_REGRAS.Services
 
             #region Header Lote
             cdObjectHeaderLotePgto1.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação:";
-            cdObjectHeaderLotePgto1.LoteServico = "4:4:N:R:0:4-7:0001:Erro - Lote de Serviço:";
+            cdObjectHeaderLotePgto1.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço:";
             cdObjectHeaderLotePgto1.TipoRegistro = "8:1:N:R:0:8-8:1:Erro - Tipo de Registro:";
             cdObjectHeaderLotePgto1.TipoOperacao = "9:1:C:R:0:9-9:C:Erro - Tipo da Operação:";
             cdObjectHeaderLotePgto1.TipoServico = "10:2:N:R:0:10-11::Erro - Tipo do Serviço:";
             cdObjectHeaderLotePgto1.FormaLancamento = "12:2:N:R:0:12-13::Erro - Forma de Lançamento:";
-            cdObjectHeaderLotePgto1.VersaoLayoutLote = "14:3:N:R:0:14-16:045:Erro - Nº da Versão do Layout do Lote:";
+            cdObjectHeaderLotePgto1.VersaoLayoutLote = "14:3:N:R:0:14-16:040:Erro - Nº da Versão do Layout do Lote:";
             cdObjectHeaderLotePgto1.UsoExclusivoFebrabanCnab1 = "17:1:C:V:0:17-17: :Erro - Uso Exclusivo FEBRABAN/CNAB:";
             cdObjectHeaderLotePgto1.TipoInscricaoEmpresa = "18:1:N:R:0:18-18::Erro - Tipo de Inscrição da Empresa:";
             cdObjectHeaderLotePgto1.NumeroInscricaoEmpresa = "19:14:N:R:0:19-32::Erro - Número de Inscrição da Empresa:";
