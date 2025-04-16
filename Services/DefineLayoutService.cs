@@ -225,7 +225,7 @@ namespace BRD_API_REGRAS.Services
             cdObject0.CodigoBancoCompensacao = "1:3:N:V:0:1-3::Erro - Código do Banco na Compensação::";
             cdObject0.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço::";
             cdObject0.TipoRegistro = "8:1:N:R:0:8-8::Erro - Tipo de Registro::";
-            cdObject0.UsoExclusivoFebrabanCnab1 = "9:9:C:V:0:9-17:         :Erro - Uso Exclusivo FEBRABAN/CNAB::";
+            cdObject0.UsoExclusivoFebrabanCnab1 = "9:9:C:V:0:9-17:" + new string(' ', 9) + ":Erro - Uso Exclusivo FEBRABAN/CNAB::";
             cdObject0.TipoInscricaoEmpresa = "18:1:N:R:0:18-18::Erro - Tipo de Inscrição da Empresa::";
             cdObject0.NumeroInscricaoEmpresa = "19:14:N:R:0:19-32::Erro - Número de Inscrição da Empresa::";
             cdObject0.CodigoConvenioBanco = "33:20:C:R:0:33-52::Erro - Código do Convênio no Banco::";
@@ -335,7 +335,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectSegmentoA.CodigoFinalidadeDoc = "218:2:C:V:0:218-219::Erro - Finalidade Doc::";
             cdObjectSegmentoA.CodigoFinalidadeTED = "220:5:C:R:0:220-224::Erro - Finalidade TED::";
             cdObjectSegmentoA.ComplementoFinalidade = "225:2:C:V:0:225-226::Erro - Complemento Finalidade::";
-            cdObjectSegmentoA.UsoExclusivoFebraban1 = "227:3:C:V:0:227-229:   :Erro - Uso FEBRABAN::";
+            cdObjectSegmentoA.UsoExclusivoFebraban1 = "227:3:C:V:0:227-229:" + new string(' ', 3) + ":Erro - Uso FEBRABAN::";
             cdObjectSegmentoA.AvisoFavorecido = "230:1:N:V:0:230-230::Erro - Aviso Favorecido::";
             cdObjectSegmentoA.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Ocorrências Retorno::";
             JsonObjectsGenerator.AddProperty(dynamicList, segmentoVariosA, cdObjectSegmentoA);
@@ -408,7 +408,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectSegmento5.TipoDocumento = "93:3:N:V:0:93-95:5006:Erro - Tipo Documento::";
             cdObjectSegmento5.NumeroDocumento = "96:15:N:V:0:96-110:5007:Erro - Nº Documento::";
             cdObjectSegmento5.SerieDocumento = "111:2:C:V:0:111-112:5008:Erro - Série Documento::";
-            cdObjectSegmento5.UsoExclusivoBradesco2 = "113:15:C:V:0:113-127:               :Erro - Uso Bradesco 2::";
+            cdObjectSegmento5.UsoExclusivoBradesco2 = "113:15:C:V:0:113-127:" + new string(' ', 15) + ":Erro - Uso Bradesco 2::";
             cdObjectSegmento5.DataEmissaoDocumento = "128:8:N:V:0:128-135:5010:Erro - Emissão Documento:D:";
             cdObjectSegmento5.NomeReclamanteTED = "136:30:C:V:0:136-165:" + new string(' ', 30) + ":Erro - Nome Reclamante::";
             cdObjectSegmento5.NumeroProcessoTED = "166:25:C:V:0:166-190:" + new string(' ', 25) + ":Erro - Nº Processo::";
@@ -558,7 +558,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectSegmentoPgto5.SerieDocumento = "111:2:C:R:0:111-112:5008:Erro - Série do Documento::";
             cdObjectSegmentoPgto5.UsoExclusivoBradesco2 = "113:15:C:V:0:113-127:" + new string(' ', 15) + ":Erro - Uso Exclusivo BRADESCO/CNAB::";
             cdObjectSegmentoPgto5.DataEmissaoDocumento = "128:8:N:R:0:128-135::Erro - Data de Emissão do Documento:D:";
-            cdObjectSegmentoPgto5.UsoExclusivoBradesco3 = "136:95:C:V:0:136-230:                                                                                               :Erro - Uso Exclusivo BRADESCO/CNAB::";
+            cdObjectSegmentoPgto5.UsoExclusivoBradesco3 = "136:95:C:V:0:136-230:" + new string(' ', 95) + ":Erro - Uso Exclusivo BRADESCO/CNAB::";
             cdObjectSegmentoPgto5.OcorrenciasRetorno = "231:10:C:V:0:231-240::Erro - Códigos das Ocorrências p/ Retorno::";
             JsonObjectsGenerator.AddProperty(dynamicList, segmentoPgTit_5, cdObjectSegmentoPgto5);
             #endregion
@@ -631,7 +631,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectPgtoTribTrailer5.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação::";
             cdObjectPgtoTribTrailer5.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço::";
             cdObjectPgtoTribTrailer5.TipoRegistro = "8:1:N:R:0:8-8:5:Erro - Tipo de Registro::";
-            cdObjectPgtoTribTrailer5.UsoExclusivoFebraban1 = "9:9:A:V:0:9-17:" + new string(' ', 9) + ":Erro - Uso FEBRABAN/CNAB::"; 
+            cdObjectPgtoTribTrailer5.UsoExclusivoFebraban1 = "9:9:A:V:0:9-17:" + new string(' ', 9) + ":Erro - Uso FEBRABAN/CNAB::";
             cdObjectPgtoTribTrailer5.QuantidadeRegistros = "18:6:N:R:0:18-23::Erro - Qtde Registros do Lote::";
             cdObjectPgtoTribTrailer5.SomatoriaValores = "24:16:N:R:0:24-41::Erro - Somatória de Valores (2 decimais)::";
             cdObjectPgtoTribTrailer5.SomatoriaQuantidadeMoedas = "42:13:N:V:0:42-59::Erro - Somatória Qtde Moedas (5 decimais)::";
@@ -980,7 +980,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectAlegacaoSacadoHeader1.TipoServico = "10:2:N:R:0:10-11:29:Erro - Tipo de Serviço::";
             cdObjectAlegacaoSacadoHeader1.CNAB1 = "12:2:A:V:0:12-13:" + new string(' ', 2) + ":Erro - Uso Exclusivo da FEBRABAN/CNAB::"; // 2 espaços
             cdObjectAlegacaoSacadoHeader1.VersaoLayoutLote = "14:3:N:R:0:14-16:010:Erro - Nº da Versão do Layout do Lote::";
-            cdObjectAlegacaoSacadoHeader1.CNAB2 = "17:1:A:V:0:17-17:" + new string(' ', 1) + ":Erro - Uso Exclusivo da FEBRABAN/CNAB::"; 
+            cdObjectAlegacaoSacadoHeader1.CNAB2 = "17:1:A:V:0:17-17:" + new string(' ', 1) + ":Erro - Uso Exclusivo da FEBRABAN/CNAB::";
             cdObjectAlegacaoSacadoHeader1.TipoInscricaoEmpresa = "18:1:N:R:0:18-18::Erro - Tipo de Inscrição da Empresa::";
             cdObjectAlegacaoSacadoHeader1.NumeroInscricaoEmpresa = "19:15:N:R:0:19-33::Erro - Número de Inscrição da Empresa::";
             cdObjectAlegacaoSacadoHeader1.CodigoConvenioBanco = "34:20:A:R:0:34-53::Erro - Código do Convênio no Banco::";
