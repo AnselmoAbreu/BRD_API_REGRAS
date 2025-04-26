@@ -6,8 +6,8 @@ namespace BRD_API_REGRAS.Services
 {
     public class DefineLayoutService
     {
-        LayoutCob400Service cobranca400 = new LayoutCob400Service();
-        LayoutMtp240Service mtp240 = new LayoutMtp240Service();
+        readonly LayoutCob400Service cobranca400 = new LayoutCob400Service();
+        readonly LayoutMtp240Service mtp240 = new LayoutMtp240Service();
 
         public string MontarJson(string codigoArquivo)
         {
