@@ -135,6 +135,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="JsonObjectsGenerator.cs" />
+    <Compile Include="Services\LayoutCob400Service.cs" />
+    <Compile Include="Services\LayoutMtp240Service.cs" />
     <Compile Include="Services\DefineLayoutService.cs" />
     <Content Include=".editorconfig" />
     <None Include="App_Start\SwaggerConfig.csT" />
@@ -175,17 +177,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
-    <Content Include="ArquivosCNAB\Arq Retorno Multipag AB Ocorrencias dados genericos.txt" />
-    <Content Include="ArquivosCNAB\Cobrança 400 Remessa Sem erro e dados.txt" />
-    <Content Include="ArquivosCNAB\CObrança 400 Retorno com Qr Code Pix.txt" />
-    <Content Include="ArquivosCNAB\Comprovante Salarial 250 sem erros e dados.txt" />
-    <Content Include="ArquivosCNAB\Conciliação Bancária 200 Retorno sem erro e dados.txt" />
-    <Content Include="ArquivosCNAB\Folha 200 Remessa sem erros e dados.txt" />
-    <Content Include="ArquivosCNAB\Multipag Remessa sem erro e dados.txt" />
-    <Content Include="ArquivosCNAB\PagFor Remessa sem erros e dados.txt" />
-    <Content Include="ArquivosCNAB\REMESSA CNAB0240 PIX.TXT" />
-    <Content Include="ArquivosCNAB\REMESSATESTECOB400 erro sequencia númerica.txt" />
-    <Content Include="ArquivosCNAB\_Sistema_ArquivoMultiPag240.txt" />
+    <Content Include="Arquivos CNAB para testes\Arq Retorno Multipag AB Ocorrencias dados genericos.txt" />
+    <Content Include="Arquivos CNAB para testes\Cobrança 400 Remessa Sem erro e dados.txt" />
+    <Content Include="Arquivos CNAB para testes\CObrança 400 Retorno com Qr Code Pix.txt" />
+    <Content Include="Arquivos CNAB para testes\Comprovante Salarial 250 sem erros e dados.txt" />
+    <Content Include="Arquivos CNAB para testes\Conciliação Bancária 200 Retorno sem erro e dados.txt" />
+    <Content Include="Arquivos CNAB para testes\Folha 200 Remessa sem erros e dados.txt" />
+    <Content Include="Arquivos CNAB para testes\Multipag Remessa sem erro e dados.txt" />
+    <Content Include="Arquivos CNAB para testes\PagFor Remessa sem erros e dados.txt" />
+    <Content Include="Arquivos CNAB para testes\REMESSA CNAB0240 PIX.TXT" />
+    <Content Include="Arquivos CNAB para testes\REMESSATESTECOB400 erro sequencia númerica.txt" />
+    <Content Include="Arquivos CNAB para testes\_Sistema_ArquivoMultiPag240.txt" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -235,7 +237,7 @@
     <Content Include="Scripts\jquery-3.7.0.slim.js" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="ArquivosCNAB\_Sistema_ArquivoCobranca400.txt" />
+    <Content Include="Arquivos CNAB para testes\_Sistema_ArquivoCobranca400.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

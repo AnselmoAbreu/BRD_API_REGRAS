@@ -7,7 +7,7 @@ namespace BRD_API_REGRAS.Controllers
 {
     public class LayoutController : ApiController
     {
-        DefineLayoutService defineLayout = new DefineLayoutService();
+        readonly DefineLayoutService defineLayout = new DefineLayoutService();
 
         /// <summary>
         /// EndPoint para gerar json de estrutura de arquivos de remessa
