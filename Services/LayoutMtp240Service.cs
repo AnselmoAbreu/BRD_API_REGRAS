@@ -556,7 +556,7 @@ namespace BRD_API_REGRAS.Services
 
             #region SEGMENTO N1
             cdObjectSegmentoPgtoTribN1.CodigoReceitaTributo = "111:6:A:R:0:111-116::Erro - Código da Receita do Tributo::N002";
-            cdObjectSegmentoPgtoTribN1.TipoIdentificacaoContribuinte = "117:2:N:R:0:117-118::Erro - Tipo Identificação (01-CPF/02-CNPJ)::N003";
+            cdObjectSegmentoPgtoTribN1.TipoIdentificacaoContribuinte = "117:2:N:R:0:117-118::Erro - Tipo Identificação (01-CPF/02-CNPJ...)::N003";
             cdObjectSegmentoPgtoTribN1.IdentificacaoContribuinte = "119:14:N:R:0:119-132::Erro - CPF/CNPJ (sem formatação)::N004";
             cdObjectSegmentoPgtoTribN1.CodigoIdentificacaoTributo = "133:2:A:R:0:133-134::Erro - Código Identificação Tributo::N005";
             cdObjectSegmentoPgtoTribN1.Competencia = "135:6:N:R:0:135-140::Erro - Competência (MMAAAA)::N006";
