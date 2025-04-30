@@ -98,8 +98,8 @@ namespace BRD_API_REGRAS.Services
 
             #region HEADER ARQUIVO
             cdObject0.CodigoBancoCompensacao = "1:3:N:V:0:1-3::Erro - Código do Banco na Compensação::G001";
-            cdObject0.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço::G002";
-            cdObject0.TipoRegistro = "8:1:N:R:0:8-8::Erro - Tipo de Registro::G003";
+            cdObject0.LoteServico = "4:4:N:R:0:4-7:0000:Erro - Lote de Serviço::G002";
+            cdObject0.TipoRegistro = "8:1:N:R:0:8-8:0:Erro - Tipo de Registro::G003";
             cdObject0.UsoExclusivoFebrabanCnab1 = "9:9:A:V:0:9-17::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
             cdObject0.TipoInscricaoEmpresa = "18:1:N:R:0:18-18::Erro - Tipo de Inscrição da Empresa::G005";
             cdObject0.NumeroInscricaoEmpresa = "19:14:N:R:0:19-32::Erro - Número de Inscrição da Empresa::G006";
@@ -217,7 +217,7 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region SEGMENTO B 
-            cdObjectSegmentoB.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco::G001";
+            cdObjectSegmentoB.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código do Banco::G001";
             cdObjectSegmentoB.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço::G002";
             cdObjectSegmentoB.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Tipo Registro::G003";
             cdObjectSegmentoB.NumeroRegistroLote = "9:5:N:R:0:9-13::Erro - Nº Registro Lote::G038";
@@ -247,7 +247,7 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region SEGMENTO C 
-            cdObjectSegmentoC.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco::G001";
+            cdObjectSegmentoC.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código do Banco::G001";
             cdObjectSegmentoC.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço::G002";
             cdObjectSegmentoC.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Tipo de Registro::G003";
             cdObjectSegmentoC.NumeroRegistroLote = "9:5:N:R:0:9-13::Erro - Nº Registro Lote::G038";
@@ -269,7 +269,7 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region SEGMENTO 5 
-            cdObjectSegmento5.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco::G001";
+            cdObjectSegmento5.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código do Banco::G001";
             cdObjectSegmento5.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço::G002";
             cdObjectSegmento5.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Tipo de Registro::G003";
             cdObjectSegmento5.NumeroRegistroLote = "9:5:N:R:0:9-13::Erro - Nº Registro Lote::G038";
@@ -294,7 +294,7 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region SEGMENTO Z 
-            cdObjectSegmentoZ.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco::G001";
+            cdObjectSegmentoZ.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código do Banco::G001";
             cdObjectSegmentoZ.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço::G002";
             cdObjectSegmentoZ.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Tipo de Registro::G003";
             cdObjectSegmentoZ.NumeroRegistroLote = "9:5:N:R:0:9-13::Erro - Nº Registro Lote::G038";
@@ -323,7 +323,7 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region Header Lote
-            cdObjectHeaderLotePgto1.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação::G001";
+            cdObjectHeaderLotePgto1.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código do Banco na Compensação::G001";
             cdObjectHeaderLotePgto1.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço::G002";
             cdObjectHeaderLotePgto1.TipoRegistro = "8:1:N:R:0:8-8:1:Erro - Tipo de Registro::G003";
             cdObjectHeaderLotePgto1.TipoOperacao = "9:1:A:R:0:9-9:C:Erro - Tipo da Operação::G028";
@@ -348,7 +348,6 @@ namespace BRD_API_REGRAS.Services
             cdObjectHeaderLotePgto1.CEP = "213:5:N:V:0:213-217::Erro - CEP::G034";
             cdObjectHeaderLotePgto1.ComplementoCEP = "218:3:A:V:0:218-220::Erro - Complemento do CEP::G035";
             cdObjectHeaderLotePgto1.Estado = "221:2:A:V:0:221-222::Erro - Estado::G036";
-            //cdObjectHeaderLotePgto1.IndicativoFormaPagamento = "223:30:N:R:0:223-224:01:Erro - Indicativo de Forma de Pagamento::";
             cdObjectHeaderLotePgto1.UsoExclusivoFebrabanCnab2 = "223:8:A:V:0:223-230::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
             cdObjectHeaderLotePgto1.OcorrenciasRetorno = "231:10:A:V:0:231-240::Erro - Códigos das Ocorrências p/ Retorno::G059";
             JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroUm_PgTitulos, cdObjectHeaderLotePgto1);
@@ -356,7 +355,7 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region TRAILER DE LOTE
-            cdObjectTrailerLotePgto5.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação::G001";
+            cdObjectTrailerLotePgto5.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código do Banco na Compensação::G001";
             cdObjectTrailerLotePgto5.LoteServico = "4:4:N:R:0:4-7:0001:Erro - Lote de Serviço::G002";
             cdObjectTrailerLotePgto5.TipoRegistro = "8:1:N:R:0:8-8:5:Erro - Tipo de Registro::G003";
             cdObjectTrailerLotePgto5.UsoExclusivoFebrabanCnab1 = "9:9:A:V:0:9-17::Erro - Uso Exclusivo FEBRABAN/CNAB::G004"; // 9 espaços
@@ -370,7 +369,7 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region Segmento J (Detalhe)
-            cdObjectSegmentoPgtoJ.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código no Banco da Compensação::G001";
+            cdObjectSegmentoPgtoJ.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código no Banco da Compensação::G001";
             cdObjectSegmentoPgtoJ.LoteServico = "4:4:N:R:0:4-7:0001:Erro - Lote de Serviço::G002";
             cdObjectSegmentoPgtoJ.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Tipo de Registro::G003";
             cdObjectSegmentoPgtoJ.NumeroRegistroLote = "9:5:N:R:0:9-13::Erro - Nº Sequencial do Registro no Lote::G038";
@@ -395,7 +394,7 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region Segmento J-52 (Detalhe - Registro Opcional)
-            cdObjectSegmentoPgtoJ52.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação::G001";
+            cdObjectSegmentoPgtoJ52.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código do Banco na Compensação::G001";
             cdObjectSegmentoPgtoJ52.LoteServico = "4:4:N:R:0:4-7:0001:Erro - Lote de Serviço::G002";
             cdObjectSegmentoPgtoJ52.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Tipo de Registro::G003";
             cdObjectSegmentoPgtoJ52.NumeroRegistroLote = "9:5:N:R:0:9-13::Erro - Nº Sequencial do Registro no Lote::G038";
@@ -417,7 +416,7 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region Segmento 5 (Detalhe - Registro Opcional)
-            cdObjectSegmentoPgto5.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação::G001";
+            cdObjectSegmentoPgto5.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código do Banco na Compensação::G001";
             cdObjectSegmentoPgto5.LoteServico = "4:4:N:R:0:4-7:0001:Erro - Lote de Serviço::G002";
             cdObjectSegmentoPgto5.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Tipo de Registro::G003";
             cdObjectSegmentoPgto5.NumeroRegistroLote = "9:5:N:R:0:9-13::Erro - Nº Sequencial do Registro no Lote::G038";
@@ -439,7 +438,7 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region Segmento Z 
-            cdObjectSegmentoPgtoZ.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código no Banco da Compensação::G001";
+            cdObjectSegmentoPgtoZ.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código no Banco da Compensação::G001";
             cdObjectSegmentoPgtoZ.LoteServico = "4:4:N:R:0:4-7:0001:Erro - Lote de Serviço::G002";
             cdObjectSegmentoPgtoZ.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Registro Detalhe de Lote::G003";
             cdObjectSegmentoPgtoZ.NumeroRegistroLote = "9:5:N:R:0:9-13::Erro - Nº Sequencial do Registro no Lote::G038";
@@ -471,7 +470,7 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region HEADER DE LOTE
-            cdObjectPgtoTribHeader1.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação::G001";
+            cdObjectPgtoTribHeader1.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código do Banco na Compensação::G001";
             cdObjectPgtoTribHeader1.LoteServico = "4:4:N:R:0:4-7:0000:Erro - Lote de Serviço::G002";
             cdObjectPgtoTribHeader1.TipoRegistro = "8:1:N:R:0:8-8:1:Erro - Tipo de Registro::G003";
             cdObjectPgtoTribHeader1.TipoOperacao = "9:1:A:R:0:9-9:C:Erro - Tipo da Operação::G028";
@@ -503,7 +502,7 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region TRAILER DE LOTE
-            cdObjectPgtoTribTrailer5.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação::G001";
+            cdObjectPgtoTribTrailer5.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código do Banco na Compensação::G001";
             cdObjectPgtoTribTrailer5.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço::G002";
             cdObjectPgtoTribTrailer5.TipoRegistro = "8:1:N:R:0:8-8:5:Erro - Tipo de Registro::G003";
             cdObjectPgtoTribTrailer5.UsoExclusivoFebraban1 = "9:9:A:V:0:9-17::Erro - Uso FEBRABAN/CNAB::G004";
@@ -632,7 +631,7 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region SEGMENTO W1
-            cdObjectSegmentoPgtoTribW1.IdentificadorTributo = "177:2:A:R:0:177-178:FG:Erro - Identificador Tributo (FG=FGTS)::N027";
+            cdObjectSegmentoPgtoTribW1.IdentificadorTributo = "177:2:A:R:0:177-178::Erro - Identificador Tributo (FG=FGTS)::N027";
             cdObjectSegmentoPgtoTribW1.CodigoReceitaTributo = "179:6:A:R:0:179-184::Erro - Código Receita Tributo::N002";
             cdObjectSegmentoPgtoTribW1.TipoIdentificacaoContribuinte = "185:2:A:R:0:185-186::Erro - Tipo Identificação (01-CPF/02-CNPJ)::N003";
             cdObjectSegmentoPgtoTribW1.IdentificacaoContribuinte = "187:14:A:R:0:187-200::Erro - Identificação Contribuinte::N004";
@@ -666,7 +665,7 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region SEGMENTO Z
-            cdObjectSegmentoPgtoTribZ.CodigoBancoCompensacao = "1:3:N:R:0:1-3:237:Erro - Código do Banco na Compensação::G001";
+            cdObjectSegmentoPgtoTribZ.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código do Banco na Compensação::G001";
             cdObjectSegmentoPgtoTribZ.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço::G002";
             cdObjectSegmentoPgtoTribZ.TipoRegistro = "8:1:N:R:0:8-8:3:Erro - Tipo de Registro::G003";
             cdObjectSegmentoPgtoTribZ.NumeroSequencial = "9:5:N:R:0:9-13::Erro - Nº Sequencial no Lote::G038";
