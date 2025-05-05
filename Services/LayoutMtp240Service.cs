@@ -1,8 +1,9 @@
-﻿using System.Dynamic;
+﻿using BRD_API_REGRAS.Services.Interfaces;
+using System.Dynamic;
 
 namespace BRD_API_REGRAS.Services
 {
-    public class LayoutMtp240Service
+    public class LayoutMtp240Service: ILayoutMtp240Service
     {
         #region CONSTANTES
 

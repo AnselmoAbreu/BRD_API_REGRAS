@@ -1,8 +1,9 @@
-﻿using System.Dynamic;
+﻿using BRD_API_REGRAS.Services.Interfaces;
+using System.Dynamic;
 
 namespace BRD_API_REGRAS.Services
 {
-    public class LayoutCob400Service
+    public class LayoutCob400Service: ILayoutCob400Service
     {
         #region CONSTANTES
 
