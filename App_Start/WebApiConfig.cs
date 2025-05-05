@@ -7,7 +7,7 @@ namespace BRD_API_REGRAS
     {
         public static void Register(HttpConfiguration config)
         {
-            // 🔹 Configuração das rotas da API
+            // Configuração das rotas da API
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
@@ -24,7 +24,7 @@ namespace BRD_API_REGRAS
             })
             .EnableSwaggerUi();
 
-            // 🔹 Redirecionar para o Swagger por padrão
+            // Redirecionar para o Swagger por padrão
             config.Routes.MapHttpRoute(
                 name: "Default",
                 routeTemplate: "",
