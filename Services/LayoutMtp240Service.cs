@@ -99,7 +99,7 @@ namespace BRD_API_REGRAS.Services
 
             #region HEADER ARQUIVO
             cdObject0.CodigoBancoCompensacao = "1:3:N:V:0:1-3::Erro - Código do Banco na Compensação::G001";
-            cdObject0.LoteServico = "4:4:N:R:0:4-7:0000:Erro - Lote de Serviço::G002";
+            cdObject0.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço::G002";
             cdObject0.TipoRegistro = "8:1:N:R:0:8-8:0:Erro - Tipo de Registro::G003";
             cdObject0.UsoExclusivoFebrabanCnab1 = "9:9:A:V:0:9-17::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
             cdObject0.TipoInscricaoEmpresa = "18:1:N:R:0:18-18::Erro - Tipo de Inscrição da Empresa::G005";
@@ -127,7 +127,7 @@ namespace BRD_API_REGRAS.Services
 
             #region TRAILER ARQUIVO
             cdObject9.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código do Banco na Compensação::G001";
-            cdObject9.LoteServico = "4:4:N:R:0:4-7:9999:Erro - Lote de Serviço::G002";
+            cdObject9.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço::G002";
             cdObject9.TipoRegistro = "8:1:N:R:0:8-8:9:Erro - Tipo de Registro::G003";
             cdObject9.UsoExclusivoFebrabanCnab1 = "9:9:A:V:0:9-17::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
             cdObject9.QuantidadeLotesArquivo = "18:6:N:R:0:18-23::Erro - Quantidade de Lotes do Arquivo::G049"; //<<<<<<<<<
@@ -163,7 +163,7 @@ namespace BRD_API_REGRAS.Services
             cdObject1.CEP = "213:5:N:V:0:213-217::Erro - CEP::G034";
             cdObject1.ComplementoCEP = "218:3:A:V:0:218-220::Erro - Complemento do CEP::G035";
             cdObject1.Estado = "221:2:A:V:0:221-222::Erro - Estado::G036";
-            cdObject1.IndicativoFormaPagamento = "223:2:N:R:0:223-224:01:Erro - Indicativo de Forma de Pagamento::P014";
+            cdObject1.IndicativoFormaPagamento = "223:2:N:R:0:223-224::Erro - Indicativo de Forma de Pagamento::P014";
             cdObject1.UsoExclusivoFebrabanCnab2 = "225:6:A:V:0:225-230::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
             cdObject1.OcorrenciasRetorno = "231:10:A:V:0:231-240::Erro - Códigos das Ocorrências p/ Retorno::G059";
             JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroUm_PgVarios, cdObject1);
@@ -472,14 +472,14 @@ namespace BRD_API_REGRAS.Services
 
             #region HEADER DE LOTE
             cdObjectPgtoTribHeader1.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código do Banco na Compensação::G001";
-            cdObjectPgtoTribHeader1.LoteServico = "4:4:N:R:0:4-7:0000:Erro - Lote de Serviço::G002";
+            cdObjectPgtoTribHeader1.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço::G002";
             cdObjectPgtoTribHeader1.TipoRegistro = "8:1:N:R:0:8-8:1:Erro - Tipo de Registro::G003";
             cdObjectPgtoTribHeader1.TipoOperacao = "9:1:A:R:0:9-9:C:Erro - Tipo da Operação::G028";
-            cdObjectPgtoTribHeader1.TipoServico = "10:2:N:R:0:10-11:20:Erro - Tipo do Serviço::G025"; // 20 = Pagamento a Fornecedores/Tributos
-            cdObjectPgtoTribHeader1.FormaLancamento = "12:2:N:R:0:12-13:41:Erro - Forma de Lançamento::G029"; // 41 = DOC/TED
+            cdObjectPgtoTribHeader1.TipoServico = "10:2:N:R:0:10-11::Erro - Tipo do Serviço::G025"; // 20 = Pagamento a Fornecedores/Tributos
+            cdObjectPgtoTribHeader1.FormaLancamento = "12:2:N:R:0:12-13::Erro - Forma de Lançamento::G029"; // 41 = DOC/TED
             cdObjectPgtoTribHeader1.VersaoLayoutLote = "14:3:N:R:0:14-16:012:Erro - Versão do Layout do Lote::G030";
             cdObjectPgtoTribHeader1.UsoExclusivoFebraban1 = "17:1:A:V:0:17-17::Erro - Uso FEBRABAN/CNAB::G004";
-            cdObjectPgtoTribHeader1.TipoInscricaoEmpresa = "18:1:N:R:0:18-18:2:Erro - Tipo Inscrição (1-CPF/2-CNPJ)::G005";
+            cdObjectPgtoTribHeader1.TipoInscricaoEmpresa = "18:1:N:R:0:18-18::Erro - Tipo Inscrição (1-CPF/2-CNPJ)::G005";
             cdObjectPgtoTribHeader1.NumeroInscricaoEmpresa = "19:14:N:R:0:19-32::Erro - CNPJ/CPF da Empresa::G006";
             cdObjectPgtoTribHeader1.CodigoConvenioBanco = "33:20:A:R:0:33-52::Erro - Código do Convênio::G007";
             cdObjectPgtoTribHeader1.AgenciaMantenedora = "53:5:N:R:0:53-57::Erro - Agência Mantenedora::G008";
@@ -496,7 +496,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectPgtoTribHeader1.CEP = "213:5:N:V:0:213-217::Erro - CEP::G034";
             cdObjectPgtoTribHeader1.ComplementoCEP = "218:3:A:V:0:218-220::Erro - Compl. CEP::G035";
             cdObjectPgtoTribHeader1.Estado = "221:2:A:V:0:221-222::Erro - Estado::G036";
-            cdObjectPgtoTribHeader1.IndicativoFormaPagamento = "223:2:N:R:0:223-224:01:Erro - Forma Pagamento::P014"; // 01 = Débito em Conta
+            cdObjectPgtoTribHeader1.IndicativoFormaPagamento = "223:2:N:R:0:223-224::Erro - Forma Pagamento::P014"; // 01 = Débito em Conta
             cdObjectPgtoTribHeader1.UsoExclusivoFebraban2 = "225:6:A:V:0:225-230::Erro - Uso FEBRABAN::G004";
             cdObjectPgtoTribHeader1.OcorrenciasRetorno = "231:10:A:V:0:231-240::Erro - Ocorrências p/ Retorno::G059";
             JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroUm_PgTributos, cdObjectPgtoTribHeader1);
@@ -549,7 +549,8 @@ namespace BRD_API_REGRAS.Services
             cdObjectSegmentoPgtoTribN.NomeContribuinte = "58:30:A:R:0:58-87::Erro - Nome Contribuinte::G013";
             cdObjectSegmentoPgtoTribN.DataPagamento = "88:8:N:R:0:88-95::Erro - Data Pagamento (DDMMAAAA):D:P009";
             cdObjectSegmentoPgtoTribN.ValorPagamento = "96:13:N:R:0:96-110::Erro - Valor Pagamento (2 decimais)::P010";
-            cdObjectSegmentoPgtoTribN.InformacoesComplementares = "111:120:A:V:0:111-230::Erro - Informações Complementares::*";
+            // Na linha abaixo , o manual está "*" estou usando G021 para não dar erro
+            cdObjectSegmentoPgtoTribN.InformacoesComplementares = "111:120:A:V:0:111-230::Erro - Informações Complementares::G021"; 
             cdObjectSegmentoPgtoTribN.OcorrenciasRetorno = "231:10:A:V:0:231-240::Erro - Ocorrências Retorno::G059";
             JsonObjectsGenerator.AddProperty(dynamicList, segmentoPgTrib_N, cdObjectSegmentoPgtoTribN);
             #endregion
@@ -696,7 +697,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectBloquetoEletronicoHeader1.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço::G002";
             cdObjectBloquetoEletronicoHeader1.TipoRegistro = "8:1:N:R:0:8-8:1:Erro - Tipo de Registro::G003";
             cdObjectBloquetoEletronicoHeader1.TipoOperacao = "9:1:N:R:0:9-9:I:Erro - Tipo de Operação::G028";
-            cdObjectBloquetoEletronicoHeader1.TipoServico = "10:2:N:R:0:10-11:03:Erro - Tipo de Serviço::G025";
+            cdObjectBloquetoEletronicoHeader1.TipoServico = "10:2:N:R:0:10-11::Erro - Tipo de Serviço::G025";
             cdObjectBloquetoEletronicoHeader1.CNAB1 = "12:2:A:V:0:12-13::Erro - Uso FEBRABAN/CNAB::G004"; // 2 espaços
             cdObjectBloquetoEletronicoHeader1.VersaoLayout = "14:3:N:R:0:14-16:022:Erro - Versão do Layout::G030";
             cdObjectBloquetoEletronicoHeader1.CNAB2 = "17:1:A:V:0:17-17::Erro - Uso FEBRABAN/CNAB::G004";
@@ -855,7 +856,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectAlegacaoSacadoHeader1.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço::G002";
             cdObjectAlegacaoSacadoHeader1.TipoRegistro = "8:1:N:R:0:8-8:1:Erro - Tipo de Registro::G003";
             cdObjectAlegacaoSacadoHeader1.TipoOperacao = "9:1:N:R:0:9-9:C:Erro - Tipo de Operação::G028";
-            cdObjectAlegacaoSacadoHeader1.TipoServico = "10:2:N:R:0:10-11:29:Erro - Tipo de Serviço::G025";
+            cdObjectAlegacaoSacadoHeader1.TipoServico = "10:2:N:R:0:10-11::Erro - Tipo de Serviço::G025";
             cdObjectAlegacaoSacadoHeader1.CNAB1 = "12:2:A:V:0:12-13::Erro - Uso Exclusivo da FEBRABAN/CNAB::G004"; // 2 espaços
             cdObjectAlegacaoSacadoHeader1.VersaoLayoutLote = "14:3:N:R:0:14-16:010:Erro - Nº da Versão do Layout do Lote::G030";
             cdObjectAlegacaoSacadoHeader1.CNAB2 = "17:1:A:V:0:17-17::Erro - Uso Exclusivo da FEBRABAN/CNAB::G004";
@@ -939,7 +940,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectBasesSistemasHeader1.CEP = "213:5:N:V:0:213-217::Erro - CEP::G034";
             cdObjectBasesSistemasHeader1.ComplementoCEP = "218:3:A:V:0:218-220::Erro - Complemento do CEP::G035";
             cdObjectBasesSistemasHeader1.Estado = "221:2:A:V:0:221-222::Erro - Sigla do Estado::G036";
-            cdObjectBasesSistemasHeader1.IndicativoFormaPagamento = "223:2:N:R:0:223-224:01:Erro - Indicativo de Forma de Pagamento do Serviço::P014";
+            cdObjectBasesSistemasHeader1.IndicativoFormaPagamento = "223:2:N:R:0:223-224::Erro - Indicativo de Forma de Pagamento do Serviço::P014";
             cdObjectBasesSistemasHeader1.UsoExclusivoFebrabanCnab2 = "225:6:A:V:0:225-230::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
             cdObjectBasesSistemasHeader1.OcorrenciasRetorno = "231:10:A:V:0:231-240::Erro - Códigos das Ocorrências p/ Retorno::G059";
             JsonObjectsGenerator.AddProperty(dynamicList, descricaoRegistroUm_BasesSistemas, cdObjectBasesSistemasHeader1);
