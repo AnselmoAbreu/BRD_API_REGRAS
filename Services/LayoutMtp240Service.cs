@@ -402,7 +402,10 @@ namespace BRD_API_REGRAS.Services
             cdObjectSegmentoPgtoJ52.CodigoSegmento = "14:1:A:R:0:14-14:J:Erro - Cód. Segmento do Registro Detalhe::G039";
             cdObjectSegmentoPgtoJ52.CNAB1 = "15:1:A:V:0:15-15::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
             cdObjectSegmentoPgtoJ52.CodigoMovimento = "16:2:N:R:0:16-17::Erro - Código de Movimento Remessa::C004";
-            cdObjectSegmentoPgtoJ52.CodigoRegistroOpcional = "18:2:N:R:0:18-19:52:Erro - Código Reg. Opcional::G067";
+            
+            // A linha abaixo está com erro estava G067 , vide e-mail da Vanessa do Bradesco
+            cdObjectSegmentoPgtoJ52.CodigoRegistroOpcional = "18:2:A:R:0:18-19:52:Erro - Código Reg. Opcional::BRCO";
+            
             cdObjectSegmentoPgtoJ52.TipoInscricaoSacado = "20:1:N:R:0:20-20::Erro - Tipo de Inscrição (Sacado)::G005";
             cdObjectSegmentoPgtoJ52.NumeroInscricaoSacado = "21:15:N:R:0:21-35::Erro - Nº de Inscrição (Sacado)::G006";
             cdObjectSegmentoPgtoJ52.NomeSacado = "36:40:A:R:0:36-75::Erro - Nome do Sacado::G013";
@@ -549,8 +552,8 @@ namespace BRD_API_REGRAS.Services
             cdObjectSegmentoPgtoTribN.NomeContribuinte = "58:30:A:R:0:58-87::Erro - Nome Contribuinte::G013";
             cdObjectSegmentoPgtoTribN.DataPagamento = "88:8:N:R:0:88-95::Erro - Data Pagamento (DDMMAAAA):D:P009";
             cdObjectSegmentoPgtoTribN.ValorPagamento = "96:13:N:R:0:96-110::Erro - Valor Pagamento (2 decimais)::P010";
-            // Na linha abaixo , o manual está "*" estou usando G021 para não dar erro
-            cdObjectSegmentoPgtoTribN.InformacoesComplementares = "111:120:A:V:0:111-230::Erro - Informações Complementares::G021"; 
+            // Na linha abaixo , o manual está "*" estou usando BRCO para não dar erro
+            cdObjectSegmentoPgtoTribN.InformacoesComplementares = "111:120:A:V:0:111-230::Erro - Informações Complementares::BRCO"; 
             cdObjectSegmentoPgtoTribN.OcorrenciasRetorno = "231:10:A:V:0:231-240::Erro - Ocorrências Retorno::G059";
             JsonObjectsGenerator.AddProperty(dynamicList, segmentoPgTrib_N, cdObjectSegmentoPgtoTribN);
             #endregion
