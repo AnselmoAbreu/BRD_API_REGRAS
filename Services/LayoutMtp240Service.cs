@@ -404,7 +404,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectSegmentoPgtoJ52.CodigoMovimento = "16:2:N:R:0:16-17::Erro - Código de Movimento Remessa::C004";
             
             // A linha abaixo está com erro estava G067 , vide e-mail da Vanessa do Bradesco
-            cdObjectSegmentoPgtoJ52.CodigoRegistroOpcional = "18:2:A:R:0:18-19:52:Erro - Código Reg. Opcional::BRCO";
+            cdObjectSegmentoPgtoJ52.CodigoRegistroOpcional = "18:2:A:R:0:18-19::Erro - Código Reg. Opcional::BRCO";
             
             cdObjectSegmentoPgtoJ52.TipoInscricaoSacado = "20:1:N:R:0:20-20::Erro - Tipo de Inscrição (Sacado)::G005";
             cdObjectSegmentoPgtoJ52.NumeroInscricaoSacado = "21:15:N:R:0:21-35::Erro - Nº de Inscrição (Sacado)::G006";
