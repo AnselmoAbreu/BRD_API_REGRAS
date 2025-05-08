@@ -699,7 +699,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectBloquetoEletronicoHeader1.CodigoBanco = "1:3:N:R:0:1-3::Erro - Código do Banco na Compensação::G001";
             cdObjectBloquetoEletronicoHeader1.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço::G002";
             cdObjectBloquetoEletronicoHeader1.TipoRegistro = "8:1:N:R:0:8-8:1:Erro - Tipo de Registro::G003";
-            cdObjectBloquetoEletronicoHeader1.TipoOperacao = "9:1:N:R:0:9-9::Erro - Tipo de Operação::G028";
+            cdObjectBloquetoEletronicoHeader1.TipoOperacao = "9:1:A:R:0:9-9::Erro - Tipo de Operação::G028";
             cdObjectBloquetoEletronicoHeader1.TipoServico = "10:2:N:R:0:10-11::Erro - Tipo de Serviço::G025";
             cdObjectBloquetoEletronicoHeader1.CNAB1 = "12:2:A:V:0:12-13::Erro - Uso FEBRABAN/CNAB::G004"; // 2 espaços
             cdObjectBloquetoEletronicoHeader1.VersaoLayout = "14:3:N:R:0:14-16:022:Erro - Versão do Layout::G030";
@@ -858,7 +858,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectAlegacaoSacadoHeader1.CodigoBancoCompensacao = "1:3:N:R:0:1-3::Erro - Código do Banco na Compensação::G001";
             cdObjectAlegacaoSacadoHeader1.LoteServico = "4:4:N:R:0:4-7::Erro - Lote de Serviço::G002";
             cdObjectAlegacaoSacadoHeader1.TipoRegistro = "8:1:N:R:0:8-8:1:Erro - Tipo de Registro::G003";
-            cdObjectAlegacaoSacadoHeader1.TipoOperacao = "9:1:N:R:0:9-9::Erro - Tipo de Operação::G028";
+            cdObjectAlegacaoSacadoHeader1.TipoOperacao = "9:1:A:R:0:9-9::Erro - Tipo de Operação::G028";
             cdObjectAlegacaoSacadoHeader1.TipoServico = "10:2:N:R:0:10-11::Erro - Tipo de Serviço::G025";
             cdObjectAlegacaoSacadoHeader1.CNAB1 = "12:2:A:V:0:12-13::Erro - Uso Exclusivo da FEBRABAN/CNAB::G004"; // 2 espaços
             cdObjectAlegacaoSacadoHeader1.VersaoLayoutLote = "14:3:N:R:0:14-16:010:Erro - Nº da Versão do Layout do Lote::G030";
