@@ -838,7 +838,7 @@ namespace BRD_API_REGRAS.Services
             cdObjectBloquetoEletronicoSegmentoY51.NotaFiscal5 = "172:15:A:R:0:172-186::Erro - Número da Nota Fiscal::C067";
             cdObjectBloquetoEletronicoSegmentoY51.ValorNotaFiscal5 = "187:13:N:R:0:187-201::Erro - Valor da Nota Fiscal::C068";
             cdObjectBloquetoEletronicoSegmentoY51.DataEmissao5 = "202:8:N:R:0:202-209::Erro - Data Emissão Nota Fiscal:D:C069";
-            cdObjectBloquetoEletronicoSegmentoY51.DataEmissao5 = "210:31:A:V:0:210-240::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
+            cdObjectBloquetoEletronicoSegmentoY51.UsoExclusivoFebraban5 = "210:31:A:V:0:210-240::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
 
 
             JsonObjectsGenerator.AddProperty(dynamicList, segmentoBloquetoEletronico_Y51, cdObjectBloquetoEletronicoSegmentoY51);
