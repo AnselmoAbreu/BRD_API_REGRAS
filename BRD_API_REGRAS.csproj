@@ -135,8 +135,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="JsonObjectsGenerator.cs" />
+    <Compile Include="Services\Interfaces\ILayoutCob240Service.cs" />
     <Compile Include="Services\Interfaces\ILayoutCob400Service.cs" />
     <Compile Include="Services\Interfaces\ILayoutMtp240Service.cs" />
+    <Compile Include="Services\LayoutCob240Service.cs" />
     <Compile Include="Services\LayoutCob400Service.cs" />
     <Compile Include="Services\LayoutMtp240Service.cs" />
     <Compile Include="Services\DefineLayoutService.cs" />
