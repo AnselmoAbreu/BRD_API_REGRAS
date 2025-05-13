@@ -1,4 +1,6 @@
 ﻿using BRD_API_REGRAS.Services.Interfaces;
+using Microsoft.Win32;
+using Swashbuckle.Swagger;
 using System.Dynamic;
 
 namespace BRD_API_REGRAS.Services
@@ -7,13 +9,16 @@ namespace BRD_API_REGRAS.Services
     {
         #region CONSTANTES
 
-        const string registroTipoZero = "REGISTRO_TIPO_0"; // Header de arquivo
-        const string registroTipoNove = "REGISTRO_TIPO_9"; // Trailer de arquivo
-        const string registroTipo1 = "REGISTRO_TIPO_1";
-        const string registroTipo2 = "REGISTRO_TIPO_2";
-        const string registroTipo3 = "REGISTRO_TIPO_3";
-        const string registroTipo6 = "REGISTRO_TIPO_6";
-        const string registroTipo7 = "REGISTRO_TIPO_7";
+        const string registroTipo0 = "REGISTRO_TIPO_0"; // Header de arquivo
+        const string registroTipo9 = "REGISTRO_TIPO_9"; // Trailer de arquivo
+        const string registroTipo1 = "REGISTRO_TIPO_1"; // Header de lote
+        const string registroTipo3P = "REGISTRO_TIPO_3P"; // Detalhe
+        const string registroTipo5 = "REGISTRO_TIPO_5"; // Trailer de arquivo
+
+        //const string registroTipo2 = "REGISTRO_TIPO_2";
+        //const string registroTipo3 = "REGISTRO_TIPO_3";
+        //const string registroTipo6 = "REGISTRO_TIPO_6";
+        //const string registroTipo7 = "REGISTRO_TIPO_7";
 
 
         #endregion
@@ -22,10 +27,8 @@ namespace BRD_API_REGRAS.Services
         {
             dynamic cdObject0 = new ExpandoObject();
             dynamic cdObject1 = new ExpandoObject();
-            dynamic cdObject2 = new ExpandoObject();
-            dynamic cdObject3 = new ExpandoObject();
-            dynamic cdObject6 = new ExpandoObject();
-            dynamic cdObject7 = new ExpandoObject();
+            dynamic cdObject3P = new ExpandoObject();
+            dynamic cdObject5 = new ExpandoObject();
             dynamic cdObject9 = new ExpandoObject();
 
             //-------------------------------------------------------
@@ -41,171 +44,141 @@ namespace BRD_API_REGRAS.Services
             // : Lista de opções do campo
             //-------------------------------------------------------
 
-            cdObject0.IdentificacaoRegistro = "001:001:N:R:0:001-001:0:Erro - Identificação do Registro::";
-            cdObject0.IdentificacaoArquivoRemessa = "002:001:N:R:0:002-002:1:Erro - Identificação do Arquivo-Remessa::";
-            cdObject0.LiteralRemessa = "003:007:A:R:0:003-009:REMESSA:Erro - Literal Remessa::";
-            cdObject0.CodigoServico = "010:002:N:R:0:010-011:01:Erro - CÓdigo de Serviço::";
-            cdObject0.LiteralServico = "012:015:A:R:0:012-026:COBRANCA:Erro - Literal Serviço::";
-            cdObject0.CodigoEmpresa = "027:020:N:R:0:027-046::Erro - CÓdigo da Empresa::";
-            cdObject0.NomeEmpresa = "047:030:A:R:0:047-076::Erro - Nome da Empresa::";
-            cdObject0.NumeroBradescoCompensacao = "077:003:N:R:0:077-079:237:Erro - Número do Bradesco na Câmara de Compensação::";
-            cdObject0.NomeBancoExtenso = "080:015:A:R:0:080-094::Erro - Nome do Banco por Extenso::";
-            cdObject0.DataGravacaoArquivo = "095:006:N:R:0:095-100::Erro - Data de Gravação do Arquivo:D:";
-            cdObject0.Branco1 = "101:008:A:R:0:101-108::Erro - Branco1::";
-            cdObject0.IdentificacaoSistema = "109:002:A:R:0:109-110:MX:Erro - Identificação do Sistema::";
-            cdObject0.NumeroSequencialRemessa = "111:007:N:R:0:111-117::Erro - Número Sequencial de Remessa::";
-            cdObject0.Branco2 = "118:277:A:R:0:118-394::Erro - Branco2::";
-            cdObject0.NumeroSequencialRegistro = "395:006:N:R:0:395-400::Erro - Número Sequencial do Registro::";
-            JsonObjectsGenerator.AddProperty(dynamicList, registroTipoZero, cdObject0);
+            // Header de arquivo
+
+            cdObject0.Banco = "001:003:N:R:0:001-003::Erro - Código do Banco na Compensação::G001";
+            cdObject0.Lote = "004:004:N:R:0:004-007::Erro - Lote de Serviço::G002";
+            cdObject0.Registro = "008:001:N:R:0:008-008::Erro - Tipo de Registro::G003";
+            cdObject0.Operacao = "009:001:A:R:0:009-009::Erro - Tipo de Operação::G028";
+            cdObject0.Servico = "010:002:N:R:0:010-011::Erro - Tipo de Serviço::G025";
+            cdObject0.CNAB1 = "012:002:A:R:0:012-013::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
+            cdObject0.LayoutLote = "014:003:N:R:0:014-016::Erro - Nº da Versão do Layout do Lote::G030";
+            cdObject0.CNAB2 = "017:001:A:R:0:017-017::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
+            cdObject0.InscricaoTipo = "018:001:N:R:0:018-018::Erro - Tipo de Inscrição da Empresa::G005";
+            cdObject0.InscricaoNumero = "019:015:N:R:0:019-033::Erro - Número de Inscrição da Empresa::G006";
+            cdObject0.Convenio = "034:020:N:R:0:034-053::Erro - Código do Convênio no Banco::G007";
+            cdObject0.AgenciaCodigo = "054:005:N:R:0:054-058::Erro - Agência Mantenedora da Conta::G008";
+            cdObject0.DVAgencia = "059:001:A:R:0:059-059::Erro - Dígito Verificador da Agência::G009";
+            cdObject0.ContaNumero = "060:012:N:R:0:060-071::Erro - Número da Conta-Corrente::G010";
+            cdObject0.DVConta = "072:001:A:R:0:072-072::Erro - Dígito Verificador da Conta::G011";
+            cdObject0.DVAgenciaConta = "073:001:A:R:0:073-073::Erro - Dígito Verificador da Ag/Conta::G012";
+            cdObject0.NomeEmpresa = "074:030:A:R:0:074-103::Erro - Nome da Empresa::G013";
+            cdObject0.Mensagem1 = "104:040:A:R:0:104-143::Erro - Mensagem 1::C073";
+            cdObject0.Mensagem2 = "144:040:A:R:0:144-183::Erro - Mensagem 2::C073";
+            cdObject0.NumeroRemessa = "184:008:N:R:0:184-191::Erro - Número Sequencial Remessa/Retorno::G079";
+            cdObject0.DataGravacao = "192:008:N:R:0:192-199::Erro - Data de Gravação Remessa/Retorno:D:G068";
+            cdObject0.DataCredito = "200:008:N:R:0:200-207::Erro - Data do Crédito:D:C003";
+            cdObject0.CNAB3 = "208:033:A:R:0:208-240::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
+            JsonObjectsGenerator.AddProperty(dynamicList, registroTipo0, cdObject0);
             // ========================================================================
 
-
-            cdObject9.IdentificacaoRegistro = "001:001:N:R:0:001-001:9:Erro - Identificação Registro::";
-            cdObject9.Branco = "002:393:A:R:0:002-394::Erro - Branco::";
-            cdObject9.NumeroSequencialRegistro = "395:006:A:R:0:395-400::Erro - Número Sequencial de Registro::";
-            JsonObjectsGenerator.AddProperty(dynamicList, registroTipoNove, cdObject9);
+            // Trailer de arquivo
+            cdObject9.Banco = "001:003:N:R:0:001-003::Erro - Código do Banco na Compensação::G001";
+            cdObject9.Lote = "004:004:N:R:0:004-007::Erro - Lote de Serviço::G002";
+            cdObject9.Registro = "008:001:N:R:0:008-008::Erro - Tipo de Registro::G003";
+            cdObject9.CNAB1 = "009:009:A:R:0:009-017::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
+            cdObject9.QtdeLotes = "018:006:N:R:0:018-023::Erro - Quantidade de Lotes do Arquivo::G049";
+            cdObject9.QtdeRegistros = "024:006:N:R:0:024-029::Erro - Quantidade de Registros do Arquivo::G056";
+            cdObject9.QtdeContas = "030:006:N:R:0:030-035::Erro - Qtde. de Contas p/ Conc. (Lotes)::G037";
+            cdObject9.CNAB2 = "036:205:A:R:0:036-240::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
+            JsonObjectsGenerator.AddProperty(dynamicList, registroTipo9, cdObject9);
             // ========================================================================
 
-            cdObject1.IdentificacaoDoRegistro = "001:001:N:R:0:001-001:1:Erro - Identificação do Registro::";
-            cdObject1.AgenciaDebitoOpcional = "002:005:A:R:0:002-006::Erro - Agência de Débito (opcional)::";
-            cdObject1.DigitoAgenciaDebitoOpcional = "007:001:A:R:0:007-007::Erro - Dígito da Agência de Débito (opcional)::";
-            cdObject1.RazaoContaCorrenteOpcional = "008:005:A:R:0:008-012::Erro - Razão da Conta-Corrente (opcional)::";
-            cdObject1.ContaCorrenteOpcional = "013:007:A:R:0:013-019::Erro - Conta-Corrente (opcional)::";
-            cdObject1.DigitoContaCorrenteOpcional = "020:001:A:R:0:020-020::Erro - Dígito da Conta-Corrente (opcional)::";
-            cdObject1.IdentificacaoEmpresaBeneficiaria = "021:017:A:R:0:021-037::Erro - Identificação da Empresa Beneficiária no Banco::";
-            cdObject1.NumeroControleParticipante = "038:025:A:R:0:038-062::Erro - Nº Controle do Participante::";
-            cdObject1.CodigoBancoDebito = "063:003:N:R:0:063-065:237:Erro - Código do Banco a ser debitado na Câmara de Compensação::";
-            cdObject1.CampoMulta = "066:001:A:R:0:066-066::Erro - Campo de Multa::0,2";
-            cdObject1.PercentualMulta = "067:004:A:R:0:067-070::Erro - Percentual de Multa::";
-            cdObject1.IdentificacaoTituloBanco = "071:011:A:R:0:071-081::Erro - Identificação do Título no Banco::";
-            cdObject1.DigitoAutoconferencia = "082:001:A:R:0:082-082::Erro - Dígito de Autoconferência do Número Bancário::";
-            cdObject1.DescontoBonificacao = "083:010:A:R:0:083-092::Erro - Desconto Bonificação por dia::";
-            cdObject1.CondicaoEmissaoPapeleta = "093:001:A:R:0:093-093::Erro - Condição para Emissão da Papeleta de Cobrança::1,2";
-            cdObject1.EmiteBoletoDebito = "094:001:A:R:0:094-094::Erro - Ident. se emite Boleto para Débito Automático::";
-            cdObject1.IdentificacaoOperacaoBanco = "095:010:A:R:0:095-104::Erro - Identificação da Operação do Banco::";
-            cdObject1.IndicadorRateio = "105:001:A:R:0:105-105:R:Erro - Indicador Rateio Crédito (opcional)::";
-            cdObject1.EnderecamentoAviso = "106:001:A:R:0:106-106::Erro - Endereçamento para Aviso do Débito Automático em Conta-Corrente (opcional)::";
-            cdObject1.QuantidadePagamentos = "107:002:A:R:0:107-108::Erro - Quantidade de Pagamentos::";
-            cdObject1.IdentificacaoOcorrencia = "109:002:A:R:0:109-110::Erro - Identificação da Ocorrência::";
-            cdObject1.NumeroDocumento = "111:010:A:R:0:111-120::Erro - Nº do Documento::";
-            cdObject1.DataVencimento = "121:006:A:R:0:121-126::Erro - Data do Vencimento do Título:D:"; // :D para campo de data
-            cdObject1.ValorTitulo = "127:013:A:R:0:127-139::Erro - Valor do Título::";
-            cdObject1.BancoEncarregado = "140:003:A:R:0:140-142::Erro - Banco Encarregado da Cobrança::";
-            cdObject1.AgenciaDepositaria = "143:005:A:R:0:143-147::Erro - Agência Depositária::";
-            cdObject1.EspecieTitulo = "148:002:A:R:0:148-149::Erro - Espécie de Título::01,02,03,05,10,11,12,31,32,33,99";
-            cdObject1.Identificacao = "150:001:A:R:0:150-150:N:Erro - Identificação::";
-            cdObject1.DataEmissaoTitulo = "151:006:A:R:0:151-156::Erro - Data da Emissão do Título:D:";
-            cdObject1.PrimeiraInstrucao = "157:002:A:R:0:157-158::Erro - 1ª Instrução::";
-            cdObject1.SegundaInstrucao = "159:002:A:R:0:159-160::Erro - 2ª Instrução::";
-            cdObject1.ValorDiaAtraso = "161:013:A:R:0:161-173::Erro - Valor a ser Cobrado por Dia de Atraso::";
-            cdObject1.DataLimiteDesconto = "174:006:A:R:0:174-179::Erro - Data Limite P/Concessão de Desconto:D:";
-            cdObject1.ValorDesconto = "180:013:A:R:0:180-192::Erro - Valor do Desconto::";
-            cdObject1.ValorIOF = "193:013:A:R:0:193-205::Erro - Valor do IOF::";
-            cdObject1.ValorAbatimento = "206:013:A:R:0:206-218::Erro - Valor do Abatimento a ser Concedido ou Cancelado::";
-            cdObject1.TipoInscricaoPagador = "219:002:A:R:0:219-220::Erro - Identificação do Tipo de Inscrição do Pagador::01,02";
-            cdObject1.NumeroInscricaoPagador = "221:014:A:R:0:221-234::Erro - Nº Inscrição do Pagador::";
-            cdObject1.NomePagador = "235:040:A:R:0:235-274::Erro - Nome do Pagador::";
-            cdObject1.EnderecoCompleto = "275:040:A:R:0:275-314::Erro - Endereço Completo::";
-            cdObject1.PrimeiraMensagem = "315:012:A:R:0:315-326::Erro - 1ª Mensagem::";
-            cdObject1.CEP = "327:005:A:R:0:327-331::Erro - CEP::";
-            cdObject1.SufixoCEP = "332:003:A:R:0:332-334::Erro - Sufixo do CEP::";
-            cdObject1.BeneficiarioFinal = "335:060:A:R:0:335-394::Erro - Beneficiário Final ou 2ª Mensagem::";
-            cdObject1.NumeroSequencialRegistro = "395:006:A:R:0:395-400::Erro - Nº Sequencial do Registro::";
+            // Header de lote
+            cdObject1.Banco = "001:003:N:R:0:001-003::Erro - Código do Banco na Compensação::G001";
+            cdObject1.Lote = "004:004:N:R:0:004-007::Erro - Lote de Serviço::G002";
+            cdObject1.Registro = "008:001:N:R:0:008-008::Erro - Tipo de Registro::G003";
+            cdObject1.Operacao = "009:001:A:R:0:009-009::Erro - Tipo de Operação::G028";
+            cdObject1.Servico = "010:002:N:R:0:010-011::Erro - Tipo de Serviço::G025";
+            cdObject1.CNAB1 = "012:002:A:R:0:012-013::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
+            cdObject1.LayoutLote = "014:003:N:R:0:014-016::Erro - Nº da Versão do Layout do Lote::G030";
+            cdObject1.CNAB2 = "017:001:A:R:0:017-017::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
+            cdObject1.InscricaoTipo = "018:001:N:R:0:018-018::Erro - Tipo de Inscrição da Empresa::G005";
+            cdObject1.InscricaoNumero = "019:015:N:R:0:019-033::Erro - Número de Inscrição da Empresa::G006";
+            cdObject1.Convenio = "034:020:N:R:0:034-053::Erro - Código do Convênio no Banco::G007";
+            cdObject1.AgenciaCodigo = "054:005:N:R:0:054-058::Erro - Agência Mantenedora da Conta::G008";
+            cdObject1.DVAgencia = "059:001:A:R:0:059-059::Erro - Dígito Verificador da Agência::G009";
+            cdObject1.ContaNumero = "060:012:N:R:0:060-071::Erro - Número da Conta-Corrente::G010";
+            cdObject1.DVConta = "072:001:A:R:0:072-072::Erro - Dígito Verificador da Conta::G011";
+            cdObject1.DVAgenciaConta = "073:001:A:R:0:073-073::Erro - Dígito Verificador da Ag/Conta::G012";
+            cdObject1.NomeEmpresa = "074:030:A:R:0:074-103::Erro - Nome da Empresa::G013";
+            cdObject1.Mensagem1 = "104:040:A:R:0:104-143::Erro - Mensagem 1::C073";
+            cdObject1.Mensagem2 = "144:040:A:R:0:144-183::Erro - Mensagem 2::C073";
+            cdObject1.NumeroRemessa = "184:008:N:R:0:184-191::Erro - Número Sequencial Remessa/Retorno::G079";
+            cdObject1.DataGravacao = "192:008:N:R:0:192-199::Erro - Data de Gravação Remessa/Retorno:D:G068";
+            cdObject1.DataCredito = "200:008:N:R:0:200-207::Erro - Data do Crédito:D:C003";
+            cdObject1.CNAB3 = "208:033:A:R:0:208-240::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
             JsonObjectsGenerator.AddProperty(dynamicList, registroTipo1, cdObject1);
             // ========================================================================
 
-            cdObject2.TipoRegistro = "001:001:N:R:0:001-001:2:Erro - Tipo Registro::";
-            cdObject2.Mensagem1 = "002:080:A:R:0:002-081::Erro - Mensagem 1::";
-            cdObject2.Mensagem2 = "082:080:A:R:0:082-161::Erro - Mensagem 2::";
-            cdObject2.Mensagem3 = "162:080:A:R:0:162-241::Erro - Mensagem 3::";
-            cdObject2.Mensagem4 = "242:080:A:R:0:242-321::Erro - Mensagem 4::";
-            cdObject2.DataLimiteDesconto2 = "322:006:A:R:0:322-327::Erro - Data-Limite para Concessão de Desconto 2:D:";
-            cdObject2.ValorDesconto2 = "328:013:A:R:0:328-340::Erro - Valor do Desconto::";
-            cdObject2.DataLimiteDesconto3 = "341:006:A:R:0:341-346::Erro - Data-Limite para Concessão de Desconto 3:D:";
-            cdObject2.ValorDesconto3 = "347:013:A:R:0:347-359::Erro - Valor do Desconto::";
-            cdObject2.Reserva = "360:007:A:R:0:360-366::Erro - Reserva::";
-            cdObject2.Carteira = "367:003:A:R:0:367-369::Erro - Carteira::";
-            cdObject2.Agencia = "370:005:A:R:0:370-374::Erro - Agência::";
-            cdObject2.ContaCorrente = "375:007:A:R:0:375-381::Erro - Conta-Corrente::";
-            cdObject2.DigitoCC = "382:001:A:R:0:382-382::Erro - Dígito C/C::";
-            cdObject2.NossoNumero = "383:011:A:R:0:383-393::Erro - Nosso Número::";
-            cdObject2.DACNossoNumero = "394:001:A:R:0:394-394::Erro - DAC Nosso Número::";
-            cdObject2.NumeroSequencialRegistro = "395:006:A:R:0:395-400::Erro - Nº Sequencial de Registro::";
-            JsonObjectsGenerator.AddProperty(dynamicList, registroTipo2, cdObject2);
+            // Trailer de lote
+            cdObject5.CodigoBanco = "001:003:N:R:0:001-003::Erro - Código do Banco na Compensação::Código do Banco na Compensação";
+            cdObject5.LoteServico = "004:004:N:R:0:004-007::Erro - Lote de Serviço::Lote de Serviço";
+            cdObject5.TipoRegistro = "008:001:N:R:0:008-008::Erro - Tipo de Registro::Tipo de Registro";
+            cdObject5.UsoExclusivoCNAB1 = "009:009:A:R:0:009-017::Erro - Uso Exclusivo FEBRABAN/CNAB::Uso Exclusivo FEBRABAN/CNAB";
+            cdObject5.QtdeRegistrosLote = "018:006:N:R:0:018-023::Erro - Quantidade de Registros no Lote::Quantidade de Registros no Lote";
+            cdObject5.QtdeTitulosCobranca1 = "024:006:N:R:0:024-029::Erro - Quantidade de Títulos em Cobrança::Quantidade de Títulos em Cobrança";
+            cdObject5.ValorTotalTitulosCarteira1 = "030:015:N:R:0:030-046::Erro - Valor Total dos Títulos em Carteiras::Valor Total dos Títulos em Carteiras";
+            cdObject5.QtdeTitulosCobranca2 = "047:006:N:R:0:047-052::Erro - Quantidade de Títulos em Cobrança::Quantidade de Títulos em Cobrança";
+            cdObject5.ValorTotalTitulosCarteira2 = "053:015:N:R:0:053-069::Erro - Valor Total dos Títulos em Carteiras::Valor Total dos Títulos em Carteiras";
+            cdObject5.QtdeTitulosCobranca3 = "070:006:N:R:0:070-075::Erro - Quantidade de Títulos em Cobrança::Quantidade de Títulos em Cobrança";
+            cdObject5.ValorTotalTitulosCarteira3 = "076:015:N:R:0:076-092::Erro - Valor Total dos Títulos em Carteiras::Valor Total dos Títulos em Carteiras";
+            cdObject5.QtdeTitulosCobranca4 = "093:006:N:R:0:093-098::Erro - Quantidade de Títulos em Cobrança::Quantidade de Títulos em Cobrança";
+            cdObject5.ValorTotalTitulosCarteira4 = "099:015:N:R:0:099-115::Erro - Valor Total dos Títulos em Carteiras::Valor Total dos Títulos em Carteiras";
+            cdObject5.NumeroAvisoLancamento = "116:008:N:R:0:116-123::Erro - Número do Aviso de Lançamento::Número do Aviso de Lançamento";
+            cdObject5.UsoExclusivoCNAB2 = "124:117:A:R:0:124-240::Erro - Uso Exclusivo FEBRABAN/CNAB::Uso Exclusivo FEBRABAN/CNAB";
+            JsonObjectsGenerator.AddProperty(dynamicList, registroTipo5, cdObject5);
             // ========================================================================
 
-            cdObject3.IdentificacaoRegistro = "001:001:N:R:0:001-001:3:Erro - Identificação do Registro::";
-            cdObject3.IdentificacaoEmpresaBanco = "002:016:A:R:0:002-017::Erro - Identificação da Empresa no Banco::";
-            cdObject3.IdentificacaoTituloBanco = "018:012:A:R:0:018-029::Erro - Identificação Título no Banco::";
-            cdObject3.CodigoCalculoRateio = "030:001:A:R:0:030-030::Erro - Código Para Cálculo do Rateio::1,2,3";
-            cdObject3.TipoValorInformado = "031:001:A:R:0:031-031::Erro - Tipo de Valor Informado::1,2";
-            cdObject3.Filler1 = "032:012:A:R:0:032-043::Erro - Filler::";
-            cdObject3.CodigoBancoCredito1 = "044:003:A:R:0:044-046:237:Erro - Código do Banco para Crédito do 1º Beneficiário::";
-            cdObject3.CodigoAgenciaCredito1 = "047:005:A:R:0:047-051::Erro - Código da Agência para Crédito do 1º Beneficiário::";
-            cdObject3.DigitoAgenciaCredito1 = "052:001:A:R:0:052-052::Erro - Dígito da Agência para Crédito do 1º Beneficiário::";
-            cdObject3.ContaCorrenteCredito1 = "053:012:A:R:0:053-064::Erro - Número da Conta-Corrente para Crédito do 1º Beneficiário::";
-            cdObject3.DigitoContaCredito1 = "065:002:A:R:0:065-066::Erro - Dígito da Conta-Corrente para Crédito do 1º Beneficiário::";
-            cdObject3.ValorPercentualRateio1 = "066:015:A:R:0:066-080::Erro - Valor, ou Percentual para Rateio::";
-            cdObject3.NomeBeneficiario1 = "081:040:A:R:0:081-120::Erro - Nome do 1º Beneficiário::";
-            cdObject3.Filler2 = "121:031:A:R:0:121-151::Erro - Filler::";
-            cdObject3.Parcela1 = "152:006:A:R:0:152-157::Erro - Parcela::";
-            cdObject3.FloatingBeneficiario1 = "158:003:A:R:0:158-160::Erro - Floating para o 1º Beneficiário::";
-            cdObject3.CodigoBancoCredito2 = "161:003:A:R:0:161-163:237:Erro - Código do Banco para Crédito do 2º Beneficiário::";
-            cdObject3.CodigoAgenciaCredito2 = "164:005:A:R:0:164-168::Erro - Código da Agência para Crédito do 2º Beneficiário::";
-            cdObject3.DigitoAgenciaCredito2 = "169:001:A:R:0:169-169::Erro - Dígito da Agência para Crédito do 2º Beneficiário::";
-            cdObject3.ContaCorrenteCredito2 = "170:012:A:R:0:170-181::Erro - Número da Conta-Corrente para Crédito do 2º Beneficiário::";
-            cdObject3.DigitoContaCredito2 = "182:001:A:R:0:182-182::Erro - Dígito da Conta-Corrente para Crédito do 2º Beneficiário::";
-            cdObject3.ValorPercentualRateio2 = "183:015:A:R:0:183-197::Erro - Valor, ou Percentual para Rateio::";
-            cdObject3.NomeBeneficiario2 = "198:040:A:R:0:198-237::Erro - Nome do 2º Beneficiário::";
-            cdObject3.Filler3 = "238:031:A:R:0:238-268::Erro - Filler::";
-            cdObject3.Parcela2 = "269:006:A:R:0:269-274::Erro - Parcela::";
-            cdObject3.FloatingBeneficiario2 = "275:003:A:R:0:275-277::Erro - Floating para o 2º Beneficiário::";
-            cdObject3.CodigoBancoCredito3 = "278:003:A:R:0:278-280:237:Erro - Código do Banco para Crédito do 3º Beneficiário::";
-            cdObject3.CodigoAgenciaCredito3 = "281:005:A:R:0:281-285::Erro - Código da Agência para Crédito do 3º Beneficiário::";
-            cdObject3.DigitoAgenciaCredito3 = "286:001:A:R:0:286-286::Erro - Dígito da Agência para Crédito do 3º Beneficiário::";
-            cdObject3.ContaCorrenteCredito3 = "287:012:A:R:0:287-298::Erro - Número da Conta-Corrente para Crédito do 3º Beneficiário::";
-            cdObject3.DigitoContaCredito3 = "299:001:A:R:0:299-299::Erro - Dígito da Conta-Corrente para Crédito do 3º Beneficiário::";
-            cdObject3.ValorPercentualRateio3 = "300:015:A:R:0:300-314::Erro - Valor ou Percentual para Rateio::";
-            cdObject3.NomeBeneficiario3 = "315:040:A:R:0:315-354::Erro - Nome do 3º Beneficiário::";
-            cdObject3.Filler4 = "355:031:A:R:0:355-385::Erro - Filler::";
-            cdObject3.Parcela3 = "386:006:A:R:0:386-391::Erro - Quantidade de Dias para Crédito do Beneficiário::";
-            cdObject3.FloatingBeneficiario3 = "392:003:A:R:0:392-394::Erro - Floating para 3º Beneficiário::";
-            cdObject3.NumeroSequencialRegistro = "395:006:A:R:0:395-400::Erro - Número Sequencial do Registro::";
-            JsonObjectsGenerator.AddProperty(dynamicList, registroTipo3, cdObject3);
-            // ========================================================================
+            // Segmento 3P
+            cdObject3P.Banco = "1:003:N:R:0:1-3::Erro - Código do Banco na Compensação::E001";
+            cdObject3P.Lote = "4:004:N:R:0:4-7::Erro - Lote de Serviço::E002";
+            cdObject3P.Registro = "8:001:N:R:0:8-8::Erro - Tipo de Registro::E003";
+            cdObject3P.NºRegistro = "9:005:N:R:0:9-13::Erro - Nº Sequencial do Registro no Lote::E038";
+            cdObject3P.Segmento = "14:001:A:R:0:14-14::Erro - Cód. Segmento do Registro Detalhe::E039";
+            cdObject3P.Serviço = "15:001:A:R:0:15-15::Erro - CNAB::E004";
+            cdObject3P.CódMov = "16:002:N:R:0:16-17::Erro - Código de Movimento Remessa::E004";
+            cdObject3P.Agência = "18:005:N:R:0:18-22::Erro - Agência Mantenedora da Conta::E008";
+            cdObject3P.AgênciaDV = "23:001:A:R:0:23-23::Erro - Digito Verificador da Agência::E009";
+            cdObject3P.Conta = "24:012:N:R:0:24-35::Erro - Número da Conta-Corrente::E010";
+            cdObject3P.ContaDV = "36:001:A:R:0:36-36::Erro - Digito Verificador da Conta::E011";
+            cdObject3P.AgContaDV = "37:001:A:R:0:37-37::Erro - Digito Verificador da Ag/Conta::E012";
+            cdObject3P.IdentificaçãoProduto = "38:003:N:R:0:38-40::Erro - Identificação do Produto::E069";
+            cdObject3P.Zeros = "41:005:N:R:0:41-45::Erro - Zeros::E069";
+            cdObject3P.NossoNúmero = "46:011:N:R:0:46-56::Erro - Nosso Número::E069";
+            cdObject3P.DigitoNossoNúmero = "57:001:A:R:0:57-57::Erro - Digito do Nosso Número::E069";
+            cdObject3P.Carteira = "58:001:N:R:0:58-58::Erro - Código da Carteira::E006";
+            cdObject3P.Cadastro = "59:001:N:R:0:59-59::Erro - Forma de Cadastr. do Título no Banco::E007";
+            cdObject3P.TipoDocumento = "60:001:N:R:0:60-60::Erro - Tipo de Documento::E008";
+            cdObject3P.EmissãoBoleto = "61:001:N:R:0:61-61::Erro - Identificação da Emissão do Boleto::E009";
+            cdObject3P.DistribuiçãoBoleto = "62:001:N:R:0:62-62::Erro - Identificação da Distribuição::E010";
+            cdObject3P.NºDocumento = "63:015:A:R:0:63-77::Erro - Número do Documento de Cobrança::E011";
+            cdObject3P.Vencimento = "78:008:N:R:0:78-85::Erro - Data de Vencimento do Título:D:E012";
+            cdObject3P.ValorTítulo = "86:013:N:R:0:86-98::Erro - Valor Nominal do Título::E070";
+            cdObject3P.AgCobradora = "101:005:N:R:0:101-105::Erro - Agência Encarregada da Cobrança::E014";
+            cdObject3P.AgCobradoraDV = "106:001:A:R:0:106-106::Erro - Digito Verificador da Agência::E009";
+            cdObject3P.EspécieTítulo = "107:002:N:R:0:107-108::Erro - Espécie do Título::E015";
+            cdObject3P.Aceite = "109:001:A:R:0:109-109::Erro - Identific. de Título Aceito/Não Aceito::E016";
+            cdObject3P.DataEmissãoTítulo = "110:008:N:R:0:110-117::Erro - Data da Emissão do Título:D:E071";
+            cdObject3P.CódJurosMora = "118:001:N:R:0:118-118::Erro - Código do Juros de Mora::E018";
+            cdObject3P.DataJurosMora = "119:008:N:R:0:119-126::Erro - Data do Juros de Mora:D:E019";
+            cdObject3P.JurosMora = "127:013:N:R:0:127-139::Erro - Juros de Mora por Dia/Taxa::E020";
+            cdObject3P.CódDesc1 = "142:001:N:R:0:142-142::Erro - Código do Desconto 1::E021";
+            cdObject3P.DataDesc1 = "143:008:N:R:0:143-150::Erro - Data do Desconto 1:D:E022";
+            cdObject3P.Desconto1 = "151:013:N:R:0:151-163::Erro - Valor/Percentual a ser Concedido::E023";
+            cdObject3P.ValorICF = "166:013:N:R:0:166-178::Erro - Valor do ICF a ser Recolhido::E024";
+            cdObject3P.ValorAbatimento = "181:013:N:R:0:181-193::Erro - Valor do Abatimento::E045";
+            cdObject3P.UsoEmpresaBeneficiario = "196:025:A:R:0:196-220::Erro - Identificação do Título na Empresa::5072";
+            cdObject3P.CodigoProtesto = "221:001:N:R:0:221-221::Erro - Código para Protesto::C026";
+            cdObject3P.PrazoProtesto = "222:002:N:R:0:222-223::Erro - Número de Dias para Protesto::C027";
+            cdObject3P.CodigoBaixaDevolucao = "224:001:N:R:0:224-224::Erro - Código para Baixa/Devolução::C028";
+            cdObject3P.PrazoBaixaDevolucao = "225:003:N:R:0:225-227::Erro - Número de Dias para Baixa/Devolução::C029";
+            cdObject3P.CodigoMoeda = "228:002:N:R:0:228-229::Erro - Código da Moeda::G065";
+            cdObject3P.NumeroContrato = "230:010:N:R:0:230-239::Erro - Nº do Contrato da Operação de Créd.::C030";
+            cdObject3P.CNAB = "240:001:A:R:0:240-240::Erro - Uso Exclusivo FEBRABAN/CNAB::5004";
 
-            cdObject6.IdentificacaoRegistro = "001:001:N:R:0:001-001:6:Erro - Identificação do Registro::";
-            cdObject6.Carteira = "002:003:A:R:0:002-004::Erro - Carteira::";
-            cdObject6.Agencia = "005:005:A:R:0:005-009::Erro - Agência::";
-            cdObject6.ContaCorrente = "010:007:A:R:0:010-016::Erro - Conta-Corrente::";
-            cdObject6.NossoNumero = "017:011:A:R:0:017-027::Erro - Nosso Número::";
-            cdObject6.DigitoNossoNumero = "028:001:A:R:0:028-028::Erro - Dígito do Nosso Número::";
-            cdObject6.TipoOperacao = "029:001:A:R:0:029-029::Erro - Tipo de Operação::1,2,3";
-            cdObject6.UtilizacaoChequeEspecial = "030:001:A:R:0:030-030::Erro - Utilização do Cheque Especial::S,N";
-            cdObject6.ConsultaSaldoAposVencimento = "031:001:A:R:0:031-031::Erro - Consulta Saldo Após o Vencimento::S,N";
-            cdObject6.NumeroCodigoIdentificacaoContrato = "032:025:A:R:0:032-056::Erro - Número Cód.Identificação/Contrato::";
-            cdObject6.PrazoValidadeContrato = "057:008:A:R:0:057-064::Erro - Prazo de Validade do Contrato/Autorização:D:";
-            cdObject6.Brancos = "065:330:A:R:0:065-394::Erro - Brancos::";
-            cdObject6.NumeroSequencialRegistro = "395:006:A:R:0:395-400::Erro - Número Sequencial do Registro::";
-            JsonObjectsGenerator.AddProperty(dynamicList, registroTipo6, cdObject6);
-            // ========================================================================
+            JsonObjectsGenerator.AddProperty(dynamicList, registroTipo3P, cdObject3P);
 
-            cdObject7.TipoRegistro = "001:001:N:R:0:001-001:7:Erro - Tipo Registro::";
-            cdObject7.EnderecoBeneficiarioFinal = "002:045:A:R:0:002-046::Erro - Endereço Beneficiário Final::";
-            cdObject7.CEP = "047:005:A:R:0:047-051::Erro - CEP::";
-            cdObject7.SufixoCEP = "052:003:A:R:0:052-054::Erro - Suffixo CEP::";
-            cdObject7.Cidade = "055:020:A:R:0:055-074::Erro - Cidade::";
-            cdObject7.UF = "075:002:A:R:0:075-076::Erro - UF::";
-            cdObject7.Reserva = "077:290:A:R:0:077-366::Erro - Reserva::";
-            cdObject7.Carteira = "367:003:A:R:0:367-369::Erro - Carteira::";
-            cdObject7.Agencia = "370:005:A:R:0:370-374::Erro - Agência::";
-            cdObject7.ContaCorrente = "375:007:A:R:0:375-381::Erro - Conta-Corrente::";
-            cdObject7.DigitoCC = "382:001:A:R:0:382-382::Erro - Dígito C/C::";
-            cdObject7.NossoNumero = "383:011:A:R:0:383-393::Erro - Nosso Número::";
-            cdObject7.DACNossoNumero = "394:001:A:R:0:394-394::Erro - DAC Nosso Número::";
-            cdObject7.NumeroSequencialRegistro = "395:006:A:R:0:395-400::Erro - Nº Sequencial de Registro::";
-            JsonObjectsGenerator.AddProperty(dynamicList, registroTipo7, cdObject7);
-            // ========================================================================
 
             return dynamicList;
 
