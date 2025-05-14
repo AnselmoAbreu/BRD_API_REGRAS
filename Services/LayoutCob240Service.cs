@@ -130,21 +130,21 @@ namespace BRD_API_REGRAS.Services
             // ========================================================================
 
             // Trailer de lote
-            cdObject5.CodigoBanco = "001:003:N:R:0:001-003::Erro - Código do Banco na Compensação::Código do Banco na Compensação";
-            cdObject5.LoteServico = "004:004:N:R:0:004-007::Erro - Lote de Serviço::Lote de Serviço";
-            cdObject5.TipoRegistro = "008:001:N:R:0:008-008:5:Erro - Tipo de Registro::Tipo de Registro";
-            cdObject5.UsoExclusivoCNAB1 = "009:009:A:R:0:009-017::Erro - Uso Exclusivo FEBRABAN/CNAB::Uso Exclusivo FEBRABAN/CNAB";
-            cdObject5.QtdeRegistrosLote = "018:006:N:R:0:018-023::Erro - Quantidade de Registros no Lote::Quantidade de Registros no Lote";
-            cdObject5.QtdeTitulosCobranca1 = "024:006:N:R:0:024-029::Erro - Quantidade de Títulos em Cobrança::Quantidade de Títulos em Cobrança";
-            cdObject5.ValorTotalTitulosCarteira1 = "030:015:N:R:0:030-046::Erro - Valor Total dos Títulos em Carteiras::Valor Total dos Títulos em Carteiras";
-            cdObject5.QtdeTitulosCobranca2 = "047:006:N:R:0:047-052::Erro - Quantidade de Títulos em Cobrança::Quantidade de Títulos em Cobrança";
-            cdObject5.ValorTotalTitulosCarteira2 = "053:015:N:R:0:053-069::Erro - Valor Total dos Títulos em Carteiras::Valor Total dos Títulos em Carteiras";
-            cdObject5.QtdeTitulosCobranca3 = "070:006:N:R:0:070-075::Erro - Quantidade de Títulos em Cobrança::Quantidade de Títulos em Cobrança";
-            cdObject5.ValorTotalTitulosCarteira3 = "076:015:N:R:0:076-092::Erro - Valor Total dos Títulos em Carteiras::Valor Total dos Títulos em Carteiras";
-            cdObject5.QtdeTitulosCobranca4 = "093:006:N:R:0:093-098::Erro - Quantidade de Títulos em Cobrança::Quantidade de Títulos em Cobrança";
-            cdObject5.ValorTotalTitulosCarteira4 = "099:015:N:R:0:099-115::Erro - Valor Total dos Títulos em Carteiras::Valor Total dos Títulos em Carteiras";
-            cdObject5.NumeroAvisoLancamento = "116:008:N:R:0:116-123::Erro - Número do Aviso de Lançamento::Número do Aviso de Lançamento";
-            cdObject5.UsoExclusivoCNAB2 = "124:117:A:R:0:124-240::Erro - Uso Exclusivo FEBRABAN/CNAB::Uso Exclusivo FEBRABAN/CNAB";
+            cdObject5.Banco = "1:003:N:R:0:1-3::Erro - Código do Banco na Compensação::G001";
+            cdObject5.Lote = "4:004:N:R:0:4-7::Erro - Lote de Serviço::G002";
+            cdObject5.Registro = "8:001:N:R:0:8-8:5:Erro - Tipo de Registro::G003";
+            cdObject5.CNAB1 = "9:009:A:R:0:9-17::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
+            cdObject5.QtdeRegistros = "18:006:N:R:0:18-23::Erro - Quantidade de Registros no Lote::G057";
+            cdObject5.QtdeTítulosSimples = "24:006:N:R:0:24-29::Erro - Quantidade de Títulos em Cobrança::C070";
+            cdObject5.ValorTítulosSimples = "30:017:N:R:0:30-46::Erro - Valor Total dos Títulos em Carteiras::C071"; // 15+2 decimais
+            cdObject5.QtdeTítulosVinculada = "47:006:N:R:0:47-52::Erro - Quantidade de Títulos em Cobrança::C070";
+            cdObject5.ValorTítulosVinculada = "53:017:N:R:0:53-69::Erro - Valor Total dos Títulos em Carteiras::C071"; // 15+2 decimais
+            cdObject5.QtdeTítulosCaucionada = "70:006:N:R:0:70-75::Erro - Quantidade de Títulos em Cobrança::C070";
+            cdObject5.ValorTítulosCaucionada = "76:017:N:R:0:76-92::Erro - Valor Total dos Títulos em Carteiras::C071"; // 15+2 decimais
+            cdObject5.QtdeTítulosDescontada = "93:006:N:R:0:93-98::Erro - Quantidade de Títulos em Cobrança::C070";
+            cdObject5.ValorTítulosDescontada = "99:017:N:R:0:99-115::Erro - Valor Total dos Títulos em Carteiras::C071"; // 15+2 decimais
+            cdObject5.NúmeroAviso = "116:008:N:R:0:116-123::Erro - Número do Aviso de Lançamento::C072";
+            cdObject5.CNAB2 = "124:117:A:R:0:124-240::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
             JsonObjectsGenerator.AddProperty(dynamicList, registroTipo5, cdObject5);
             // ========================================================================
 
@@ -186,14 +186,14 @@ namespace BRD_API_REGRAS.Services
             cdObject3P.Desconto1 = "151:015:N:R:0:151-165::Erro - Valor/Percentual a ser Concedido::E023"; // Ajustado de 13 para 15 (13+2 decimais)
             cdObject3P.ValorICF = "166:015:N:R:0:166-180::Erro - Valor do ICF a ser Recolhido::E024"; // Ajustado de 13 para 15 (13+2 decimais)
             cdObject3P.ValorAbatimento = "181:015:N:R:0:181-195::Erro - Valor do Abatimento::E045"; // Ajustado de 13 para 15 (13+2 decimais)
-            cdObject3P.UsoEmpresaBeneficiario = "196:025:A:R:0:196-220::Erro - Identificação do Título na Empresa::5072";
+            cdObject3P.UsoEmpresaBeneficiario = "196:025:A:R:0:196-220::Erro - Identificação do Título na Empresa::G072";
             cdObject3P.CodigoProtesto = "221:001:N:R:0:221-221::Erro - Código para Protesto::C026";
             cdObject3P.PrazoProtesto = "222:002:N:R:0:222-223::Erro - Número de Dias para Protesto::C027";
             cdObject3P.CodigoBaixaDevolucao = "224:001:N:R:0:224-224::Erro - Código para Baixa/Devolução::C028";
             cdObject3P.PrazoBaixaDevolucao = "225:003:N:R:0:225-227::Erro - Número de Dias para Baixa/Devolução::C029";
             cdObject3P.CodigoMoeda = "228:002:N:R:0:228-229::Erro - Código da Moeda::G065";
             cdObject3P.NumeroContrato = "230:010:N:R:0:230-239::Erro - Nº do Contrato da Operação de Créd.::C030";
-            cdObject3P.CNAB = "240:001:A:R:0:240-240::Erro - Uso Exclusivo FEBRABAN/CNAB::5004";
+            cdObject3P.CNAB = "240:001:A:R:0:240-240::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
             JsonObjectsGenerator.AddProperty(dynamicList, registroTipo3P, cdObject3P);
             // ========================================================================
 
@@ -369,7 +369,7 @@ namespace BRD_API_REGRAS.Services
             cdObject3T.NºContrato = "189:010:N:R:0:189-198::Erro - Nº do Contr. da Operação de Crédito::C030";
             cdObject3T.ValorTarifa = "199:015:N:R:0:199-213::Erro - Valor da Tarifa / Custas::G076"; // 13+2 decimais
             cdObject3T.MotivoOcorrência = "214:010:A:R:0:214-223::Erro - Identificação para Rejeições, Tarifas, Custas, Liquidação e Baixas::C047";
-            cdObject3T.CNAB_Final = "224:017:A:R:0:224-240::Erro - Uso Exclusivo FEBRABAN/CNAB::6004";
+            cdObject3T.CNAB_Final = "224:017:A:R:0:224-240::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
             JsonObjectsGenerator.AddProperty(dynamicList, registroTipo3T, cdObject3T);
 
             // ========================================================================
@@ -391,7 +391,6 @@ namespace BRD_API_REGRAS.Services
             cdObject3U.OutrosCréditos = "123:015:N:R:0:123-137::Erro - Valor de Outros Créditos::C055";
             cdObject3U.DataOcorrência = "138:008:N:R:0:138-145::Erro - Data da Ocorrência:D:C056";
             cdObject3U.DataCrédito = "146:008:N:R:0:146-153::Erro - Data da Efetivação do Crédito:D:C057";
-
             cdObject3U.CódOcorrência = "154:004:A:R:0:154-157::Erro - Código da Ocorrência::A001";
             cdObject3U.DataOcorrênciaPagador = "158:008:N:R:0:158-165::Erro - Data da Ocorrência:D:C058";
             cdObject3U.ValorOcorrência = "166:015:N:R:0:166-180::Erro - Valor da Ocorrência::C059"; // 13+2 decimais
