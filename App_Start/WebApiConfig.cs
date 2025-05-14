@@ -19,7 +19,7 @@ namespace BRD_API_REGRAS
             // Ativar Swagger
             config.EnableSwagger(c =>
             {
-                c.SingleApiVersion("v1", "API DE REGRAS V1.8 - ASP.NET 4.7.2");
+                c.SingleApiVersion("v1", "API DE REGRAS V1.9 - ASP.NET 4.7.2");
                 c.IncludeXmlComments(GetXmlCommentsPath()); // Inclui comentários XML dos métodos
             })
             .EnableSwaggerUi();
