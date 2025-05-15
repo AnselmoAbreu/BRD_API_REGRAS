@@ -20,12 +20,6 @@ namespace BRD_API_REGRAS.Services
         const string registroTipo3U = "REGISTRO_TIPO_3U"; // Detalhe
         const string registroTipo5 = "REGISTRO_TIPO_5"; // Trailer de arquivo
 
-        //const string registroTipo2 = "REGISTRO_TIPO_2";
-        //const string registroTipo3 = "REGISTRO_TIPO_3";
-        //const string registroTipo6 = "REGISTRO_TIPO_6";
-        //const string registroTipo7 = "REGISTRO_TIPO_7";
-
-
         #endregion
 
         public dynamic MontarJsonCob240(dynamic dynamicList, string codigoArquivo) // COB400
@@ -60,7 +54,7 @@ namespace BRD_API_REGRAS.Services
             // Header de arquivo
             cdObject0.Banco = "1:003:N:R:0:1-3::Erro - Código do Banco na Compensação::G001";
             cdObject0.Lote = "4:004:N:R:0:4-7::Erro - Lote de Serviço::G002";
-            cdObject0.Registro = "8:001:N:R:0:8-8::Erro - Tipo de Registro::G003";
+            cdObject0.Registro = "8:001:N:R:0:8-8:0:Erro - Tipo de Registro::G003";
             cdObject0.CNAB1 = "9:009:A:R:0:9-17::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
             cdObject0.TipoInscrição = "18:001:N:R:0:18-18::Erro - Tipo de Inscrição da Empresa::G005";
             cdObject0.NúmeroInscrição = "19:014:N:R:0:19-32::Erro - Número de Inscrição da Empresa::G006";
@@ -88,7 +82,7 @@ namespace BRD_API_REGRAS.Services
             // Trailer de arquivo
             cdObject9.Banco = "001:003:N:R:0:001-003::Erro - Código do Banco na Compensação::G001";
             cdObject9.Lote = "004:004:N:R:0:004-007::Erro - Lote de Serviço::G002";
-            cdObject9.Registro = "008:001:N:R:0:008-008::Erro - Tipo de Registro::G003";
+            cdObject9.Registro = "008:001:N:R:0:008-008:9:Erro - Tipo de Registro::G003";
             cdObject9.CNAB1 = "009:009:A:R:0:009-017::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
             cdObject9.QtdeLotes = "018:006:N:R:0:018-023::Erro - Quantidade de Lotes do Arquivo::G049";
             cdObject9.QtdeRegistros = "024:006:N:R:0:024-029::Erro - Quantidade de Registros do Arquivo::G056";
@@ -240,12 +234,12 @@ namespace BRD_API_REGRAS.Services
             cdObject3S.CNAB = "15:001:A:R:0:15-15::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
             cdObject3S.CódMov = "16:002:N:R:0:16-17::Erro - Código de Movimento Remessa::C004";
 
-            // Mensagem - Tipo de Impressão 1 ou 2
-            cdObject3S.TipoImpressão = "18:001:N:R:0:18-18::Erro - Identificação da Impressão::C040";
-            cdObject3S.NºLinha = "19:002:N:R:0:19-20::Erro - Número da Linha a ser Impressa::C041";
-            cdObject3S.Mensagem = "21:140:A:R:0:21-160::Erro - Mensagem a ser Impressa::C042";
-            cdObject3S.TipoFonte = "161:002:N:R:0:161-162::Erro - Tipo do Caractere a ser Impresso::C043";
-            cdObject3S.CNAB_Impressão = "163:078:A:R:0:163-240::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
+            // Mensagem - Tipo de Impressão 1 ou 2 ****** VERIFICAR ******
+            //cdObject3S.TipoImpressão = "18:001:N:R:0:18-18::Erro - Identificação da Impressão::C040";
+            //cdObject3S.NºLinha = "19:002:N:R:0:19-20::Erro - Número da Linha a ser Impressa::C041";
+            //cdObject3S.Mensagem = "21:140:A:R:0:21-160::Erro - Mensagem a ser Impressa::C042";
+            //cdObject3S.TipoFonte = "161:002:N:R:0:161-162::Erro - Tipo do Caractere a ser Impresso::C043";
+            //cdObject3S.CNAB_Impressão = "163:078:A:R:0:163-240::Erro - Uso Exclusivo FEBRABAN/CNAB::G004";
 
             // Mensagem - Tipo de Impressão 3 (alternativa)
             cdObject3S.TipoImpressão_Alt = "18:001:N:R:0:18-18::Erro - Identificação da Impressão::C040";
@@ -283,12 +277,12 @@ namespace BRD_API_REGRAS.Services
             // Segmento 3Y03
             cdObject3Y03.Banco = "1:003:N:R:0:1-3::Erro - Código no Banco na Compensação::G001";
             cdObject3Y03.Lote = "4:004:N:R:0:4-7::Erro - Lote de Serviço::G002";
-            cdObject3Y03.Registro = "8:001:N:R:0:8-8::Erro - Tipo de Registro::G003";
+            cdObject3Y03.Registro = "8:001:N:R:0:8-8:3:Erro - Tipo de Registro::G003";
             cdObject3Y03.NºRegistro = "9:005:N:R:0:9-13::Erro - Nº Sequencial do Registro no Lote::G038";
-            cdObject3Y03.Segmento = "14:001:A:R:0:14-14::Erro - Cód. Segmento do Registro Detalhe::G039";
+            cdObject3Y03.Segmento = "14:001:A:R:0:14-14:Y:Erro - Cód. Segmento do Registro Detalhe::G039";
             cdObject3Y03.CNAB = "15:001:A:R:0:15-15::Erro - Uso Exclusivo FEBRABAN/CMAB::G004";
             cdObject3Y03.CódMov = "16:002:N:R:0:16-17::Erro - Código de Movimento::C004";
-            cdObject3Y03.CodRegOpcional = "18:002:N:R:0:18-19::Erro - Identificação Registro Opcional::G067";
+            cdObject3Y03.CodRegOpcional = "18:002:N:R:0:18-19:03:Erro - Identificação Registro Opcional::G067";
             cdObject3Y03.Email = "20:050:A:R:0:20-69::Erro - E-mail para envio da informação::G032";
             cdObject3Y03.DDD = "70:002:N:R:0:70-71::Erro - Código DDD::G032";
             cdObject3Y03.Celular = "72:009:N:R:0:72-80::Erro - Número do celular (para envio de SMS)::G032";
@@ -371,9 +365,9 @@ namespace BRD_API_REGRAS.Services
             // Segmento 3U
             cdObject3U.Banco = "1:003:N:R:0:1-3::Erro - Código do Banco na Compensação::G001";
             cdObject3U.Lote = "4:004:N:R:0:4-7::Erro - Lote de Serviço::G002";
-            cdObject3U.Registro = "8:001:N:R:0:8-8::Erro - Tipo de Registro::G003";
+            cdObject3U.Registro = "8:001:N:R:0:8-8:3:Erro - Tipo de Registro::G003";
             cdObject3U.NºRegistro = "9:005:N:R:0:9-13::Erro - Nº Sequencial do Registro no Lote::G038";
-            cdObject3U.Segmento = "14:001:A:R:0:14-14::Erro - Cód. Segmento do Registro Detalhe::G039";
+            cdObject3U.Segmento = "14:001:A:R:0:14-14:U:Erro - Cód. Segmento do Registro Detalhe::G039";
             cdObject3U.CNAB = "15:001:A:R:0:15-15::Erro - Uso Exclusivo FEBRABAN/CMAB::G004";
             cdObject3U.CódMov = "16:002:N:R:0:16-17::Erro - Código de Movimento Retorno::C044";
             cdObject3U.Acréscimos = "18:015:N:R:0:18-32::Erro - Juros / Multa / Encargos::C048";
