@@ -137,9 +137,11 @@
     <Compile Include="JsonObjectsGenerator.cs" />
     <Compile Include="Services\Interfaces\ILayoutCob240Service.cs" />
     <Compile Include="Services\Interfaces\ILayoutCob400Service.cs" />
+    <Compile Include="Services\Interfaces\ILayoutFpg240Service.cs" />
     <Compile Include="Services\Interfaces\ILayoutMtp240Service.cs" />
     <Compile Include="Services\LayoutCob240Service.cs" />
     <Compile Include="Services\LayoutCob400Service.cs" />
+    <Compile Include="Services\LayoutFpg240Service.cs" />
     <Compile Include="Services\LayoutMtp240Service.cs" />
     <Compile Include="Services\DefineLayoutService.cs" />
     <Content Include=".editorconfig" />

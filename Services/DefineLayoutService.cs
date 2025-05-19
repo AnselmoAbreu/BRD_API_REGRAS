@@ -9,6 +9,7 @@ namespace BRD_API_REGRAS.Services
         readonly LayoutCob400Service cobranca400 = new LayoutCob400Service();
         readonly LayoutCob240Service cobranca240 = new LayoutCob240Service();
         readonly LayoutMtp240Service mtp240 = new LayoutMtp240Service();
+        readonly LayoutFpg240Service fpg240 = new LayoutFpg240Service();
 
         public string MontarJson(string codigoArquivo)
         {
@@ -23,6 +24,9 @@ namespace BRD_API_REGRAS.Services
                     break;
                 case "MTP240":
                     mtp240.MontarJsonMtp240(dynamicList, codigoArquivo);
+                    break;
+                case "FPG240":
+                    fpg240.MontarJsonFpg240(dynamicList, codigoArquivo);
                     break;
                 default:
                     throw new ArgumentException("Código de arquivo inválido.");
