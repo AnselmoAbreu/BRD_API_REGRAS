@@ -86,7 +86,7 @@ namespace BRD_API_REGRAS.Services
             cdObject1.IndicadorRateio = "105:001:A:R:0:105-105:R:Erro - Indicador Rateio Crédito (opcional)::";
             cdObject1.EnderecamentoAviso = "106:001:A:R:0:106-106::Erro - Endereçamento para Aviso do Débito Automático em Conta-Corrente (opcional)::";
             cdObject1.QuantidadePagamentos = "107:002:A:R:0:107-108::Erro - Quantidade de Pagamentos::";
-            cdObject1.IdentificacaoOcorrencia = "109:002:A:R:0:109-110::Erro - Identificação da Ocorrência::";
+            cdObject1.IdentificacaoOcorrencia = "109:002:A:R:0:109-110::Erro - Identificação da Ocorrência::17,21,24,38,39,43,45,46,47,48,50,53,54";
             cdObject1.NumeroDocumento = "111:010:A:R:0:111-120::Erro - Nº do Documento::";
             cdObject1.DataVencimento = "121:006:A:R:0:121-126::Erro - Data do Vencimento do Título:D:"; // :D para campo de data
             cdObject1.ValorTitulo = "127:013:A:R:0:127-139::Erro - Valor do Título::";
