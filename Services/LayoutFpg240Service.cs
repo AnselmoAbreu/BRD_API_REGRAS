@@ -173,12 +173,52 @@ namespace BRD_API_REGRAS.Services
             #endregion
 
             #region SEGMENTO B 
-            
+            cdObjectSegmentoB.Banco = "1:003:N:R:0:1-3::Erro - Banco::G001";
+            cdObjectSegmentoB.Lote = "4:004:N:R:0:4-7::Erro - Lote::G002";
+            cdObjectSegmentoB.Registro = "8:001:N:R:0:8-8::Erro - Registro::G003";
+            cdObjectSegmentoB.NSequencialRegistro = "9:005:N:R:0:9-13::Erro - NSequencialRegistro::G038";
+            cdObjectSegmentoB.Segmento = "14:001:A:R:0:14-14::Erro - Segmento::G039";
+            cdObjectSegmentoB.CNAB1 = "15:003:A:R:0:15-17::Erro - CNAB1::G004";
+            cdObjectSegmentoB.TipoInscricao = "18:001:N:R:0:18-18::Erro - TipoInscricao::G005";
+            cdObjectSegmentoB.NumeroInscricao = "19:014:N:R:0:19-32::Erro - NumeroInscricao::G006";
+            cdObjectSegmentoB.Logradouro = "33:030:A:R:0:33-62::Erro - Logradouro::G032";
+            cdObjectSegmentoB.NumeroLocal = "63:005:N:R:0:63-67::Erro - NumeroLocal::G032";
+            cdObjectSegmentoB.Complemento = "68:015:A:R:0:68-82::Erro - Complemento::G032";
+            cdObjectSegmentoB.Bairro = "83:015:A:R:0:83-97::Erro - Bairro::G032";
+            cdObjectSegmentoB.Cidade = "98:020:A:R:0:98-117::Erro - Cidade::G033";
+            cdObjectSegmentoB.CEP = "118:005:N:R:0:118-122::Erro - CEP::G034";
+            cdObjectSegmentoB.ComplementoCEP = "123:003:A:R:0:123-125::Erro - ComplementoCEP::G035";
+            cdObjectSegmentoB.Estado = "126:002:A:R:0:126-127::Erro - Estado::G036";
+            cdObjectSegmentoB.DataVencimento = "128:008:N:R:0:128-135::Erro - DataVencimento:D:G044";
+            cdObjectSegmentoB.ValorDocumento = "136:013:N:R:0:136-150::Erro - ValorDocumento::G042";
+            cdObjectSegmentoB.ValorAbatimento = "151:013:N:R:0:151-165::Erro - ValorAbatimento::G045";
+            cdObjectSegmentoB.ValorDesconto = "166:013:N:R:0:166-180::Erro - ValorDesconto::G046";
+            cdObjectSegmentoB.ValorMora = "181:013:N:R:0:181-195::Erro - ValorMora::G047";
+            cdObjectSegmentoB.ValorMulta = "196:013:N:R:0:196-210::Erro - ValorMulta::G048";
+            cdObjectSegmentoB.CodigoDocumentoFavorecido = "211:015:A:R:0:211-225::Erro - CodigoDocumentoFavorecido::P008";
+            cdObjectSegmentoB.CNAB2 = "226:015:A:R:0:226-240::Erro - CNAB2::G004";
             JsonObjectsGenerator.AddProperty(dynamicList, registroFpg240Tipo3B, cdObjectSegmentoB);
             #endregion
 
             #region SEGMENTO C 
-            
+            cdObjectSegmentoC.Banco = "1:003:N:R:0:1-3::Erro - Banco::G001";
+            cdObjectSegmentoC.Lote = "4:004:N:R:0:4-7::Erro - Lote::G002";
+            cdObjectSegmentoC.Registro = "8:001:N:R:0:8-8::Erro - Registro::G003";
+            cdObjectSegmentoC.NumeroRegistro = "9:005:N:R:0:9-13::Erro - Número Registro::G038";
+            cdObjectSegmentoC.Segmento = "14:001:A:R:0:14-14::Erro - Segmento::G039";
+            cdObjectSegmentoC.CNAB1 = "15:003:A:R:0:15-17::Erro - CNAB1::G004";
+            cdObjectSegmentoC.ValorIR = "18:013:N:R:0:18-32::Erro - Valor IR::G050";
+            cdObjectSegmentoC.ValorISS = "33:013:N:R:0:33-47::Erro - Valor ISS::G051";
+            cdObjectSegmentoC.ValorIOF = "48:013:N:R:0:48-62::Erro - Valor IOF::G052";
+            cdObjectSegmentoC.ValorOutrasDeducoes = "63:013:N:R:0:63-77::Erro - Valor Outras Deduções::G053";
+            cdObjectSegmentoC.ValorOutrosAcrescimos = "78:013:N:R:0:78-92::Erro - Valor Outros Acréscimos::G054";
+            cdObjectSegmentoC.Agencia = "93:005:N:R:0:93-97::Erro - Agência::G008";
+            cdObjectSegmentoC.DVAgencia = "98:001:A:R:0:98-98::Erro - DV Agência::G009";
+            cdObjectSegmentoC.NumeroConta = "99:012:N:R:0:99-110::Erro - Número Conta::G010";
+            cdObjectSegmentoC.DVConta = "111:001:A:R:0:111-111::Erro - DV Conta::G011";
+            cdObjectSegmentoC.DVAgenciaConta = "112:001:A:R:0:112-112::Erro - DV Agência/Conta::G012";
+            cdObjectSegmentoC.ValorINSS = "113:013:N:R:0:113-127::Erro - Valor INSS::G055";
+            cdObjectSegmentoC.CNAB2 = "128:113:A:R:0:128-240::Erro - CNAB2::G004";
             JsonObjectsGenerator.AddProperty(dynamicList, registroFpg240Tipo3C, cdObjectSegmentoC);
             #endregion
 
